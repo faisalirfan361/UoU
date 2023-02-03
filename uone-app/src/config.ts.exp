@@ -1,0 +1,32 @@
+/**
+ * sls info --aws-profile YOUR_PROFILE -vv
+ *
+ * https://serverless-stack.com/chapters/configure-aws-amplify.html
+ */
+ const REGION = "us-west-2";
+ const APIG = "2gne427up0.execute-api.us-west-2.amazonaws.com";
+ const WSS = "wss://38mblwnvi9.execute-api.us-west-2.amazonaws.com/dev";
+ const TARGET_BUCKET_URL = "https://uone-api-dev-target-175341541060.s3-us-west-2.amazonaws.com/";
+ const REPORTING_DASHBOARD_ID = "9b783ad3-b9f0-47a0-b50a-274dc0d87e28";
+ const amplifyConfig = {
+   reportingDashboardID: REPORTING_DASHBOARD_ID,
+   webSocket: WSS,
+   targetBucketUrl: TARGET_BUCKET_URL,
+   apiGateway: {
+     NAME: "ApiGateway",
+     REGION,
+     // ServiceEndpoint
+     HOST: APIG,
+     URL: `https://${APIG}/dev`,
+   },
+   cognito: {
+     REGION,
+     // CognitoUserPool
+     USER_POOL_ID: "",
+     // CognitoUserPoolClient
+     APP_CLIENT_ID: "",
+     // CognitoIdentityPool
+     IDENTITY_POOL_ID: "",
+   },
+ };
+ export default amplifyConfig;

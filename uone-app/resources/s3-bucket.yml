@@ -1,0 +1,32 @@
+Resources:
+  Website:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-${self:custom.websiteBucket}-${AWS::AccountId}"
+      WebsiteConfiguration:
+        ErrorDocument: index.html
+        IndexDocument: index.html
+  WebsitePolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: Website
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: "*"
+            Action: "s3:GetObject"
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref Website
+                - /*
+
+Outputs:
+  WebSiteUrl:
+    Value: {"Fn::GetAtt": [Website, WebsiteURL]}
+    Description: URL for website hosted on S3
+  WebSiteBucket:
+    Value: {Ref: Website}
+    Description: Name of S3 bucket to hold website content

@@ -1,0 +1,7 @@
+aws-cdk.core==1.145.0
+aws-cdk.pipelines
+aws-cdk.aws_codecommit
+aws-cdk.aws_iam
+
+# to bump versions of the package during CICD
+bump2version

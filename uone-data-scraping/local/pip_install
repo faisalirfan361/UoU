@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [[ -z "${CODEARTIFACT_AUTH_TOKEN}" ]]; then
+	# echo "Installing awscli to log in to codeartifact..."
+	# pip install awscli
+
+	echo "Creating required env vars..."
+	echo "Setting AWS_CONFIG_FILE to '/root/.aws/config'"
+	export AWS_CONFIG_FILE=/root/.aws/config
+
+	echo "Setting some region and hopefully it works"
+	export AWS_REGION=us-west-2
+
+	echo "Setting AWS_PROFILE to 'default'"
+	export AWS_PROFILE=default
+
+	echo "Setting USERPROFILE to '$TMPUSERPROFILE'"
+	export USERPROFILE=$TMPUSERPROFILE
+
+	echo "Running aws codeartifact login to install private dependencies"
+	aws codeartifact login --tool pip --repository internal-pypi --domain uone-engineering --domain-owner 972576019456
+
+	echo "Running 'pip install $@'"
+	pip install $@ -t .
+else
+
+	echo "Getting login string and setting pip config"
+	pip config set --user global.index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@uone-engineering-972576019456.d.codeartifact.us-west-2.amazonaws.com/pypi/internal-pypi/simple/
+
+	# echo "Running pip install $@"
+	# pip install \
+	# 	--trusted-host codeartifact.us-west-2.amazonaws.com \
+	# 	--index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@uone-engineering-972576019456.d.codeartifact.us-west-2.amazonaws.com/pypi/internal-pypi/simple/ \
+	# 	$@
+	echo "Installing local.requirements.txt..."
+	pip install -r local.requirements.txt
+fi

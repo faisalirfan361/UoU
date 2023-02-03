@@ -1,0 +1,4 @@
+-e .
+aws-cdk-lib==2.14.0
+# to bump versions of the package during CICD
+bump2version

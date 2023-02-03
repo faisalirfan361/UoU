@@ -1,0 +1,32 @@
+service: uone-app-website
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  region: ${opt:region, self:provider.region}
+  #
+  # Website - S3 Bucket
+  #
+  websiteBucket: "static"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-west-2
+
+functions:
+
+#
+# CloudFormation Resource Templates
+#
+resources:
+  # S3
+  - ${file(resources/s3-bucket.yml)}
+  # CloudFront
+  - ${file(resources/cloudfront.yml)}
+  #
+  # # CodeBuild
+  # - ${file(resources/codebuild.yml)}
+  # # CodePipeline
+  # - ${file(resources/codepipeline.yml)}
+  #
