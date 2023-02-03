@@ -1,0 +1,346 @@
+{
+  "type": "record",
+  "name": "EventChanged",
+  "namespace": "com.UoU.infra.avro.publicevents",
+  "fields": [
+    {
+      "name": "changeType",
+      "type": {
+        "name": "EventChangeType",
+        "type": "enum",
+        "symbols": [
+          "created",
+          "updated",
+          "deleted"
+        ]
+      }
+    },
+    {
+      "name": "changeSource",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "orgId",
+      "type": "string"
+    },
+    {
+      "name": "calendarId",
+      "type": "string"
+    },
+    {
+      "name": "eventId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "event",
+      "type": [
+        "null",
+        {
+          "name": "Event",
+          "type": "record",
+          "fields": [
+            {
+              "name": "icalUid",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "title",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "description",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "location",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "when",
+              "type": {
+                "name": "When",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "type",
+                    "type": {
+                      "name": "WhenType",
+                      "type": "enum",
+                      "symbols": [
+                        "timespan",
+                        "datespan",
+                        "date"
+                      ]
+                    }
+                  },
+                  {
+                    "name": "data",
+                    "type": [
+                      {
+                        "name": "WhenTimeSpan",
+                        "type": "record",
+                        "fields": [
+                          {
+                            "name": "startTime",
+                            "type": {
+                              "type": "long",
+                              "logicalType": "timestamp-millis"
+                            }
+                          },
+                          {
+                            "name": "endTime",
+                            "type": {
+                              "type": "long",
+                              "logicalType": "timestamp-millis"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "WhenDateSpan",
+                        "type": "record",
+                        "fields": [
+                          {
+                            "name": "startDate",
+                            "type": {
+                              "type": "int",
+                              "logicalType": "date"
+                            }
+                          },
+                          {
+                            "name": "endDate",
+                            "type": {
+                              "type": "int",
+                              "logicalType": "date"
+                            }
+                          },
+                          {
+                            "name": "effectiveUtcStartTime",
+                            "type": {
+                              "type": "long",
+                              "logicalType": "timestamp-millis"
+                            }
+                          },
+                          {
+                            "name": "effectiveUtcEndTime",
+                            "type": {
+                              "type": "long",
+                              "logicalType": "timestamp-millis"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "WhenDate",
+                        "type": "record",
+                        "fields": [
+                          {
+                            "name": "date",
+                            "type": {
+                              "type": "int",
+                              "logicalType": "date"
+                            }
+                          },
+                          {
+                            "name": "effectiveUtcStartTime",
+                            "type": {
+                              "type": "long",
+                              "logicalType": "timestamp-millis"
+                            }
+                          },
+                          {
+                            "name": "effectiveUtcEndTime",
+                            "type": {
+                              "type": "long",
+                              "logicalType": "timestamp-millis"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "recurrence",
+              "type": [
+                "null",
+                {
+                  "name": "Recurrence",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "rrule",
+                      "type": {
+                        "type": "array",
+                        "items": "string"
+                      }
+                    },
+                    {
+                      "name": "timezone",
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "recurrenceInstance",
+              "type": [
+                "null",
+                {
+                  "name": "RecurrenceInstance",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "masterId",
+                      "type": {
+                        "type": "string",
+                        "logicalType": "uuid"
+                      }
+                    },
+                    {
+                      "name": "isOverride",
+                      "type": "boolean"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "type": [
+                "null",
+                {
+                  "name": "EventStatus",
+                  "type": "enum",
+                  "symbols": [
+                    "confirmed",
+                    "tentative"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "isBusy",
+              "type": "boolean"
+            },
+            {
+              "name": "isReadOnly",
+              "type": "boolean"
+            },
+            {
+              "name": "checkinAt",
+              "type": [
+                "null",
+                {
+                  "type": "long",
+                  "logicalType": "timestamp-millis"
+                }
+              ]
+            },
+            {
+              "name": "checkoutAt",
+              "type": [
+                "null",
+                {
+                  "type": "long",
+                  "logicalType": "timestamp-millis"
+                }
+              ]
+            },
+            {
+              "name": "owner",
+              "type": [
+                "null",
+                {
+                  "name": "Owner",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    {
+                      "name": "email",
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "participants",
+              "type": {
+                "type": "array",
+                "items": {
+                  "name": "Participant",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    {
+                      "name": "email",
+                      "type": "string"
+                    },
+                    {
+                      "name": "status",
+                      "type": [
+                        "null",
+                        {
+                          "name": "ParticipantStatus",
+                          "type": "enum",
+                          "symbols": [
+                            "noreply",
+                            "yes",
+                            "no",
+                            "maybe"
+                          ]
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "comment",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}

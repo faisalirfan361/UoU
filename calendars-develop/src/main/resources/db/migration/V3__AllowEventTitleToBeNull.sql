@@ -1,0 +1,2 @@
+ALTER TABLE event
+  ALTER COLUMN title DROP NOT NULL;

@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "ChangeCalendar",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "accountId",
+      "type": "string"
+    },
+    {
+      "name": "calendarExternalId",
+      "type": "string"
+    },
+    {
+      "name": "action",
+      "type": {
+        "name": "ChangeCalendarAction",
+        "type": "enum",
+        "symbols": [
+          "IMPORT_FROM_NYLAS",
+          "IMPORT_FROM_NYLAS_WITH_EVENTS",
+          "DELETE"
+        ]
+      }
+    }
+  ]
+}

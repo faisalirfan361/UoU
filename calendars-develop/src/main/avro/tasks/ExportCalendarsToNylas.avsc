@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "ExportCalendarsToNylas",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "ids",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "name": "includeEvents",
+      "type": "boolean",
+      "default": false
+    }
+  ]
+}

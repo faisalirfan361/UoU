@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendars API v1</title>
+  <link rel="stylesheet" type="text/css" href="docs.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+<section class="swagger-ui swagger-container">
+<div class="swagger-ui">
+<div class="information-container wrapper">
+<section class="block col-12">
+<div class="info">
+    <hgroup class="main">
+      <h1 class="title">
+        Calendars API<span><small><!--suppress HtmlUnknownTag --><pre class="version"> v1 </pre></small></span>
+      </h1>
+    </hgroup>
+    <div class="description">
+      <div class="see-also">
+          <span class="item">
+            See also &rarr;
+            <a href="/docs/swagger">Calendars API Reference</a>
+          </span>
+      </div>
+      <div class="renderedMarkdown">
+        <!-- START CONTENT -->
+        <div class="doc-summary">
+          <p>
+            The Calendars API provides calendar functionality and two-way sync with calendar
+            providers such as Google and Microsoft. Sync functionality is backed by
+            <a href="https://www.nylas.com/">Nylas</a>, and the calendar data models are kept as
+            similar as possible.
+          </p>
+
+          <h4>Base URL</h4>
+          <pre><code><script>document.write(location.protocol + '//' + location.host + '/v1/');</script></code></pre>
+
+          <h4>See also</h4>
+          <ul>
+            <li><a href="/docs/swagger">Calendars API Reference (Swagger UI)</a></li>
+            <li><a href="/docs/json">Calendars OpenAPI Document (JSON)</a></li>
+            <li><a href="https://www.nylas.com/">Nylas (calendar sync provider)</a></li>
+          </ul>
+        </div>
+
+        <section class="doc-section collapsed" id="authorization">
+          <h2>API authorization</h2>
+          <div class="doc-section-body-collapser">
+          <div class="doc-section-body">
+            <p>
+              With a few exceptions, all requests must have an Authorization header with a JWT bearer token.
+              For example:
+            </p>
+            <div>
+              <pre><code>Authorization: Bearer eyJhbGciOiJSUzI...</code></pre>
+            </div>
+            <p>
+              JWTs will be validated using RS256 (public/private keys), so a private key must be used to
+              generate valid JWTs.
+            </p>
+            <p>
+              Once a user is authenticated with a valid JWT, additional authorization checks are done as
+              needed and are based on the scopes in the JWT (see below). Required scopes are listed in
+              the individual endpoint descriptions.
+            </p>
+            <p>
+              Note that all API requests are scoped to the organization found in the JWT org_id claim.
+              This ensures organization data can never be mixed or accessed improperly.
+            </p>
+
+            <h3>Unauthenticated endpoints</h3>
+            <p>
+              The only endpoints that don't require a JWT are for calendar account authorization at
+              <strong>/v1/auth</strong>. The authentication requirements are noted for each endpoint
+              in our API Reference.
+            </p>
+
+            <h3>JWT claims</h3>
+<pre><code>{
+  "sub": "user@example.com",  // User email address. Required.
+  "org_id": "some-org-id",    // User's organization. Required.
+  "aud": "calendars",         // Audience. Must be 'calendars'.
+  "iss": "some-system",       // Issuer of token. Optional.
+  "iat": 1516239022,          // Issued at (seconds from epoch). Required.
+  "exp": 1516261000,          // Expiration time (seconds from epoch). Required.
+  "scope": "calendars events" // Space-separated scopes. Required.
+}</code></pre>
+
+            <h3>Available scopes</h3>
+            <ul>
+              <li><strong>accounts</strong> &mdash; read and write accounts</li>
+              <li><strong>accounts.readonly</strong> &mdash; read accounts</li>
+              <li><strong>calendars</strong> &mdash; read and write calendars</li>
+              <li><strong>calendars.readonly</strong> &mdash; read calendars</li>
+              <li><strong>events</strong> &mdash; read and write events</li>
+              <li><strong>events.readonly</strong> &mdash; read events</li>
+              <li><strong>events.personal</strong> &mdash; not implemented yet: read and write personal events (associated with user)</li>
+              <li><strong>diagnostics</strong> &mdash; see advanced diagnostics to troubleshoot calendar and sync issues</li>
+            </ul>
+
+            <h3>Example JWT</h3>
+            <div>
+              <pre><code>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUub3JnIiwib3JnX2lkIjoic29tZS1vcmctaWQiLCJhdWQiOiJjYWxlbmRhcnMiLCJpc3MiOiJzb21lLXN5c3RlbSIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjYxMDAwLCJzY29wZSI6ImNhbGVuZGFycy5yZWFkb25seSBldmVudHMifQ.M1kKSPCafK25BNWCba2Ju1e_8aEzS7B-r-aPH5oIb0md_-oM4vDL9rt5DJdmYa_S9aSLw16GDIaWuJkpPrC71wry9xB_tGG9IalCXmsbvXVC1L47PBorHE_0RRDsT8kF6cvm9pDnZ68_pUkPZfeG6KOpETDJOS7vRqg07Gm3ts4Op9W1ZhZr4gD8HJ7S8Zw1jOShvXOUhpyuYIpo31JcTIbv57qj755Y9V8_hiwhncXA6ypiEbKW4LR0LqaesLofRPZ2qLortY0WGTAkjKFCXPUxPXiHsv9Y0dXePeW3hjcPmFOLKA80NxMMs8ipAL9Vg08WRG2DkcMu90hONTaqQA</code></pre>
+              <a target="_blank" href="https://jwt.io/#debugger-io?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUub3JnIiwib3JnX2lkIjoic29tZS1vcmctaWQiLCJhdWQiOiJjYWxlbmRhcnMiLCJpc3MiOiJzb21lLXN5c3RlbSIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjYxMDAwLCJzY29wZSI6ImNhbGVuZGFycy5yZWFkb25seSBldmVudHMifQ.M1kKSPCafK25BNWCba2Ju1e_8aEzS7B-r-aPH5oIb0md_-oM4vDL9rt5DJdmYa_S9aSLw16GDIaWuJkpPrC71wry9xB_tGG9IalCXmsbvXVC1L47PBorHE_0RRDsT8kF6cvm9pDnZ68_pUkPZfeG6KOpETDJOS7vRqg07Gm3ts4Op9W1ZhZr4gD8HJ7S8Zw1jOShvXOUhpyuYIpo31JcTIbv57qj755Y9V8_hiwhncXA6ypiEbKW4LR0LqaesLofRPZ2qLortY0WGTAkjKFCXPUxPXiHsv9Y0dXePeW3hjcPmFOLKA80NxMMs8ipAL9Vg08WRG2DkcMu90hONTaqQA&publicKey=%7B%0A%20%20%22kty%22%3A%20%22RSA%22%2C%0A%20%20%22e%22%3A%20%22AQAB%22%2C%0A%20%20%22n%22%3A%20%22nkuCJYwc_n8hVigytGePfITCEBHCUpSvZjduzyViYjLkZ8a9_HDrJfxTrrAoQs4UOJuxlOd3Z1kxzxUdrgmJuf6QVsIf2Sck0Hl1tRdnJdX9hF3bnprg3imgt2o6-zdw7nBCw6_TD9UHybmOrV5biEW4ilw6z57RYGUy5QA6ludnd0ZoiSkIym1xIRPHy1HeQoyE7ecZCWDwRd6bkvpu25v3bzFxbgBVAvPI5DZuBaGCJOVqy_61S_Ol4S3HMqj_ZB1SIuvq-pusro82VL90ioEADUjQThNIFtqdAfse8Xy4kx20Ib7mH6reWdWQhzfgv9HPTpHc6STehty6kbacUQ%22%0A%7D">
+                Decode JWT
+              </a>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="calendar-data">
+          <h2>Calendar data segregation and permissions</h2>
+          <div class="doc-section-body-collapser">
+            <div class="doc-section-body">
+              <h3>Data segregation</h3>
+              <p>
+                Calendar data is segregated by organization only, not by user. Therefore, all users
+                in an organization have access to all calendars and events in the organization. This
+                access scheme is ideal for shared room/resource calendars, but it is <strong>usually
+                not suitable for personal user calendars</strong> because access would be too broad.
+              </p>
+              <p>
+                When connecting external accounts (Microsoft, Google), the API will import and sync
+                all calendars associated with the account. This includes room/resource calendars and
+                personal calendars, since all calendars will work the same way, so users must take
+                care to only connect appropriate accounts and calendars.
+              </p>
+              <p class="note">
+                <span class="note-label">IMPORTANT:</span>
+                Any calendar that's connected to the Calendars API will be made available to everyone
+                in the same organization. There is no user-level scoping of calendar data, which means
+                any user in an organization can create an event on any calendar. End users should
+                only connect accounts and calendars that are intended to be shared with the organization
+                in this way.
+              </p>
+
+              <h3>Calendar permissions</h3>
+              <p>
+                When the API syncs to external calendars (Microsoft, Google), it creates and updates
+                events directly on the calendar, not through invitations. Therefore, the calendar account
+                that is connected to the API must have full write permission to the external calendar.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="accounts">
+          <h2>Accounts and service accounts</h2>
+          <div class="doc-section-body-collapser">
+          <div class="doc-section-body">
+            <p>
+              Accounts and service accounts are primarily used to sync calendars to external providers
+              such as Google and Microsoft. Accounts hold authorization information as well as status
+              fields that indicate the current sync state.
+            </p>
+            <p>
+              End users must connect their external (Google, Microsoft) calendar accounts to our system using
+              the <strong>/v1/auth</strong> endpoints.
+            </p>
+            <p class="note">
+              <span class="note-label">NOTE:</span>
+              Internal calendars also have accounts, but internal accounts only sync calendar data with
+              Nylas, not an external calendar provider like Google or Microsoft.
+              <a class="doc-section-link" href="#internal-calendars">See the internal calendars section for details.</a>
+            </p>
+
+            <h3>Accounts</h3>
+            <p>
+              An <strong>account</strong> owns one or more external calendars and is what allows us to sync
+              those calendars with an external provider such as Google or Microsoft.
+            </p>
+            <p>
+              New accounts are added to our system using the <strong>/v1/auth</strong> endpoints. For example,
+              a user could complete the Microsoft OAuth flow and connect an account to our system. If that
+              Microsoft account owned several calendars, the calendars would then be imported and associated
+              with the new account.
+            </p>
+
+            <h3>Service accounts</h3>
+            <p>
+              A <strong>service account</strong> is a special account that can be used to add
+              many normal accounts into our system. This allows one set of provider credentials to be used
+              for many accounts so that a user only needs to complete authorization once for the service account.
+            </p>
+            <p>
+              New service accounts are added to our system using the <strong>/v1/auth</strong> endpoints,
+              just like normal accounts. For example, a user could complete the Microsoft OAuth flow using
+              Microsoft credentials that have permissions to impersonate any user in the company domain.
+              Then, to add calendars to our system, normal accounts could be created using this service account.
+            </p>
+            <p>
+              After creating accounts associated with a service account, these accounts work just like normal
+              accounts (see above), except that they use the credentials from the service account when
+              syncing with the provider.
+            </p>
+          </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="internal-calendars">
+          <h2>Internal calendars (no sync to Microsoft/Google)</h2>
+          <div class="doc-section-body-collapser">
+            <div class="doc-section-body">
+              <p>
+                An <strong>internal calendar</strong> works just like any calendar, except it doesn't
+                sync to an external calendar provider like Google or Microsoft. The calendar data is
+                internal to the Calendars API and can only be viewed or modified via the API.
+              </p>
+              <p>
+                You can use all the normal API endpoints to update internal calendars, add events,
+                and so on&mdash;just as you would for a Google or Microsoft calendar.
+              </p>
+              <p class="note">
+                <span class="note-label">NOTE:</span>
+                Internal calendars do sync data to Nylas, just not to external providers like Google
+                or Microsoft. Therefore, each internal calendar also has an internal account that is
+                automatically generated and used for Nylas sync. You can see the accountId on each
+                internal calendar after creation and fetch the account via the API, if needed.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="active-period">
+          <h2>Events active period (sync period)</h2>
+          <div class="doc-section-body-collapser">
+          <div class="doc-section-body">
+            <p>
+              All events in the system must start within the <strong>active period</strong>,
+              which is a rolling period based on the current date:
+            </p>
+            <ul>
+              <li>
+                Events must start after <strong data-api-config="events.activePeriod.pastDays">{n}</strong>
+                days in the past.
+              </li>
+              <li>
+                Events must start before <strong data-api-config="events.activePeriod.futureDays">{n}</strong>
+                days in the future.
+              </li>
+            </ul>
+            <p>This active period is enforced in several ways:</p>
+            <ul>
+              <li>Events cannot be created with start dates outside the active period.</li>
+              <li>Events will sync to/from external providers (Microsoft, Google) only for the active period.</li>
+              <li>Recurring event instances will only be expanded and synced within the active period.</li>
+              <li>Availability endpoints only allow checking dates within the active period.</li>
+              <li>Old events will be deleted once they fall outside the active period.</li>
+            </ul>
+            <p>
+              All-day events are interpreted as starting at midnight UTC for the purpose of
+              determining if they start within the active period.
+            </p>
+          </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="recurrence">
+          <h2>Recurring events</h2>
+          <div class="doc-section-body-collapser">
+          <div class="doc-section-body">
+            <p>
+              The API supports recurring events via standard RRULEs.
+            </p>
+            <p class="note">
+              <span class="note-label">NOTE:</span>
+              We use Nylas (3rd party API) to handle the expansion of recurring events, so we have
+              a few restrictions on RRULE features as enforced by Nylas. In addition, there are some
+              slight variations in how recurring events are handled between providers (Microsoft, Google).
+              Generally, this shouldn't matter to users of the Calendars API, but for more advanced
+              information, see the <a href="https://developer.nylas.com/docs/connectivity/calendar/recurring-events/">Nylas docs</a>.
+            </p>
+
+            <h3>Recurrence terminology</h3>
+            <ul>
+              <li>
+                <strong>Series:</strong>
+                A series is an entire group of recurring events, including the master and instances.
+              </li>
+              <li>
+                <strong>Master:</strong>
+                The master event is the one with the RRULE that determines the schedule for the series.
+              </li>
+              <li>
+                <strong>Instance:</strong>
+                An instance is an actual, discrete event that is created according the schedule.
+                If an instance is an <strong>override</strong>, it deviates from the master or
+                schedule in some way.
+              </li>
+              <li>
+                <strong>RRULE:</strong> A standard format for describing recurring event schedules.
+                See <a href="https://icalendar.org/iCalendar-RFC-5545/3-8-5-3-recurrence-rule.html">RFC-5545</a>.
+              </li>
+              <li>
+                <strong>EXDATE:</strong>
+                EXDATE is part of the RRULE spec, and it's used to specify dates/instances that
+                should be excluded from the series.
+              </li>
+            </ul>
+            <div class="mermaid-src">
+              graph TD
+                subgraph Series
+                  M[Master w/ RRULE] --- I1(Instance 1)
+                  M --- I2(Instance 2)
+                  M --- In(Instance n...)
+                end
+            </div>
+
+            <h3>Sync period</h3>
+            <p>
+              Recurring events can recur indefinitely, but instances will only be expanded and synced
+              within the <a class="doc-section-link" href="#active-period">events active period</a>. Using the master event
+              schedule, you could manually expand the series further as needed.
+            </p>
+          </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="conferencing">
+          <h2>Conferencing (Microsoft Teams, Zoom)</h2>
+          <div class="doc-section-body-collapser">
+            <div class="doc-section-body">
+              <p>
+                Conferencing meetings can be added to events using either Microsoft Teams or Zoom.
+                Adding a conferencing meeting is only supported during event creation. For users to
+                add conferencing to events, they must first authorize a conferencing user so that
+                the Calendars API can access Teams or Zoom on their behalf.
+              </p>
+              <p class="note">
+                <span class="note-label">NOTE:</span>
+                Currently, Microsoft Teams is the only supported conferencing provider. Zoom support
+                will be added later.
+              </p>
+
+              <h3>Authorize a conferencing user.</h3>
+              <p>
+                Before creating an event with conferencing, you'll need to authorize a conferencing
+                user. This process gives the Calendars API permission to create conferencing meetings
+                on behalf of a user. From a user's perspective, the process will be similar to
+                authorizing a calendar account.
+              </p>
+              <div class="mermaid-src">
+                sequenceDiagram
+                  autonumber
+                  participant App as Your app
+                  participant API as Calendars API
+                  participant Provider as Conferencing Provider<br>(Teams, Zoom)
+
+                  App->>API: POST to /v1/auth/codes to create an auth code
+                  Note left of API: Specify a {redirectUri} to return the<br>user back to your app after auth.
+                  API->>App: Return auth {code}
+                  App->>API: Redirect user to /v1/auth/connect/{method}/{code}
+                  Note left of API: The {method} determines the conferencing provider.<br>Optionally, let the user choose the auth method at<br>/v1/auth/connect/conferencing/{code}
+                  API->>Provider: Redirect user to conferencing provider for OAuth
+                  Provider-->Provider: User logs in and<br>completes OAuth flow
+                  Provider->>API: Redirect with OAuth tokens
+                  API-->API: Create new conferencing user with {conferencingUserId}
+                  API->>App: Redirect back to {redirectUri}
+                  Note right of App: calendarsApiConferencingUserid={conferencingUserId}<br>is added to the URI from step 1.
+                  App-->App: Use or store<br>{conferencingUserId}
+              </div>
+
+              <h3>Create an event with conferencing.</h3>
+              <p>
+                After authorizing a conferencing user, you'll have a conferencing user id that can be
+                used to automatically add conferencing to an event during creation.
+              </p>
+              <p class="note">
+                <span class="note-label">NOTE:</span>
+                Currently, the conferencing user's email must match the request user's email (from
+                the Authorization header bearer token). In the future, we plan to offer more
+                flexibility to use aliases and different emails.
+              </p>
+              <div class="mermaid-src">
+                sequenceDiagram
+                  autonumber
+                  participant App as Your app
+                  participant API as Calendars API
+                  participant Provider as Conferencing Provider<br>(Teams, Zoom)
+
+                  App->>API: POST to /v1/events to create an<br>event with "conferencing" param
+                  Note left of API: Include {conferencingUserId} previously authorized.
+                  API-->API: Determine provider for {conferencingUserId}
+                  API->>Provider: Create conferencing meeting
+                  Provider->>API: Return meeting join info
+                  API-->API: Add meeting join info to event
+                  API->>App: Return event id
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="kafka">
+          <h2>Kafka messages</h2>
+          <div class="doc-section-body-collapser">
+            <div class="doc-section-body">
+              <p>
+                The Calendars API publishes kafka messages for data changes as described below. You
+                can consume these messages to be notified of data changes as they happen. You will
+                need access to the appropriate Kafka cluster (which is outside the scope of these
+                docs).
+              </p>
+
+              <h3>&#9656; event-changed</h3>
+              <ul class="core-details">
+                <li>
+                  <strong>Topic</strong>
+                  <span data-api-config="kafka.event-changed.topic"></span>
+                </li>
+                <li>
+                  <strong>Schema</strong>
+                  <a data-api-config="kafka.event-changed.schemaUrl" target="_blank"></a>
+                </li>
+              </ul>
+              <p>
+                An event-changed message is published when an event is created, updated, or deleted.
+              </p>
+              <p>
+                Each message has an EventChangeType of <strong>created</strong>, <strong>updated</strong>,
+                or <strong>deleted</strong>. Full event data is also included, except for deleted events.
+              </p>
+              <p>
+                For recurring events, messages are published for the entire recurrence serices,
+                including both recurrence masters and instances.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="getting-started-ms-service-accounts">
+          <h2>Getting started: Microsoft service accounts (Office 365, Exchange)</h2>
+          <div class="doc-section-body-collapser">
+          <div class="doc-section-body">
+            <p>
+              This section will guide you through connecting calendars to the Calendars API using
+              a Microsoft service account. Once connected, the calendars will stay in sync with
+              Microsoft and will be available through the Calendars API for further interaction.
+            </p>
+            <p>
+              <strong>Why use a service account?</strong> A service account allows an admin to
+              complete the OAuth flow just once to give the Calendars API access to many calendars
+              within an Office 365 or Exchange tenant. Without the service account, someone would
+              have to complete the OAuth flow for each calendar account separately.
+            </p>
+            <div class="mermaid-src">
+              flowchart LR
+                App[Your app]-->|Read/write calendar data|API(Calendars<br>API)
+                API<-->|2-way calendar sync|Provider[Microsoft<br>Office 365 / Exchange]
+                style API fill:#111,stroke:#111,color:#fff
+            </div>
+            <p>Below are some common terms you'll see in this section:</p>
+            <ul>
+              <li>
+                <strong>Your app:</strong>
+                The app you are building calendar functionality into using the Calendars API.
+              </li>
+              <li>
+                <strong>End-user:</strong>
+                A person who uses your app (usually an admin for setting up calendar functionality).
+              </li>
+              <li>
+                <strong>Service account:</strong>
+                A service account is a special type of account that can be used to access many
+                associated calendar accounts. In Microsoft Office 365 or Exchange Online, a service
+                account is just a regular user account that has been given permission to access other
+                accounts and rooms/resources.
+              </li>
+              <li>
+                <strong>Room/resource calendar:</strong>
+                A calendar that is connected to a room or resource rather than a user, usually setup
+                in Microsoft under "Rooms & equipment". Each resource has its own email and calendar
+                and can be added to events.
+              </li>
+              <li>
+                <strong>Nylas:</strong>
+                A 3rd-party provider that the Calendar API uses to sync Microsoft and Google calendars.
+                You don't need to know much about Nylas, but you may see references to their docs for
+                some topics.
+              </li>
+            </ul>
+
+            <h3>1. Create a service account user in Microsoft Office 365 or Exchange.</h3>
+            <p>
+              Your end user must create a Microsoft service account user in Office 365 or Exchange
+              Online. This user is called a "service account" because it must be given special
+              permissions and will be used for service integration. Specifically, the service account
+              will need the <strong>ApplicationImpersonation</strong> permission so that it can
+              impersonate other calendar accounts (including for room/resource calendars) that will
+              later be connected to the Calendars API.
+            </p>
+            <p>
+              Setting up Microsoft accounts is outside the scope of this document, but if you need
+              details you can see the <a href="https://developer.nylas.com/docs/the-basics/provider-guides/microsoft/office-365-service-accounts/">Nylas docs for a summary</a>
+              or the Microsoft docs. Ultimately, you'll need to guide your end users through this
+              service account setup process however works best for your app.
+            </p>
+            <p class="note">
+              <span class="note-label">NOTE:</span>
+              In addition to being a type of account in the Calendars API, a "service account" is
+              also a more general concept that means a non-human account, usually with special
+              permissions, that is used for some service or process. Microsoft uses "service account"
+              in this way in some of their documentation, even though the term may not appear in
+              their UIs. For Microsoft, a "service account" will just be a normal account with
+              extra permissions that give it access to other accounts and calendars.
+            </p>
+
+            <h3>2. Authorize the service account with OAuth.</h3>
+            <p>
+              After your end user has created a service account in Microsoft, your app can guide the
+              user to authorize that service account in the Calendars API.
+            </p>
+            <p>You'll need to create an auth code in the Calendars API that allows the end user to
+              authorize an account into a specific org. Then, using this auth code, the end user can
+              complete the OAuth process directly in the Calendars API. Once finished, the user will
+              be redirected back to your app along with a query param that tells your app the new
+              service account id to use for subsequent steps. See the diagram below for details.
+            </p>
+            <div class="mermaid-src">
+              sequenceDiagram
+                autonumber
+                participant App as Your app
+                participant API as Calendars API
+                participant Provider as Microsoft
+
+                App->>API: POST to /v1/auth/codes to create an auth code
+                Note left of API: Specify a {redirectUri} to return the<br>user back to your app after auth.
+                API->>App: Return auth {code}
+                App->>API: Redirect user to /v1/auth/connect/ms-oauth-sa/{code}
+                Note left of API: The auth method is "ms-oauth-sa" for MS OAuth. <br>Optionally, let the user choose the auth method<br>at /v1/auth/connect/calendar/{code}
+                API->>Provider: Redirect user to Microsoft for OAuth
+                Provider-->Provider: User logs in and<br>completes OAuth flow
+                Provider->>API: Redirect with OAuth tokens
+                API-->API: Create new service account with {serviceAccountId}
+                API->>App: Redirect back to {redirectUri}
+                Note right of App: calendarsApiServiceAccountId={serviceAccountId}<br>is added to the URI from step 1.
+                App-->App: Use or store<br>{serviceAccountId}
+            </div>
+
+            <h3>3. Add child accounts with the service account.</h3>
+            <p>
+              Now that the service account exists in the Calendars API, your app can use the service
+              account to add as many child accounts as needed. Each child account will use the
+              service account's credentials to sync calendars between Microsoft and the
+              Calendars API (via Nylas).
+            </p>
+            <p>
+              To add a child account to the Calendars API, you'll need to know the name and email.
+              (Your end user should provide this information.) For room resources, the emails will
+              be the room calendar emails, such as room1@example.com.
+            </p>
+            <p>
+              Once added, the Calendars API will begin syncing all calendars connected to the child
+              account. It may take a few moments for the calendars and events to fully sync.
+            </p>
+            <p class="note">
+              <span class="note-label">NOTE:</span>
+              For rooms and resources, Calendars API accounts will not correspond exactly with Microsoft
+              accounts. The Calendars API accepts a Microsoft email when creating new accounts,
+              and Microsoft grants access to all the calendars associated with that email. For room
+              or resource emails, that may just be a single room or resource calendar, which is not
+              connected to a user account at all in Microsoft.
+            </p>
+            <div class="mermaid-src">
+              sequenceDiagram
+                autonumber
+                participant App as Your app
+                participant API as Calendars API
+
+                App-->App: Collect calendar account names & emails<br> from user (often room names & emails)
+                loop For each calendar account name & email
+                  App->>API: POST to /v1/serviceaccounts/{serviceAccountId}/accounts
+                  API->>App: Return new {accountId}
+                  App-->App: Store or use <br>{accountId}
+                end
+            </div>
+
+            <h3>4. Next steps...</h3>
+            <p>
+              Once the Microsoft calendars are added the Calendars API, they'll be kept in sync.
+              Your app can use the Calendars API to create new events, update existing events, and
+              more. See the the <a href="/docs/swagger">Calendars API Reference</a> for details.
+            </p>
+          </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="getting-started-google">
+          <h2>Getting started: Google accounts</h2>
+          <div class="doc-section-body-collapser">
+            <div class="doc-section-body">
+              <p>
+                This section will guide you through connecting calendars to the Calendars API using
+                a standard Google account (not a <a class="doc-section-link" href="#getting-started-google-service-accounts">service account</a>).
+                Once connected, the calendars will stay in sync with Google and will be available through the Calendars API for
+                further interaction.
+              </p>
+              <p>
+                <strong>Google accounts and shared calendars:</strong> A standard Google account
+                with read/write access to multiple calendars can be used in a similar way to a service
+                account. Usually, a Google admin will want to set up a separate Google account and
+                share room/resource calendars with it, including read/write permissions. Then, when
+                that account is connected to the Calendars API, all the shared calendars will be
+                imported and synced.
+              </p>
+              <p class="note">
+                <span class="note-label">IMPORTANT:</span>
+                To setup a Google account with shared calendars, you must share calendars with the
+                <strong>"Make changes to events"</strong> permission (read/write) for calendars to
+                sync with the Calendars API.
+              </p>
+              <div class="mermaid-src">
+                flowchart LR
+                  App[Your app]-->|Read/write calendar data|API(Calendars<br>API)
+                  API<-->|2-way calendar sync|Provider[Google]
+                  style API fill:#111,stroke:#111,color:#fff
+              </div>
+              <p>Below are some common terms you'll see in this section:</p>
+              <ul>
+                <li>
+                  <strong>Your app:</strong>
+                  The app you are building calendar functionality into using the Calendars API.
+                </li>
+                <li>
+                  <strong>End-user:</strong>
+                  A person who uses your app (usually an admin for setting up calendar functionality).
+                </li>
+                <li>
+                  <strong>Google account:</strong>
+                  A standard Google account (not a service account).
+                </li>
+                <li>
+                  <strong>Room/resource calendar:</strong>
+                  A calendar that is connected to a room or resource rather than a user, usually setup
+                  in the Google Directory under "Buildings and resources". Each resource has its own
+                  email and calendar and can be added to events.
+                </li>
+                <li>
+                  <strong>Nylas:</strong>
+                  A 3rd-party provider that the Calendar API uses to sync Microsoft and Google calendars.
+                  You don't need to know much about Nylas, but you may see references to their docs for
+                  some topics.
+                </li>
+              </ul>
+
+              <h3>1. Create a Google account, and share room/resource calendars with it.</h3>
+              <p>
+                Your end user must create a Google account (or use an existing one). Then, each
+                room/resource calendar should be shared with the Google account with read/write
+                permission ("Make changes to events").
+              </p>
+              <p>
+                When finished, your end user should have a Google account that shows the list of
+                shared calendars in the Google Calendar UI, and the Google account should be able to
+                create events on the shared calendars. Now, this Google account is ready to connect
+                to the Calendars API.
+              </p>
+
+              <h3>2. Authorize the account with OAuth.</h3>
+              <p>
+                After your end user has created a Google account, your app can guide the user to
+                authorize that account in the Calendars API using OAuth.
+              </p>
+              <p>You'll need to create an auth code in the Calendars API that allows the end user to
+                authorize an account into a specific org. Then, using this auth code, the end user can
+                complete the OAuth process directly in the Calendars API. Once finished, the user will
+                be redirected back to your app along with a query param that tells your app the new
+                account id to use for future use. See the diagram below for details.
+              </p>
+              <p>
+                Once added, the Calendars API will begin syncing all calendars connected to the
+                account. It may take a few moments for the calendars and events to fully sync.
+              </p>
+              <div class="mermaid-src">
+                sequenceDiagram
+                  autonumber
+                  participant App as Your app
+                  participant API as Calendars API
+                  participant Provider as Google
+
+                  App->>API: POST to /v1/auth/codes to create an auth code
+                  Note left of API: Specify a {redirectUri} to return the<br>user back to your app after auth.
+                  API->>App: Return auth {code}
+                  App->>API: Redirect user to /v1/auth/connect/google-oauth/{code}
+                  Note left of API: The auth method is "google-oauth" for Google OAuth. <br>Optionally, let the user choose the auth method<br>at /v1/auth/connect/calendar/{code}
+                  API->>Provider: Redirect user to Google for OAuth
+                  Provider-->Provider: User logs in and<br>completes OAuth flow
+                  Provider->>API: Redirect with OAuth tokens
+                  API-->API: Create new account with {accountId}
+                  API->>App: Redirect back to {redirectUri}
+                  Note right of App: calendarsApiAccountId={accountId}<br>is added to the URI from step 1.
+                  App-->App: Use or store<br>{accountId}
+              </div>
+
+              <h3>3. Next steps...</h3>
+              <p>
+                Once the Google calendars are imported into the Calendars API, they'll be kept in sync.
+                Your app can use the Calendars API to create new events, update existing events, and
+                more. See the the <a href="/docs/swagger">Calendars API Reference</a> for details.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section collapsed" id="getting-started-google-service-accounts">
+          <h2>Getting started: Google service accounts</h2>
+          <div class="doc-section-body-collapser">
+            <div class="doc-section-body">
+              <p>
+                This section will guide you through connecting calendars to the Calendars API using
+                a Google service account (not a <a class="doc-section-link" href="#getting-started-google">normal account</a>).
+                Once connected, the calendars will stay in sync with Google and will be available through the Calendars API for further
+                interaction.
+              </p>
+              <p class="note">
+                <span class="note-label">IMPORTANT:</span>
+                Google service accounts currently do not support room/resource calendars. To setup
+                room/resource calendars, you'll need to use a
+                <a class="doc-section-link" href="#getting-started-google">normal Google account</a>.
+                This is a Nylas limitation and may be resolved in a future release.
+              </p>
+              <p>
+                <strong>Why use a service account?</strong> A service account allows an admin to
+                submit authorization details once to give the Calendars API access to many calendars
+                within a Google Workspace domain. When using a normal Google account, the Calendars
+                API only has access to the calendars owned by or shared with the single account.
+                Service accounts have access to domain calendars without someone having to explicitly
+                share the calendars with the service account, and so this method is mainly useful
+                when there are so many calendars that sharing becomes tedious.
+              </p>
+              <div class="mermaid-src">
+                flowchart LR
+                  App[Your app]-->|Read/write calendar data|API(Calendars<br>API)
+                  API<-->|2-way calendar sync|Provider[Google]
+                  style API fill:#111,stroke:#111,color:#fff
+              </div>
+              <p>Below are some common terms you'll see in this section:</p>
+              <ul>
+                <li>
+                  <strong>Your app:</strong>
+                  The app you are building calendar functionality into using the Calendars API.
+                </li>
+                <li>
+                  <strong>End-user:</strong>
+                  A person who uses your app (usually an admin for setting up calendar functionality).
+                </li>
+                <li>
+                  <strong>Service account:</strong>
+                  A service account is a special type of account that can be used to access many
+                  associated calendar accounts. Service accounts must be setup in the Google Cloud
+                  console, where you can also create and download a JSON key for a service account.
+                </li>
+                <li>
+                  <strong>Nylas:</strong>
+                  A 3rd-party provider that the Calendar API uses to sync Microsoft and Google calendars.
+                  You don't need to know much about Nylas, but you may see references to their docs for
+                  some topics.
+                </li>
+              </ul>
+
+              <h3>1. Create a service account user in the Google Cloud console.</h3>
+              <p>
+                Your end user must create a Google service account user in the Google Cloud console,
+                along with a JSON key that can be downloaded and used for authorization. In addition,
+                the service account must be granted "domain-wide delegation" in order to access
+                calendars in the Google Workspace domain.
+              </p>
+              <p>
+                Setting up Google accounts is outside the scope of this document, but if you need
+                details you can see the <a href="https://developer.nylas.com/docs/the-basics/provider-guides/google/google-workspace-service-accounts/">Nylas docs for a summary</a>
+                or the Google docs. Ultimately, you'll need to guide your end users through this
+                service account setup process however works best for your app.
+              </p>
+
+              <h3>2. Authorize the service account with the JSON key.</h3>
+              <p>
+                After your end user has created a Google service account and downloaded the JSON key,
+                your app can guide the user to authorize that service account in the Calendars API.
+              </p>
+              <p>
+                You'll need to create an auth code in the Calendars API that allows the end user to
+                authorize an account into a specific org. Then, using this auth code, your app can either:
+              </p>
+              <ul>
+                <li>
+                  <strong>Option 1:</strong> Redirect the user to the Calendars API, and have the
+                  user complete the auth flow directly in the Calendars API UI.
+                </li>
+                <li>
+                  <strong>Option 2:</strong> Use your own UI to collect the JSON key from the user,
+                  and POST the JSON key to the Calendars API.
+                </li>
+              </ul>
+              <p>
+                Once finished, the user will be redirected back to your app along with a query param
+                that tells your app the new service account id to use for subsequent steps.
+                (Note: this redirect is optional and does not apply if you would rather POST an
+                application/json request and receive the service account id back as application/json.)
+              </p>
+              <div class="mermaid-src">
+                sequenceDiagram
+                  autonumber
+                  participant App as Your app
+                  participant API as Calendars API
+
+                  App->>API: POST to /v1/auth/codes to create an auth code
+                  Note left of API: Specify a {redirectUri} to return the<br>user back to your app after auth.
+                  API->>App: Return auth {code}
+                  App->>API: Redirect user to /v1/auth/connect/google-sa/{code}
+                  Note left of API: The auth method is "google-sa" for Google service accounts. <br>Optionally, let the user choose the auth method<br>at /v1/auth/connect/calendar/{code}
+                  API-->API: Display form, collect<br>JSON key from user
+                  API-->API: Create new service account with {serviceAccountId}
+                  API->>App: Redirect back to {redirectUri}
+                  Note right of App: calendarsApiServiceAccountId={serviceAccountId}<br>is added to the URI from step 1.
+                  App-->App: Use or store<br>{serviceAccountId}
+              </div>
+
+              <h3>3. Add child accounts with the service account.</h3>
+              <p>
+                Now that the service account exists in the Calendars API, your app can use the service
+                account to add as many child accounts as needed. Each child account will use the
+                service account's credentials to sync calendars between Google and the Calendars API
+                (via Nylas).
+              </p>
+              <p>
+                To add a child account to the Calendars API, you'll need to know the name and email.
+                (Your end user should provide this information.)
+              </p>
+              <p>
+                Once added, the Calendars API will begin syncing all calendars connected to the child
+                account. It may take a few moments for the calendars and events to fully sync.
+              </p>
+              <div class="mermaid-src">
+                sequenceDiagram
+                  autonumber
+                  participant App as Your app
+                  participant API as Calendars API
+
+                  App-->App: Collect calendar account names & emails<br> from user
+                  loop For each calendar account name & email
+                  App->>API: POST to /v1/serviceaccounts/{serviceAccountId}/accounts
+                  API->>App: Return new {accountId}
+                  App-->App: Store or use <br>{accountId}
+                  end
+              </div>
+
+              <h3>4. Next steps...</h3>
+              <p>
+                Once the Google calendars are added the Calendars API, they'll be kept in sync.
+                Your app can use the Calendars API to create new events, update existing events, and
+                more. See the the <a href="/docs/swagger">Calendars API Reference</a> for details.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- END CONTENT -->
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+</section>
+
+<script>
+  (function() {
+    document.querySelectorAll('.doc-section').forEach(section => {
+      if (window.location.hash && window.location.hash.substring(1) === section.id) {
+        section.classList.remove('collapsed');
+      }
+
+      section.classList.contains('collapsed') || handleMermaid(section, false);
+
+      const header = section.querySelector(':scope > h2');
+      header && header.addEventListener('click', () => toggleSection(section));
+    });
+
+    document.querySelectorAll('a.doc-section-link').forEach(link =>
+      link.addEventListener('click', () =>
+        openSection(document.getElementById(link.href.split('#', 2)[1]))));
+
+    function openSection(section) {
+      if (section && section.classList.contains('collapsed')) {
+        section.classList.remove('collapsed');
+        handleMermaid(section, true);
+        window.location.hash = '#' + section.id;
+      }
+    }
+
+    function closeSection(section) {
+      section && section.classList.add('collapsed');
+    }
+
+    function toggleSection(section) {
+      if (section && section.classList.contains('collapsed')) {
+        openSection(section);
+      } else if (section) {
+        closeSection(section);
+      }
+    }
+
+    function handleMermaid(section, doInit) {
+      section && section.querySelectorAll('.mermaid-src').forEach(x => x.classList.replace('mermaid-src', 'mermaid'));
+      doInit && mermaid.init();
+    }
+  })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true });</script>
+
+<script>
+  fetch('/v1/config')
+    .then(response => response.json())
+    .then(config => {
+        const keys = [
+          'events.activePeriod.pastDays',
+          'events.activePeriod.futureDays',
+        ];
+        Object.keys(config.kafka || {}).forEach(x => keys.push(`kafka.${x}.topic`, `kafka.${x}.schemaUrl`));
+
+        keys.forEach(key => {
+          const value = key.split('.').reduce((x, y) => x[y] || '{unknown}', config);
+          document.querySelectorAll(`[data-api-config="${key}"]`).forEach(x => {
+            x.innerHTML = value;
+            if (x.tagName === 'A') {
+              x.href = value;
+            }
+          });
+        });
+      }
+    );
+</script>
+
+</body>
+</html>

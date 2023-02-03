@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "EventChanged",
+  "namespace": "com.UoU.infra.avro.events",
+  "fields": [
+    {
+      "name": "changeType",
+      "type": {
+        "name": "EventChangeType",
+        "type": "enum",
+        "symbols": [
+          "created",
+          "updated"
+        ]
+      }
+    },
+    {
+      "name": "eventIds",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "logicalType": "uuid"
+        }
+      }
+    }
+  ]
+}

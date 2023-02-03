@@ -1,0 +1,6 @@
+# You can rename this to application-me.yml and use it as profile to override stuff only for you.
+# We gitignore application-me.yml so it won't be checked in.
+# For example:
+
+logging.level:
+  app: DEBUG

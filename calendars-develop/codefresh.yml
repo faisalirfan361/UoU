@@ -1,0 +1,177 @@
+#####################
+# Codefresh UoU/calendars workflow:
+# https://g.codefresh.io/pipelines/edit/new/builds?id=6234dfb2c718107ccc1723fb&pipeline=calendars&projects=UoU&projectId=61b147ded8e622706794c8a3&filter=page:1
+#
+# ** Tips **
+# Trigger with cli on branch that exists in upstream, with variables:
+# codefresh run UoU/calendars -y codefresh.yml -t enderlabs/calendars -b develop -v SKIP_CHECKS=1
+#
+# Trigger with cli on your current fork commit (branches not in upstream won't work):
+# codefresh run UoU/calendars -y codefresh.yml -t enderlabs/calendars -s $(git rev-parse HEAD)
+#####################
+
+version: "1.0"
+
+stages:
+  - &build-stage build
+  - &test-stage test
+  - &deploy-stage deploy
+
+steps:
+  clone:
+    title: Cloning repository
+    type: git-clone
+    stage: *build-stage
+    repo: "${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}"
+    revision: "${{CF_BRANCH}}"
+    git: enderlabs
+
+  build:
+    title: Preparing docker tag and  Building the app
+    stage: *build-stage
+    working_directory: "${{clone}}"
+    image: &build-image eclipse-temurin:17.0.4_8-jdk-alpine
+    environment:
+      - GRADLE_USER_HOME=/codefresh/volume/.gradle
+      - GRADLE_OPTS=-Dorg.gradle.daemon=false -Dorg.gradle.caching=true
+      - FLYWAY_URL=jdbc:postgresql://db:5432/calendars
+      - FLYWAY_USER=postgres
+      - FLYWAY_PASSWORD=postgres
+      - FLYWAY_LOCATIONS=filesystem:src/main/resources/db/migration
+    commands:
+        # Docker tags > 63 chars cause issues for our k8s, so truncate branch to stay under limit.
+        # Tag format is <branch>-<sha>-<timestamp>. Suffix takes 22 chars, so we'll trim <branch> to
+        # 36 chars to allow a few extra for the suffix just in case. Also check for the existence of
+        # the CF vars because some could be missing for manually triggered runs.
+        - |-
+          [ -n "$CF_SHORT_REVISION" ] || { echo "Missing CF_SHORT_REVISION"; exit 1; }
+          [ -n "$CF_BUILD_TIMESTAMP" ] || { echo "Missing CF_BUILD_TIMESTAMP"; exit 1; }
+
+          DOCKER_TAG="${CF_SHORT_REVISION}-${CF_BUILD_TIMESTAMP}"
+          [ -z "$CF_BRANCH_TAG_NORMALIZED_LOWER_CASE" ] || DOCKER_TAG="${CF_BRANCH_TAG_NORMALIZED_LOWER_CASE:0:36}-${DOCKER_TAG}"
+          cf_export DOCKER_TAG="$DOCKER_TAG" # export for next steps
+          cf_export BUILD_INFO_VERSION="$DOCKER_TAG" #set this in order to get Build Version in spring boot Actuator
+        - ./gradlew clean initDb assemble
+    services:
+      composition:
+        db: # Build requires db to generate jooq classes from db.
+          image: postgres:13.6-alpine
+          environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=calendars
+          ports:
+            - 5432
+
+  check:
+    title: Running checks and tests
+    stage: *test-stage
+    working_directory: "${{build}}"
+    fail_fast: false # continue to collect reports on failure
+    image: *build-image
+    environment:
+      - GRADLE_USER_HOME=/codefresh/volume/.gradle
+      - GRADLE_OPTS=-Dorg.gradle.daemon=false -Dorg.gradle.caching=true
+    commands:
+      - ./gradlew ci
+    when: &when-not-skip-checks
+      condition:
+        all:
+          whenNotSkipChecks: '"${{SKIP_CHECKS}}" != "1"'
+
+  collect_reports:
+    title: Collecting reports
+    stage: *test-stage
+    image: *build-image
+    working_directory: "${{CF_VOLUME_PATH}}"
+    commands:
+      # Prepare report dirs and create empty reports for ones that are missing, else the collector
+      # will throw errors for reports not found. Maybe there will be a better way eventually :(
+      - |-
+        rm -rf reports && mkdir reports;
+
+        dir=reports/allure;
+        cp -r calendars/build/allure-results $dir \
+          || (mkdir -p $dir && echo "{}" > $dir/empty.json);
+
+        dir=reports/jacoco;
+        cp -r calendars/build/reports/jacoco/test/html $dir \
+          || (mkdir -p $dir && echo "No report was generated." > $dir/index.html);
+
+        dir=reports/checkstyle-main;
+        mkdir -p $dir;
+        cp calendars/build/reports/checkstyle/main* $dir \
+          || echo "No report was generated." > $dir/main.html;
+
+        dir=reports/checkstyle-test;
+        mkdir -p $dir;
+        cp calendars/build/reports/checkstyle/test* $dir \
+          || echo "No report was generated." > $dir/test.html;
+
+        # upload_reports requires CF_BRANCH_TAG_NORMALIZED or else error will be thrown:
+        # "Test reporter requires CF_BRANCH_TAG_NORMALIZED variable for upload files"
+        [ -n "$CF_BRANCH_TAG_NORMALIZED" ] || cf_export CF_BRANCH_TAG_NORMALIZED="$CF_SHORT_REVISION"
+    when: *when-not-skip-checks
+
+  upload_reports:
+    title: Uploading reports
+    stage: *test-stage
+    image: codefresh/cf-docker-test-reporting
+    working_directory: "${{CF_VOLUME_PATH}}/reports"
+    environment:
+      - CF_STORAGE_INTEGRATION=azure-codefreshtestartifacts-blob
+      - BUCKET_NAME=codefreshtestartifacts
+      # allure:
+      - REPORT_TYPE.0=allure
+      - ALLURE_DIR.0=allure
+      # jacoco coverage:
+      - REPORT_TYPE.1=coverage
+      - REPORT_DIR.1=jacoco
+      - REPORT_INDEX_FILE.1=index.html
+      - CLEAR_TEST_REPORT.1=true
+      # checkstyle main:
+      - REPORT_TYPE.2=checkstyle-main
+      - REPORT_DIR.2=checkstyle-main
+      - REPORT_INDEX_FILE.2=main.html
+      - CLEAR_TEST_REPORT.2=true
+      # checkstyle test:
+      - REPORT_TYPE.3=checkstyle-test
+      - REPORT_DIR.3=checkstyle-test
+      - REPORT_INDEX_FILE.3=test.html
+      - CLEAR_TEST_REPORT.3=true
+    when: *when-not-skip-checks
+
+  check_fail:
+    title: Failing if any check or test fails # necessary because of fail_fast:false on test step
+    stage: *test-stage
+    image: *build-image
+    commands:
+      - echo "Checks failed. Aborting pipeline."
+      - exit 1
+    when:
+      condition:
+        all:
+          check: check.result == 'failure'
+
+
+  push_docker:
+    title: Building and pushing docker image
+    type: build
+    stage: *deploy-stage
+    image_name: calendars
+    working_directory: "${{build}}"
+    tag: &docker-tag "${{DOCKER_TAG}}"
+    registry: ioreg
+    metadata:
+      set:
+        - CF_QUALITY: true # tests have to pass to get to this step
+        - build_url: "${{CF_BUILD_URL}}"
+        - branch: "${{CF_BRANCH}}"
+        - commit: "${{CF_SHORT_REVISION}}"
+    on_success:
+      annotations:
+        set:
+          - entity_type: pipeline
+            entity_id: "${{CF_PIPELINE_NAME}}"
+            annotations:
+              - latest_docker_tag: *docker-tag

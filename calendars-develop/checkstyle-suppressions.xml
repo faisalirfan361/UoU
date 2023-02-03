@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC "-//Puppy Crawl//DTD Suppressions 1.1//EN" "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<!--
+  Use google_checks.xml with a few exceptions to keep us sane.
+  See https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml
+-->
+<!--suppress XmlHighlighting -->
+<suppressions>
+
+  <!--
+    Don't require JavaDocs because then people just make dumb docs that are clutter.
+    We should add useful docs when they make sense.
+   -->
+  <suppress checks="MissingJavadocMethod" files="."/>
+  <suppress checks="MissingJavadocType" files="."/>
+
+  <!--
+    For tests, allow any package names so we can have helper packages like _integration
+    and _helpers that are clearly test-related and not packages/objects under test.
+  -->
+  <suppress checks="PackageName" files="test/.*" />
+
+  <!--
+    For tests, allow vars to be set far away from first usage so we can stick to arrange/act/assert
+    test organization where vars are arranged at the top of the method and asserted at the end.
+  -->
+  <suppress checks="VariableDeclarationUsageDistance" files="test/.*" />
+
+  <!--
+    For integration tests, allow multiple top-level classes per file so helper classes can be next
+    to tests when those helpers need to be top-level (such as for spring boot DI scanning).
+  -->
+  <suppress checks="OneTopLevelClass" files="test/java/com/UoU/_integration/.*" />
+</suppressions>

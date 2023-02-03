@@ -1,0 +1,9 @@
+-- Rename this to "R__Me.sql" for your own personal migration, and it will be gitignored.
+-- Use this for things that you want to setup locally but not check in for others, such as
+-- specific accounts already connected to Nylas with access tokens. This can be useful so that you
+-- can reset your local db without losing test data you've setup.
+--
+-- Example:
+-- INSERT INTO account
+-- VALUES (some values...)
+-- ON CONFLICT DO NOTHING;

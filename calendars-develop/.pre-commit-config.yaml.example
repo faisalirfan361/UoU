@@ -1,0 +1,44 @@
+# pre-commit config: run some checks automatically via git hooks, like before commit and push.
+# Our CI/CD tool is ultimately responsible for code validation, so this is just to help devs.
+# See https://pre-commit.com
+#
+# 1. Copy this file to .pre-commit-config.yaml, and edit to suit your needs.
+# 2. To install pre-commit: brew install pre-commit
+# 3. To enable for this repo: pre-commit install
+fail_fast: true
+default_install_hook_types: [pre-commit, pre-push]
+repos:
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      # Prevent commits on long-lived branches because feature/bug/release branches should be used.
+      - id: no-commit-to-branch
+        name: Don't commit to long-lived branches
+        args: [--branch, master, --branch, develop]
+        stages: [commit]
+
+  - repo: local
+    hooks:
+      # Prevent text "#temp" from being checked in, so devs can use #temp debugging comments. For
+      # example, leave a comment like "// #temp: Debugging..." and this ensures it's not committed.
+      - id: prevent-temp
+        name: "Prevent #temp code markers"
+        language: pygrep
+        entry: '#temp\b'
+        exclude: ^\.pre-commit-config.*$
+
+  - repo: https://github.com/jguttman94/pre-commit-gradle
+    rev: v0.3.0
+    hooks:
+      # Run "gradle ci" task before push to do all the same checks CI/CD will do.
+      # If this is too slow for your taste, you can use the gradle-check task below instead.
+      - id: gradle-task
+        name: gradle ci
+        args: [ci]
+        stages: [push]
+
+      # Run "gradle check" task before push to run basic checks and tests (not integration tests).
+      # This does not run all the checks like "gradle ci" but it's much faster.
+      # - id: gradle-check
+      #  stages: [ push ]

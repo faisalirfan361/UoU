@@ -1,0 +1,46 @@
+{
+  "type": "record",
+  "name": "Maintenance",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "action",
+      "type": {
+        "name": "MaintenanceAction",
+        "type": "enum",
+        "symbols": [
+          "ADVANCE_EVENTS_ACTIVE_PERIOD",
+          "UPDATE_EXPIRED_SERVICE_ACCOUNT_REFRESH_TOKENS",
+          "UPDATE_SERVICE_ACCOUNT_REFRESH_TOKEN"
+        ]
+      }
+    },
+    {
+      "name": "object",
+      "type": [
+        "null",
+        {
+          "name": "MaintenanceObject",
+          "type": "record",
+          "fields": [
+            {
+              "name": "type",
+              "type": {
+                "name": "MaintenanceObjectType",
+                "type": "enum",
+                "symbols": [
+                  "SERVICE_ACCOUNT"
+                ]
+              }
+            },
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}

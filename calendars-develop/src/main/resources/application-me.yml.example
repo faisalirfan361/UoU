@@ -1,0 +1,48 @@
+# You can rename this to application-me.yml and use it as profile to override stuff only for you.
+# We gitignore application-me.yml so it won't be checked in.
+# For example:
+
+logging:
+  log4j2.config.override: classpath:log4j2-me.xml
+  level:
+    app: DEBUG
+    org.springframework.security: DEBUG
+    com.nylas.http.Summary: DEBUG
+    com.nylas.http.Headers: DEBUG
+    com.nylas.http.Body: DEBUG
+
+kafka:
+  consumers-enabled: false
+  producers-enabled: false
+
+nylas.client:
+  id: my-id
+  secret: my-secret
+
+jwt.public-jwk: '{
+  "kty": "RSA",
+  "e": "AQAB",
+  "n": "nkuCJYwc_n8hVigytGePfITCEBHCUpSvZjdu..."
+}'
+
+oauth:
+  microsoft:
+    client-id: some-value
+    client-secret: some-value
+  google:
+      client-id: some-value
+      client-secret: some-value
+
+recurring-tasks.enabled: true
+
+integration-tests.private-jwk: '{
+  "p": "yhTuqFiubvRBXjb4F..",
+  "kty": "RSA",
+  "q": "yIe-2rK_kc0GzRsSgfy-YQzA2FB...",
+  "d": "cDIOvfQwfMW46Cs3v...",
+  "e": "AQAB",
+  "qi": "ZTcD3ijlFr9Q3A7q5xQY1...",
+  "dp": "qfR825zp52sJ5wD4G...",
+  "dq": "a-j4oHGeO1SMe2U9IW...",
+  "n": "nkuCJYwc_n8hVigytGePfITCEBHCUpSvZjd..."
+}'

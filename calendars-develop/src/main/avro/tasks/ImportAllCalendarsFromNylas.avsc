@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "ImportAllCalendarsFromNylas",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "accountId",
+      "type": "string"
+    },
+    {
+      "name": "includeEvents",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "inboundSyncAccountLock",
+      "type":  ["null", {"type": "string", "logicalType": "uuid"}],
+      "default": null
+    }
+  ]
+}

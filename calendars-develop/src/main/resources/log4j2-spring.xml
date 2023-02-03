@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration
+  status="INFO">
+
+  <Appenders>
+    <!-- Human-friendly console appender, suitable for local dev only -->
+    <Console name="console" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>
+          %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%5p} --- %style{[%15.15t]}{dim,white} %cyan{%-40.40c{1.}} : %m%n%ex
+        </Pattern>
+      </PatternLayout>
+    </Console>
+
+    <!--
+      JSON console appender, suitable for real environments where we aggregate logs.
+      This should be the default since it will be used most of the time.
+     -->
+    <Console name="console_json" target="SYSTEM_OUT">
+      <JsonLayout
+        complete="false"
+        compact="true"
+        eventEol="true"
+        properties="true"
+        objectMessageAsJsonObject="true">
+        <KeyValuePair key="version" value="${env:VERSION:-}" />
+      </JsonLayout>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="${env:LOG_APPENDER:-console_json}" />
+    </Root>
+  </Loggers>
+</Configuration>

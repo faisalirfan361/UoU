@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "Diagnostics",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "calendarId",
+      "type": "string"
+    },
+    {
+      "name": "runId",
+      "type": {
+        "type":  "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "callbackUri",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "action",
+      "type": {
+        "name": "DiagnosticsAction",
+        "type": "enum",
+        "symbols": [
+          "RUN_CALENDAR_SYNC_DIAGNOSTICS"
+        ]
+      }
+    }
+  ]
+}

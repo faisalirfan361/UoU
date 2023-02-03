@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "DeleteAccountFromNylas",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "accountId",
+      "type": "string"
+    }
+  ]
+}

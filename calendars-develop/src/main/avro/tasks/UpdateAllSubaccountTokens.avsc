@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "UpdateAllSubaccountTokens",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "serviceAccountId",
+      "type": "string"
+    }
+  ]
+}

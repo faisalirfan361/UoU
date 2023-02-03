@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+You can rename this to log4j-me.xml and use it to modify logging only for you.
+In your application-me.yml, you can reference this file to use it in addition to log4j-spring.xml:
+logging.log4j2.config.override: classpath:log4j2-me.xml
+
+Below is an example configuration:
+-->
+<Configuration>
+  <Appenders>
+    <File name="nylas_webhooks" fileName="logs/nylas-webhooks.log">
+      <PatternLayout>
+        <Pattern>
+          %d{yyyy-MM-dd HH:mm:ss.SSS} | %m%n%ex
+        </Pattern>
+      </PatternLayout>
+    </File>
+    <File name="public_events" fileName="logs/public-events.log">
+      <PatternLayout>
+        <Pattern>
+          %d{yyyy-MM-dd HH:mm:ss.SSS} | %m%n%ex
+        </Pattern>
+      </PatternLayout>
+    </File>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="com.UoU.app.v1.unauthenticated.InboundWebhookController" level="DEBUG">
+      <AppenderRef ref="nylas_webhooks" />
+    </Logger>
+    <Logger name="com.UoU.infra.kafka.PublicEventProducer" level="DEBUG">
+      <AppenderRef ref="public_events" />
+    </Logger>
+  </Loggers>
+</Configuration>

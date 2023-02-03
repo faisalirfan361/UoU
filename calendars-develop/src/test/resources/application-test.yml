@@ -1,0 +1,54 @@
+# test profile: for integration tests
+# Settings (mainly ports) should *not* conflict with local profile so we can run both at once.
+
+# Allow binding test beans that override normal app beans so we can use fakes.
+spring.main.allow-bean-definition-overriding: true
+
+spring.datasource.url: invalid-testing # reset to ensure inherited value isn't used
+
+# The user and password must match the credentials configured in the BaseAppIntegrationTest class
+# for the test DB container, if you're using these flyway settings and not overriding them.
+spring.flyway:
+  enabled: true # run flyway migrations on startup
+  user: postgres
+  password: postgres
+
+spring.redis.url: invalid-testing # reset to make sure inherited value isn't used
+
+spring.boot.admin.client:
+  enabled: false
+
+server.error:
+  include-exception: true
+  include-message: always
+  include-stacktrace: always
+  include-binding-errors: always
+
+kafka:
+  consumers-enabled: false
+  producers-enabled: false
+
+nylas.client:
+  id: "invalid-testing-value"
+  secret: "invalid-testing-value"
+  uri: https://localhost/invalid
+
+jwt.public-jwk: '{"kty":"RSA","e":"AQAB","n":"nkuCJYwc_n8hVigytGePfITCEBHCUpSvZjduzyViYjLkZ8a9_HDrJfxTrrAoQs4UOJuxlOd3Z1kxzxUdrgmJuf6QVsIf2Sck0Hl1tRdnJdX9hF3bnprg3imgt2o6-zdw7nBCw6_TD9UHybmOrV5biEW4ilw6z57RYGUy5QA6ludnd0ZoiSkIym1xIRPHy1HeQoyE7ecZCWDwRd6bkvpu25v3bzFxbgBVAvPI5DZuBaGCJOVqy_61S_Ol4S3HMqj_ZB1SIuvq-pusro82VL90ioEADUjQThNIFtqdAfse8Xy4kx20Ib7mH6reWdWQhzfgv9HPTpHc6STehty6kbacUQ"}'
+encryption.secret-key: 6WXA1MMYlZuN6o0mSBxD+RXPFy6h3IRI25z9sY7eYKw=
+
+oauth:
+  redirect-uri: http://localhost:2006/oauth/callback
+  microsoft:
+    client-id: invalid-test-value
+    client-secret: invalid-test-value
+  google:
+    client-id: invalid-test-value
+    client-secret: invalid-test-value
+
+recurring-tasks.enabled: false
+
+internal-calendars.email-suffix: -test-calendar@localhost
+
+integration-tests:
+  # JWK including private key for creating JWTs that can be validated with jwt.public-jwk:
+  private-jwk: '{"p":"yhTuqFiubvRBXjb4F0ksSJGvVsDEM8SEY1pJDOQsXWp22momboLLRO8xnt5i7uddMEx_FnH5iVGYQAZ87JIMR0Lk4CnVq_mTSmXTKF4pPHlqEHzUCs6n7kJfLlZIlNMNdaOtl429rgfeOwHoMk1wev5JPR6B8bZY9-tep0VXn5s","kty":"RSA","q":"yIe-2rK_kc0GzRsSgfy-YQzA2FBAVrzokFP3wcc8pMDJy2VyGduKXWullluUYBjpRlhlrsAjyuxC0LMayhfWQrXFnwoCiKHjS598COtNULJ-bTqUnVJ-GM-N5yBkcE60h45tCrF3mu1KqZpJTWfPCysPmiDIlpH-l8nckwS20IM","d":"cDIOvfQwfMW46Cs3vRyF2_jw35jmxcdzBp0VoibaM8XklBWOhUW3tcXBvlhHQQp11KWt2V-yBwN2RVOvJLLH9peS0JtpHW4cLtNX9ZHv3yZsOQyZZDJcXbrdmgLmaTajiazx9WdCzr7sdTNbCFCPyee45AB5Ar2Lo6o2x49A98FQ-9tRFauiB3FuqE7WtWEwM32N8jB2W7A4gXIsUJmHkvw2v0sPLbaMSJFwrENvBknAveo3dfkD5IzR8yvu7jLT-ON61E-BfLB5_l5M9PGoZCjugFWPxEApTIfbAYbKzqyIsTsOyyVEy2MykxKdhWVlN6_oClRBjHPYgMbaeG-fXQ","e":"AQAB","qi":"ZTcD3ijlFr9Q3A7q5xQY1QVYli4A-Cl-v4IHDnYjvLJUUhzycPQJhag2XoyJm-rEomIbNTQzkl9ATC2i_FDSgmlMhfK8Bn72RhhJ3DTOHH61wBNH09eN9p77FdMaCH6UFMvcIbSn7bzQ5moccNysc83pYSbq2dHDhed6pAfpHbU","dp":"qfR825zp52sJ5wD4Gi1yTv4npyCsYpVuelieg3cLUO2PVBZeiCb8add5thF2x1JSb6KGaAwnQDQdhgtu2U_jf7Nk5pqImABovfNxacv3hmLer0ss0oIHfjzX7BKpLHFsKnokLwgIdOstHhd2f4fdh7OBSSP1SaKApNGRY8DP9u0","dq":"a-j4oHGeO1SMe2U9IWwj-s_FGuKcrNB9ieVVpxaTIMmKDgUqUJXesIUUF4RypP_i0HMTTOWinTlkfzBSkzwelcmBbiMR1_rd-Lz7H0WYVnunIxpqDPruVmWipCS_R9xis6vGLAHyLhHRotEe7yOUvBrRC4zmxHgN_BqpswfPZQc","n":"nkuCJYwc_n8hVigytGePfITCEBHCUpSvZjduzyViYjLkZ8a9_HDrJfxTrrAoQs4UOJuxlOd3Z1kxzxUdrgmJuf6QVsIf2Sck0Hl1tRdnJdX9hF3bnprg3imgt2o6-zdw7nBCw6_TD9UHybmOrV5biEW4ilw6z57RYGUy5QA6ludnd0ZoiSkIym1xIRPHy1HeQoyE7ecZCWDwRd6bkvpu25v3bzFxbgBVAvPI5DZuBaGCJOVqy_61S_Ol4S3HMqj_ZB1SIuvq-pusro82VL90ioEADUjQThNIFtqdAfse8Xy4kx20Ib7mH6reWdWQhzfgv9HPTpHc6STehty6kbacUQ"}'

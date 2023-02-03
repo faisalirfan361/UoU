@@ -1,0 +1,34 @@
+{
+  "type": "record",
+  "name": "ChangeEvent",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "accountId",
+      "type": "string"
+    },
+    {
+      "name": "eventId",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "externalId",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "action",
+      "type": {
+        "name": "ChangeEventAction",
+        "type": "enum",
+        "symbols": [
+          "EXPORT_TO_NYLAS",
+          "IMPORT_FROM_NYLAS",
+          "DELETE_FROM_NYLAS",
+          "DELETE"
+        ]
+      }
+    }
+  ]
+}

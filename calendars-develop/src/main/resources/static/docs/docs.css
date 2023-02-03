@@ -1,0 +1,156 @@
+/**** Standard stuff from generated swagger-ui (include to match swagger-ui) ****/
+/*noinspection CssUnknownTarget*/
+@import '/docs/swagger-ui/swagger-ui.css';
+/* For local dev: @import 'http://localhost:2006/docs/swagger-ui/swagger-ui.css'; */
+
+html {
+    box-sizing: border-box;
+    /*noinspection CssInvalidPropertyValue*/
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background: #fafafa;
+}
+
+/**** Customizations ****/
+section.block {
+    max-width: 990px;
+    margin: auto;
+}
+
+.see-also {
+    margin: 1em 0 3em 0;
+    font-size: 15px;
+}
+
+.info .see-also a, .info .see-also a:visited, .info .see-also a:hover {
+    background: #89bf04;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.info .see-also a:hover {
+    background: #4D6B06C8;
+}
+
+.info h2 {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px dashed #bbb;
+    font-size: 22px;
+}
+
+.info h3 {
+    margin-top: 1.5em;
+    font-size:19px;
+}
+
+.info h4 {
+    font-size:16px;
+}
+
+.swagger-ui .info p, .swagger-ui .info li {
+    font-size: 15px;
+    line-height: 1.4em;
+}
+
+.swagger-ui .renderedMarkdown p {
+    margin: 1.2em auto;
+}
+
+.doc-summary {
+    margin-bottom: 3em;
+}
+
+.doc-section {
+    margin: 1em 0;
+    border: 1px dotted #bbb;
+}
+
+.doc-section > h2 {
+    border: none;
+    margin: 0;
+    padding: .8em;
+    background: #eee;
+    cursor: pointer;
+}
+
+.doc-section > h2:hover {
+    background:#e7e7e7;
+}
+
+.doc-section > h2:after {
+    content: '—';
+    float: right;
+    color: #888;
+}
+
+.doc-section.collapsed > h2:after {
+    content: '+';
+    float: right;
+    color: #888;
+}
+
+.doc-section.collapsed .doc-section-body-collapser {
+    display: none;
+}
+
+.doc-section-body {
+    padding: 1em 1.5em;
+}
+
+.note {
+    background: #FFF5AD6B;
+    padding:.5em;
+}
+
+.note .note-label {
+    color: #9b8f49;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+ul.core-details {
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 0;
+}
+
+ul.core-details li {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 4px 8px;
+    border: 1px solid #dabef6;
+}
+
+ul.core-details li + li {
+    margin-left:.4em;
+}
+
+ul.core-details li > strong {
+    display: inline-block;
+    margin: -5px 2px -5px -9px;
+    padding: 5px 8px;
+    background: #dabef647;
+    border-radius: 5px 0 0 5px;
+    font-size:.9em;
+    color: #9012fe;
+}
+
+.mermaid-src { /* custom, before diagrams are rendered */
+    visibility: hidden;
+}
+.mermaid { /* used by mermaid.js for rendering */
+    background: #f5f5f5;
+}

@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "SyncAllEvents",
+  "namespace": "com.UoU.infra.avro.tasks",
+  "fields": [
+    {
+      "name": "accountId",
+      "type": "string"
+    },
+    {
+      "name": "calendarId",
+      "type": "string"
+    },
+    {
+      "name": "forceUpdateAllDayEventWhens",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "inboundSyncAccountLock",
+      "type":  ["null", {"type": "string", "logicalType": "uuid"}],
+      "default": null
+    }
+  ]
+}

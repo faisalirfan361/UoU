@@ -1,0 +1,19 @@
+body {
+    color: #64676e;
+}
+
+h4 {
+    color: #1DBEA5;
+}
+
+.card {
+    margin: 100px auto 25px auto;
+    width: 550px;
+}
+
+.details {
+    margin: 25px auto;
+    text-align: center;
+    color: #999;
+    font-size: .8em;
+}

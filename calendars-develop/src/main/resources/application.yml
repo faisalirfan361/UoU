@@ -1,0 +1,479 @@
+# defaults: for values not set in profiles below
+# Generally, these should be safe for qa/stage and prod, and local/dev profiles should override.
+
+spring.application.name: calendars
+
+server.port: 2006
+
+spring.datasource:
+  url: jdbc:postgresql://must-define-in-env
+  username: # must define in env
+  password: # must-define-in-env
+
+spring.flyway:
+  enabled: false # by default, do *not* run migrations on startup
+  clean-disabled: true
+  user: # must define in env
+  password: # must define in env
+
+spring.redis.url: redis://must-define-in-env
+spring.data.redis.repositories.enabled: false
+
+spring.main.banner-mode: OFF # don't log the Spring startup ASCII art by default
+logging:
+  group:
+    app: com.UoU
+    consumers-tasks:
+      - com.UoU.infra.kafka.consumers
+      - com.UoU.core.tasks
+      - com.UoU.core.nylas.tasks
+    kafka:
+      - org.apache.kafka
+      - org.springframework.kafka
+      - io.confluent.kafka
+    noisy-startup:
+      - org.springframework.boot.autoconfigure
+      - org.apache.kafka.clients.producer.ProducerConfig
+      - org.apache.kafka.clients.consumer.ConsumerConfig
+      - org.apache.kafka.clients.admin.AdminClientConfig
+      - io.confluent.kafka.serializers.KafkaAvroDeserializerConfig
+      - org.jooq.Constants
+  level:
+    root: WARN
+    app: INFO
+    noisy-startup: WARN
+    org.springframework.kafka.retrytopic: INFO # Logs like "Received message in dlt listener"
+
+# HTTP paths that allow Spring EL expressions like hasIpAddress() to configure access.
+# See https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/el-access.html
+http-access-expressions:
+  health: denyAll
+  actuator: denyAll
+
+management:
+  endpoint.health.probes.enabled: true # enabled by default on k8s, so match that behavior always.
+  endpoints:
+    jmx.exposure.exclude: '*'
+    web.exposure.include:
+      - health
+  metrics:
+    export:
+      datadog:
+        enabled: false
+        api-key: # set in environment for each deployment
+        step: 1m
+    tags:
+      service: calendars-api
+
+spring.boot.admin.client:
+  enabled: false
+  url: http://must-define-in-env
+
+# API Documentation
+docs: # custom props for configuring docs
+  force-https: true
+  enable-public-private-groups: false
+  private-paths: >-
+    /v1/admin/**,
+    /v1/inbound-webhooks/**,
+    /v1/auth/connect/success,
+    /v1/oauth/**,
+    /v1/config/**,
+    /oauth/**,
+    /actuator/**
+springdoc:
+  api-docs:
+    path: /docs/json
+  swagger-ui:
+    path: /docs/swagger
+    tags-sorter: alpha
+    operations-sorter: alpha
+    groups-order: desc # we use public/private and want public to be first
+  packages-to-scan: com.UoU.app
+  paths-to-exclude: ${docs.private-paths}
+  show-actuator: false
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  model-and-view-allowed: true
+
+spring.kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    group-id: ${spring.application.name}
+    key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+    value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+    properties:
+      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+      spring.deserializer.value.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      allow.auto.create.topics: false
+      auto.offset.reset: latest # default: latest
+      enable.auto.commit: false # spring listener container commits offsets (BATCH mode by default)
+      auto.commit.interval.ms: 5000 # default: 5000
+      session.timeout.ms: 45000 # default: 45000 for kafka >= 3.0, none for older consumers
+      schema.registry.url: # must define in env
+      normalize.schemas: true
+      specific.avro.reader: true
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    acks: all # use all for best reliability, but we could move to "1" if needed for performance
+    properties:
+      compression.type: none # default: none
+      delivery.timeout.ms: 120000 # default: 120000 (2 minutes)
+      schema.registry.url: # must define in env
+      normalize.schemas: true
+      auto.register.schemas: false # keep false here and enable per environment as needed
+      avro.remove.java.properties: true # prevent props like avro.java.string from breaking compatibility
+  properties:
+    # Global properties that apply to consumers, producers, and admin clients.
+    # If you put something here that's not valid for all those, we'll get warnings at startup.
+    sasl.mechanism: PLAIN
+    request.timeout.ms: 30000 # default: 30000 (30 seconds)
+    retry.backoff.ms: 100 # default: 100
+
+kafka:
+  consumers-enabled: true
+  producers-enabled: true
+  configs:
+    _defaults:
+      topic:
+        create: &kafka-default-topic-create
+          enabled: false # keep false here and enable per environment as needed
+          partitions: 2 # only ever used for local auto-create
+          replication: 1 # only ever used for local auto-create
+      retry: &kafka-default-retry
+        attempts: 3 # includes original attempt
+        backoff:
+          delay: 2000
+          multiplier: 4
+    tasks:
+      update-all-subaccount-tokens:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.update-all-subaccount-tokens
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      update-subaccount-token:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.update-subaccount-token
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      update-account-sync-state:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.update-account-sync-state
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      delete-account-from-nylas:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.delete-account-from-nylas
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      import-all-calendars-from-nylas:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.import-all-calendars-from-nylas
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      export-calendars-to-nylas:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.export-calendars-to-nylas
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      change-calendar:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.change-calendar
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      sync-all-events:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.sync-all-events
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      change-event:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.change-event
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+      maintenance:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.maintenance
+          create: *kafka-default-topic-create
+        retry:
+          <<: *kafka-default-retry
+          attempts: 2
+      diagnostics:
+        consumer-enabled: true
+        topic:
+          name: calendars.tasks.diagnostics
+          create: *kafka-default-topic-create
+        retry:
+          <<: *kafka-default-retry
+          attempts: 1 # no retries
+    events:
+      event-changed:
+        consumer-enabled: true
+        topic:
+          name: calendars.events.event-changed
+          create: *kafka-default-topic-create
+        retry: *kafka-default-retry
+    public-events:
+      # Public event with no consumer, only producer, so only topic config is needed:
+      event-changed:
+        topic:
+          name: calendars.public.events.event-changed
+          create: *kafka-default-topic-create
+
+nylas:
+  client:
+    id: # must set in environment
+    secret: # must set in environment
+    uri: # specify region API URI, or default US region will be used
+  etags:
+    expiration: 7d
+  tasks: # configuration for specific task processors
+    import-all-calendars-from-nylas:
+      inbound-sync-account-lock-ttl: 5m
+
+jwt:
+  audience: calendars
+  public-jwk: # jwk (optionally base64-encoded) for validating JWTs
+
+encryption.secret-key: # base64 AES key for app private data, must be set in specific env
+
+oauth:
+  redirect-uri: # must be set in environment/profile
+  microsoft:
+    client-id: # must set in environment
+    client-secret: # must set in environment
+  google:
+    client-id: # must set in environment
+    client-secret: # must set in environment
+
+# Recurring tasks
+# The recurring-tasks section is custom and configures how recurring tasks run via spring scheduler.
+# The spring.task.scheduling section is more general because more than recurring jobs can use it.
+# Cron expressions use spring cron syntax, which is slightly different from standard cron syntax.
+# See https://spring.io/blog/2020/11/10/new-in-spring-5-3-improved-cron-expressions
+recurring-tasks:
+  enabled: false # off by default, must be turned on in environment/profile
+  locking:
+    namespace: calendars
+    lock-at-least-for: 20s
+    lock-at-most-for: 600s
+  tasks:
+    heartbeat:
+      cron: "45 */5 * * * *" # every 5 minutes, 45 seconds after minute
+      zone: UTC
+    advance-events-active-period:
+      cron: "0 3 * * * *" # every hour, at 3 minutes after hour
+      zone: UTC
+    update-expired-service-account-refresh-tokens:
+      cron: "0 33 2 * * *" # every day at 2:33am
+      zone: America/New_York # assume most customers are on US east coast
+spring.task.scheduling:
+  pool.size: 1
+  shutdown:
+    await-termination: true
+    await-termination-period: 60s
+
+internal-calendars:
+  # Suffix for internal calendar emails that will be like: {calendarId} + {email-suffix}
+  # Suffix should be something like: "-calendar@resource.qa.UoUconnect.com"
+  email-suffix: # must define in environment
+
+events:
+  active-period:
+    past-days: 7
+    future-days: 92 # always >= 3 full months
+
+diagnostics:
+  current-run-duration: 5m
+  results-expiration: 20m
+  provider-sync-wait:
+    attempts: 6
+    delay: 20s
+
+---
+
+# local: for local development
+spring.config.activate.on-profile: local
+
+spring.datasource:
+  url: jdbc:postgresql://localhost:5433/calendars
+  username: postgres
+  password: postgres
+  hikari:
+    maximum-pool-size: 10
+
+spring.flyway:
+  enabled: true # run flyway migrations on startup
+  user: postgres
+  password: postgres
+  locations: ["classpath:db/migration", "filesystem:local-migrations"]
+
+spring.redis.url: redis://localhost:6380/0
+
+spring.main.banner-mode: CONSOLE
+logging.level:
+  root: INFO
+  app: DEBUG
+  org.jooq.tools.LoggerListener: DEBUG  # set to DEBUG to show jooq SQL queries
+  com.nylas.http.Summary: DEBUG
+
+server.error:
+  include-exception: true
+  include-message: always
+  include-stacktrace: always
+  include-binding-errors: always
+
+http-access-expressions:
+  health: permitAll
+  actuator: permitAll
+
+management:
+  endpoints.web.exposure.include: '*'
+
+spring.kafka:
+  consumer.properties:
+    schema.registry.url: http://localhost:8081
+  producer.properties:
+    schema.registry.url: http://localhost:8081
+    auto.register.schemas: true
+
+kafka.configs:
+  tasks:
+    create-subaccount-in-nylas.topic.create.enabled: true
+    update-all-subaccount-tokens.topic.create.enabled: true
+    update-subaccount-token.topic.create.enabled: true
+    update-account-sync-state.topic.create.enabled: true
+    delete-account-from-nylas.topic.create.enabled: true
+    import-all-calendars-from-nylas.topic.create.enabled: true
+    export-calendars-to-nylas.topic.create.enabled: true
+    change-calendar.topic.create.enabled: true
+    sync-all-events.topic.create.enabled: true
+    change-event.topic.create.enabled: true
+    maintenance.topic.create.enabled: true
+    diagnostics.topic.create.enabled: true
+  events:
+    event-changed.topic.create.enabled: true
+  public-events:
+    event-changed.topic.create.enabled: true
+
+docs:
+  force-https: false
+  enable-public-private-groups: true
+springdoc:
+  cache.disabled: true # Disable caching locally so that changes are always reloaded.
+  packages-to-scan: com.UoU.app, org.springframework.boot.actuate
+  paths-to-exclude: # Clear exclusions so all paths go to either public or private groups.
+  show-actuator: true
+
+nylas.client:
+  id: set in applicaton-me.yml for local dev
+  secret: set in applicaton-me.yml for local dev
+
+jwt.public-jwk: '{"kty":"RSA","e":"AQAB","n":"nkuCJYwc_n8hVigytGePfITCEBHCUpSvZjduzyViYjLkZ8a9_HDrJfxTrrAoQs4UOJuxlOd3Z1kxzxUdrgmJuf6QVsIf2Sck0Hl1tRdnJdX9hF3bnprg3imgt2o6-zdw7nBCw6_TD9UHybmOrV5biEW4ilw6z57RYGUy5QA6ludnd0ZoiSkIym1xIRPHy1HeQoyE7ecZCWDwRd6bkvpu25v3bzFxbgBVAvPI5DZuBaGCJOVqy_61S_Ol4S3HMqj_ZB1SIuvq-pusro82VL90ioEADUjQThNIFtqdAfse8Xy4kx20Ib7mH6reWdWQhzfgv9HPTpHc6STehty6kbacUQ"}'
+encryption.secret-key: ytPCHftMbO+Zpwc4jqUbae//LrbrGhC3K7V8siYD7LI=
+
+oauth:
+  redirect-uri: http://localhost:2006/oauth/callback
+  microsoft:
+    client-id: override in application-me.yml for oauth to work
+    client-secret: override in application-me.yml for oauth to work
+  google:
+    client-id: override in application-me.yml for oauth to work
+    client-secret: override in application-me.yml for oauth to work
+
+recurring-tasks.enabled: false # enable in application-me.yml when needed for local testing
+
+internal-calendars.email-suffix: -calendar@localhost
+
+---
+
+# qa: for qa/stage environment
+spring.config.activate.on-profile: qa
+
+spring.kafka:
+  properties:
+    security.protocol: SASL_SSL
+    sasl.jaas.config: # override in env with secret
+    basic.auth: # for confluent schema registry
+      credentials.source: USER_INFO
+      user.info: # override in env with secret
+
+management.metrics:
+  export.datadog.enabled: true
+  tags:
+    env: qa
+
+recurring-tasks:
+  enabled: true
+  locking.namespace: calendars-qa
+
+# TODO: Remove suffix (and configure in k8s instead) when email functionality is implemented.
+# For now, we want to use emails on QA that are clearly fake just so callers can see how
+# emails will look. We don't know what the real email domain will be yet for QA and prod.
+internal-calendars.email-suffix: -calendar@example.com
+
+---
+
+# prod: for production environment
+spring.config.activate.on-profile: prod
+
+spring.flyway.enabled: false # ensure false for prod in case someone changes default
+
+spring.kafka:
+  properties:
+    security.protocol: SASL_SSL
+    sasl.jaas.config: # override in env with secret
+    basic.auth: # for confluent schema registry
+      credentials.source: USER_INFO
+      user.info: # override in env with secret
+
+management.metrics:
+  export.datadog.enabled: true
+  tags:
+    env: prod
+
+recurring-tasks:
+  enabled: true
+  locking.namespace: calendars-prod
+
+---
+
+# migrate: for running migrations and exiting (instead of starting web server)
+# Use this in addition to another profile like: --spring.profiles.active=qa,migrate
+spring.config.activate.on-profile: migrate
+
+spring.flyway.enabled: true # enable migrations on startup
+spring.main.web-application-type: none # exit after migrations instead of running web server
+spring.task.scheduling.enabled: false
+
+kafka:
+  consumers-enabled: false
+  producers-enabled: false
+
+recurring-tasks.enabled: false
+
+---
+
+# kafka-consumers: for running kafka consumers only (not web server)
+# Use this in addition to another profile like: --spring.profiles.active=qa,kafka-consumers
+spring.config.activate.on-profile: kafka-consumers
+
+spring.main.web-application-type: none
+spring.task.scheduling.enabled: false
+
+kafka:
+  consumers-enabled: true
+  producers-enabled: true # consumers can also produce other messages
+
+recurring-tasks.enabled: false
