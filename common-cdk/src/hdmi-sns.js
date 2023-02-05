@@ -1,5 +1,5 @@
 const environment = require('./environment-configuration')
-const { HdmiTagHandler } = require('./hdmi-tag-handler')
+const { UOneTagHandler } = require('./uone-tag-handler')
 const cdk = require('aws-cdk-lib');
 const { TAG_CONSTANTS } = require("./utils");
 
@@ -8,10 +8,10 @@ const { TAG_CONSTANTS } = require("./utils");
  * 
  * @param HDNCdkContext cdkContext 
  * @param AWS.SNS sns 
- * @param HdmiStack HdmiStack 
+ * @param UOneStack UOneStack 
  * @returns 
  */
-function HdmiSns(cdkContext, sns, HdmiStack) {
+function UOneSns(cdkContext, sns, UOneStack) {
     if(!cdkContext) {
         throw new Error('cdkContext is required')
     }
@@ -21,13 +21,13 @@ function HdmiSns(cdkContext, sns, HdmiStack) {
     }
 
     const {envName, volatile} = cdkContext
-    const hdmiTagHandler = HdmiTagHandler(cdk.Tags, cdkContext)
+    const uoneTagHandler = UOneTagHandler(cdk.Tags, cdkContext)
 
     return Object.freeze({
         /**
          * load existing SNS Topic by name
          * 
-         * @param HDMIStackScope scope 
+         * @param UOneStackScope scope 
          * @returns 
          */
         fromTopicName: (scope) => (topicName, accountId = environment.getAccount(), region = environment.getRegion()) => {
@@ -56,10 +56,10 @@ function HdmiSns(cdkContext, sns, HdmiStack) {
         /**
          * generate new async route for your stack, you mush provide listener along with the props
          * 
-         * @param HDMIStackScope scope 
+         * @param UOneStackScope scope 
          * @param String projectName 
          * @param String functionality 
-         * @param HDMIProps props 
+         * @param UOneProps props 
          * @returns 
          */
         newDefaultEventBusStack: function(scope, projectName, functionality, props){
@@ -75,7 +75,7 @@ function HdmiSns(cdkContext, sns, HdmiStack) {
                 throw new Error('functionality is required')
             }
 
-            class EventBusStack extends HdmiStack {
+            class EventBusStack extends UOneStack {
                 constructor(cdkContext, scope, id, props) {
                     super(cdkContext, scope, id, props)
                     this.topicName = props.topicName
@@ -88,13 +88,13 @@ function HdmiSns(cdkContext, sns, HdmiStack) {
             }
 
             const stackProps = {
-                topicName: `Hdmi-${projectName}-Topic-${envName}`,
+                topicName: `UOne-${projectName}-Topic-${envName}`,
                 projectName: projectName,
                 ...props
             }
 
-            const eventBusStack = new EventBusStack(cdkContext, scope, `Hdmi-${projectName}-EventBus-${envName}`, stackProps);
-            hdmiTagHandler.tag(
+            const eventBusStack = new EventBusStack(cdkContext, scope, `UOne-${projectName}-EventBus-${envName}`, stackProps);
+            uoneTagHandler.tag(
                 eventBusStack,
                 TAG_CONSTANTS.FUNCTIONALITY,
                 functionality
@@ -104,4 +104,4 @@ function HdmiSns(cdkContext, sns, HdmiStack) {
     })
 }
 
-module.exports = {HdmiSns}
+module.exports = {UOneSns}

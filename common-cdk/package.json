@@ -1,5 +1,5 @@
 {
-  "name": "@hdmi/common-cdk",
+  "name": "@uone/common-cdk",
   "version": "1.0.27",
   "description": "Heydaynow Common Cdk",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:heydaynow/hdmi-cdk-utils.git"
+    "url": "git@bitbucket.org:heydaynow/uone-cdk-utils.git"
   },
   "keywords": [
     "heydaynow",

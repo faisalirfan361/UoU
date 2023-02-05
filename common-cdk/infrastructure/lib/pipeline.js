@@ -1,15 +1,15 @@
 const cdk = require('aws-cdk-lib');
 const { CodePipeline, CodePipelineSource, ShellStep } = require('aws-cdk-lib/pipelines');
-const { HdmiTagHandler } = require('../../src/hdmi-tag-handler');
+const { UOneTagHandler } = require('../../src/uone-tag-handler');
 /**
  * This class will provide Pipeline for each micro's infra
  * You should implement infra, read and route stacks using this as parent
  */
-class HdMiCommonCDKPipeline extends cdk.Stack {
+class UOneCommonCDKPipeline extends cdk.Stack {
     envName;
     repo;
     branchName;
-    hdmiTagHandler;
+    uoneTagHandler;
     /**
      * initilizes the stack and creates tags
      * 
@@ -26,7 +26,7 @@ class HdMiCommonCDKPipeline extends cdk.Stack {
         this.repo = repo;
         this.branchName = branchName;
 
-        this.hdmiTagHandler = HdmiTagHandler(cdk.Tags, {envName: "shared-services"});
+        this.uoneTagHandler = UOneTagHandler(cdk.Tags, {envName: "shared-services"});
     }
     
     /**
@@ -36,8 +36,8 @@ class HdMiCommonCDKPipeline extends cdk.Stack {
      * @returns HDNPipeline
      */
     getPipeLine(){
-        const pipeline = new CodePipeline(this, `HdMi-Common-CDK-${this.envName}`, {
-            pipelineName: `hdmi-common-cdk-${this.envName}`,
+        const pipeline = new CodePipeline(this, `UOne-Common-CDK-${this.envName}`, {
+            pipelineName: `uone-common-cdk-${this.envName}`,
             selfMutation: true,
             crossAccountKeys: true,
             synth: new ShellStep('Synth', {
@@ -56,12 +56,12 @@ class HdMiCommonCDKPipeline extends cdk.Stack {
          * Since these tages are shared accross the HDN so adding these here
          * it should auto apply in all resources inside your stacks
          */
-        this.hdmiTagHandler.tag(pipeline,"PROJECT","CommonCDK");
-        this.hdmiTagHandler.tag(pipeline,"ENVIRONMENT","SharedServices");
-        this.hdmiTagHandler.tag(pipeline,"FUNCTIONALITY","SDLC");
-        this.hdmiTagHandler.tag(pipeline,"OWNER","Eng");
+        this.uoneTagHandler.tag(pipeline,"PROJECT","CommonCDK");
+        this.uoneTagHandler.tag(pipeline,"ENVIRONMENT","SharedServices");
+        this.uoneTagHandler.tag(pipeline,"FUNCTIONALITY","SDLC");
+        this.uoneTagHandler.tag(pipeline,"OWNER","Eng");
 
         return pipeline;
     }
 }
-module.exports = { HdMiCommonCDKPipeline }
+module.exports = { UOneCommonCDKPipeline }

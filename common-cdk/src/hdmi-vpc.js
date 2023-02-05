@@ -1,7 +1,7 @@
 const environment = require('./environment-configuration')
 const ssm = require("aws-cdk-lib/aws-ssm");
 
-function HdmiVPC(scope, ec2) {
+function UOneVPC(scope, ec2) {
     return Object.freeze({
         fromAttributes: (name, vpcId, subnetIds, region = environment.getRegion()) => {
             if(!name) {
@@ -28,7 +28,7 @@ function HdmiVPC(scope, ec2) {
          * @param string name of the region 
          * @returns { ...vpc, ...securityGroups }
          */
-        getDefaultHdmiConfigWithVPC(cdk, backbonEnvName, types=["application"], resourceId="vpc", region = environment.getRegion()) {
+        getDefaultUOneConfigWithVPC(cdk, backbonEnvName, types=["application"], resourceId="vpc", region = environment.getRegion()) {
             const vpcId = ssm.StringParameter.valueFromLookup(
                 scope,
                 "HdN-VPC-ID"
@@ -111,4 +111,4 @@ function HdmiVPC(scope, ec2) {
     })
 }
 
-module.exports = {HdmiVPC}
+module.exports = {UOneVPC}

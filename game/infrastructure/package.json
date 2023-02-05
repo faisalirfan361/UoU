@@ -21,7 +21,7 @@
     "@aws-cdk/aws-sns": "^1.145.0",
     "@aws-cdk/aws-sns-subscriptions": "^1.145.0",
     "@aws-cdk/aws-sqs": "^1.145.0",
-    "@hdmi/common-cdk": "^1.0.27",
+    "@uone/common-cdk": "^1.0.27",
     "@aws-cdk/core": "1.145.0",
     "@aws-cdk/aws-events-targets": "1.145.0",
     "aws-cdk": "1.145.0",

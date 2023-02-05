@@ -1,6 +1,6 @@
-const {HdmiTagHandler} = require('../src/hdmi-tag-handler')
+const {UOneTagHandler} = require('../src/uone-tag-handler')
 
-describe('HdmiTagHandler', () => {
+describe('UOneTagHandler', () => {
 
     const cdkContext = {
         env: 'Testing',
@@ -15,9 +15,9 @@ describe('HdmiTagHandler', () => {
             add: jest.fn().mockReturnThis()
         }
 
-        const hdmiTagHandler = HdmiTagHandler(tagService, cdkContext)
+        const uoneTagHandler = UOneTagHandler(tagService, cdkContext)
 
-        hdmiTagHandler.tag(testScope, 'testKey', 'testValue')
+        uoneTagHandler.tag(testScope, 'testKey', 'testValue')
 
         expect(tagService.of).toBeCalledTimes(1)
         expect(tagService.add).toBeCalledTimes(1)
@@ -30,9 +30,9 @@ describe('HdmiTagHandler', () => {
             add: jest.fn().mockReturnThis()
         }
 
-        const hdmiTagHandler = HdmiTagHandler(tagService, cdkContext)
+        const uoneTagHandler = UOneTagHandler(tagService, cdkContext)
 
-        expect(() => hdmiTagHandler.tag(null, 'tagKey', 'testValue'))
+        expect(() => uoneTagHandler.tag(null, 'tagKey', 'testValue'))
             .toThrowError(new Error('scope parameter is required'))
 
         expect(tagService.of).toBeCalledTimes(0)
@@ -47,9 +47,9 @@ describe('HdmiTagHandler', () => {
             add: jest.fn().mockReturnThis()
         }
 
-        const hdmiTagHandler = HdmiTagHandler(tagService, cdkContext)
+        const uoneTagHandler = UOneTagHandler(tagService, cdkContext)
 
-        expect(() => hdmiTagHandler.tag(testScope, '', 'testValue'))
+        expect(() => uoneTagHandler.tag(testScope, '', 'testValue'))
             .toThrowError(new Error('tagKey parameter is required'))
 
         expect(tagService.of).toBeCalledTimes(0)
@@ -64,9 +64,9 @@ describe('HdmiTagHandler', () => {
             add: jest.fn().mockReturnThis()
         }
 
-        const hdmiTagHandler = HdmiTagHandler(tagService, cdkContext)
+        const uoneTagHandler = UOneTagHandler(tagService, cdkContext)
 
-        expect(() => hdmiTagHandler.tag(testScope, 'tagKey', ''))
+        expect(() => uoneTagHandler.tag(testScope, 'tagKey', ''))
             .toThrowError(new Error('tagValue parameter is required'))
 
         expect(tagService.of).toBeCalledTimes(0)
@@ -81,9 +81,9 @@ describe('HdmiTagHandler', () => {
             add: jest.fn().mockReturnThis()
         }
 
-        const hdmiTagHandler = HdmiTagHandler(tagService, cdkContext)
+        const uoneTagHandler = UOneTagHandler(tagService, cdkContext)
 
-        hdmiTagHandler.tagStack(testScope, 'Hdmi-Testing')
+        uoneTagHandler.tagStack(testScope, 'UOne-Testing')
 
         expect(tagService.of).toBeCalledTimes(3)
         expect(tagService.add).toBeCalledTimes(3)
@@ -98,9 +98,9 @@ describe('HdmiTagHandler', () => {
             add: jest.fn().mockReturnThis()
         }
 
-        const hdmiTagHandler = HdmiTagHandler(tagService, cdkContext)
+        const uoneTagHandler = UOneTagHandler(tagService, cdkContext)
 
-        expect(() => hdmiTagHandler.tagStack(null, 'Hdmi-Test'))
+        expect(() => uoneTagHandler.tagStack(null, 'UOne-Test'))
             .toThrowError(new Error('scope parameter is required'))
 
         expect(tagService.of).toBeCalledTimes(0)
@@ -116,9 +116,9 @@ describe('HdmiTagHandler', () => {
             add: jest.fn().mockReturnThis()
         }
 
-        const hdmiTagHandler = HdmiTagHandler(tagService, cdkContext)
+        const uoneTagHandler = UOneTagHandler(tagService, cdkContext)
 
-        expect(() => hdmiTagHandler.tagStack(testScope, ''))
+        expect(() => uoneTagHandler.tagStack(testScope, ''))
             .toThrowError(new Error('stackName parameter is required'))
 
         expect(tagService.of).toBeCalledTimes(0)
@@ -127,14 +127,14 @@ describe('HdmiTagHandler', () => {
 
     it('should try to tag with missing tag service', () => {
 
-        expect(() => HdmiTagHandler(null, cdkContext))
+        expect(() => UOneTagHandler(null, cdkContext))
             .toThrowError(new Error('tag service is required'))
 
     })
 
     it('should try to tag with missing env', () => {
 
-        expect(() => HdmiTagHandler({}, null))
+        expect(() => UOneTagHandler({}, null))
             .toThrowError(new Error('cdkContext parameter is required'))
 
     })

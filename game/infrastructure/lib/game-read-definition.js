@@ -6,23 +6,23 @@ const ssm = require("aws-cdk-lib/aws-ssm");
 const { AVAILABLE_ENVS } = require("./available-envs");
 const es = require("aws-cdk-lib/aws-elasticsearch");
 const { GameConfiguration } = require("../../codebase/src/game-configuration");
-const BASE_STACK = "Hdmi-Games-";
+const BASE_STACK = "UOne-Games-";
 const BASE_STACK_READ = BASE_STACK + "Read-";
-const QUEST_BASE_STACK = "Hdmi-Quest-"
+const QUEST_BASE_STACK = "UOne-Quest-"
 const QUEST_BASE_STACK_SERVICE = QUEST_BASE_STACK + "Service-"
 const ENV_PROD = "prod";
 const iam = require("aws-cdk-lib/aws-iam");
 const { DynamoEventSource } = require("aws-cdk-lib/aws-lambda-event-sources");
 const sqs = require("aws-cdk-lib/aws-sqs");
 const { SqsEventSource } = require("aws-cdk-lib/aws-lambda-event-sources");
-const { HdmiLambda, HdmiVPC, HdmiStackClass, HdmiTagHandler } = require("@hdmi/common-cdk");
-const HdmiStack = HdmiStackClass(cdk);
+const { UOneLambda, UOneVPC, UOneStackClass, UOneTagHandler } = require("@uone/common-cdk");
+const UOneStack = UOneStackClass(cdk);
 
 /**
- * We need to change HdmiStack so we have support for multi user account right now it will be a big change
+ * We need to change UOneStack so we have support for multi user account right now it will be a big change
  * and for now since we have time limitation we wont be abe to do that.
  */
-class GameReadDefinitionStack extends HdmiStack {
+class GameReadDefinitionStack extends UOneStack {
     /**
      * @param {cdkContext} cdkContext
      * @param {construct} scope
@@ -36,21 +36,21 @@ class GameReadDefinitionStack extends HdmiStack {
         const prettyEnvName = envName.replace(/-/g, " ").replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }).replace(/ /g, "");
-        const hdmiVPC = new HdmiVPC(this, ec2);
-        let vpcLambda = hdmiVPC.getDefaultHdmiConfigWithVPC(
+        const uoneVPC = new UOneVPC(this, ec2);
+        let vpcLambda = uoneVPC.getDefaultUOneConfigWithVPC(
             cdk,
             props.tags.backboneEnv
         );
 
         // const { envName } = cdkContext;
-        const hdmiTagHandler = HdmiTagHandler(cdk.Tags, { envName: envName });
+        const uoneTagHandler = UOneTagHandler(cdk.Tags, { envName: envName });
                 
         /**
          * Adding tags for Game Read definition Stack
          */ 
-        hdmiTagHandler.tag(this, "PROJECT", "HdMiGames-Read");
-        hdmiTagHandler.tag(this, "ENVIRONMENT", envName);
-        hdmiTagHandler.tag(this, "OWNER", "Eng");
+        uoneTagHandler.tag(this, "PROJECT", "UOneGames-Read");
+        uoneTagHandler.tag(this, "ENVIRONMENT", envName);
+        uoneTagHandler.tag(this, "OWNER", "Eng");
         /**
          * followig is being used to add access to Event Bus
          */
@@ -102,7 +102,7 @@ class GameReadDefinitionStack extends HdmiStack {
                 stream: dynamodb.StreamViewType.NEW_AND_OLD_IMAGES,
             }
         );
-        hdmiTagHandler.tag(gameTable, "FUNCTIONALITY", "references");
+        uoneTagHandler.tag(gameTable, "FUNCTIONALITY", "references");
 
         /**
          * adds indexes in dynamodb
@@ -129,67 +129,67 @@ class GameReadDefinitionStack extends HdmiStack {
             },
         });
 
-        let hdmiLambda = new HdmiLambda(this, lambda, cdk, cdkContext);
+        let uoneLambda = new UOneLambda(this, lambda, cdk, cdkContext);
         /**
-         * load `Hdmi-QuestGateway-ServiceFn-UpsertEntities-${envName}` to upsertEntities in neptune
+         * load `UOne-QuestGateway-ServiceFn-UpsertEntities-${envName}` to upsertEntities in neptune
          */
-        const questUpsertEntitiesFunction = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-QuestGateway-ServiceFn-UpsertEntities-${envName}`
+        const questUpsertEntitiesFunction = uoneLambda.fromFunctionAttributes(
+            `UOne-QuestGateway-ServiceFn-UpsertEntities-${envName}`
         );
         /**
-         *  `Hdmi-QuestGateway-ServiceFn-UpsertPaths-${envName}` to create paths between graph/neptune node
+         *  `UOne-QuestGateway-ServiceFn-UpsertPaths-${envName}` to create paths between graph/neptune node
          */
-        const questUpsertPathsFunction = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-QuestGateway-ServiceFn-UpsertPaths-${envName}`
+        const questUpsertPathsFunction = uoneLambda.fromFunctionAttributes(
+            `UOne-QuestGateway-ServiceFn-UpsertPaths-${envName}`
         );
         /**
-         *  `Hdmi-Quest-Service-ExecuteContextQueryHandler-${envName}` Quest Query handler
+         *  `UOne-Quest-Service-ExecuteContextQueryHandler-${envName}` Quest Query handler
          */
-        const questExecuteQueryFunction = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-Quest-Service-ExecuteContextQueryHandler-${envName}`
+        const questExecuteQueryFunction = uoneLambda.fromFunctionAttributes(
+            `UOne-Quest-Service-ExecuteContextQueryHandler-${envName}`
         );
         /**
-         * `Hdmi-QuestGateway-ServiceFn-DeleteEntity-${envName}` Delete Entity Gateway reference
+         * `UOne-QuestGateway-ServiceFn-DeleteEntity-${envName}` Delete Entity Gateway reference
          */
-        const questDeleteEntityFunction = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-QuestGateway-ServiceFn-DeleteEntity-${envName}`
+        const questDeleteEntityFunction = uoneLambda.fromFunctionAttributes(
+            `UOne-QuestGateway-ServiceFn-DeleteEntity-${envName}`
         );
         /**
-         * `Hdmi-Games-Write-Cron-Handler-${prettyEnvName}` Delete Entity Gateway reference
+         * `UOne-Games-Write-Cron-Handler-${prettyEnvName}` Delete Entity Gateway reference
          */
-        const gameCronHandler = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-Games-Write-Cron-Handler-${prettyEnvName}`
+        const gameCronHandler = uoneLambda.fromFunctionAttributes(
+            `UOne-Games-Write-Cron-Handler-${prettyEnvName}`
         );
         /**
          * `${QUEST_BASE_STACK_SERVICE}ExecuteScriptHandler-${envName}` Quest scripts executor
          */
-        const questExecuteScriptFunction = hdmiLambda.fromFunctionAttributes(
+        const questExecuteScriptFunction = uoneLambda.fromFunctionAttributes(
             `${QUEST_BASE_STACK_SERVICE}ExecuteScriptHandler-${envName}`
         );
         /**
-         * `Hdmi-Entity-Read-Get-Entities-By-Id-List-FN-MS-${envName}`Read entity reference
+         * `UOne-Entity-Read-Get-Entities-By-Id-List-FN-MS-${envName}`Read entity reference
          */
-        const getEntitiesByIDList = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-Entity-Read-Get-Entities-By-Id-List-FN-MS-${envName}`
+        const getEntitiesByIDList = uoneLambda.fromFunctionAttributes(
+            `UOne-Entity-Read-Get-Entities-By-Id-List-FN-MS-${envName}`
         );
         /**
-         * `Hdmi-Games-Edges-SQS-Events-${prettyEnvName}`Quest SQS Write path
+         * `UOne-Games-Edges-SQS-Events-${prettyEnvName}`Quest SQS Write path
          */
-        const gameEdgesSQSQueueName = `Hdmi-Games-Edges-SQS-Events-${prettyEnvName}`;
+        const gameEdgesSQSQueueName = `UOne-Games-Edges-SQS-Events-${prettyEnvName}`;
 
         /**
-         * `Hdmi-Games-Edges-SQS-EventsDLQ-${prettyEnvName}`
+         * `UOne-Games-Edges-SQS-EventsDLQ-${prettyEnvName}`
          * SQS for writing game edges (we use it for edges between games, groups, users, kpis and metrics)
          */
         const gameEdgeDLQ = new sqs.Queue(
             this,
-            `Hdmi-Games-Edges-SQS-EventsDLQ-${prettyEnvName}`,
+            `UOne-Games-Edges-SQS-EventsDLQ-${prettyEnvName}`,
             {
-                queueName: `Hdmi-Games-Edges-SQS-EventsDLQ-${prettyEnvName}`,
+                queueName: `UOne-Games-Edges-SQS-EventsDLQ-${prettyEnvName}`,
                 retentionPeriod: cdk.Duration.days(14),
             }
         );
-        hdmiTagHandler.tag(gameEdgeDLQ, "FUNCTIONALITY", "references");
+        uoneTagHandler.tag(gameEdgeDLQ, "FUNCTIONALITY", "references");
 
         const gameEdgesSQSQueue = new sqs.Queue(this, gameEdgesSQSQueueName, {
             queueName: gameEdgesSQSQueueName,
@@ -198,7 +198,7 @@ class GameReadDefinitionStack extends HdmiStack {
                 maxReceiveCount: 3,
             },
         });
-        hdmiTagHandler.tag(gameEdgesSQSQueue, "FUNCTIONALITY", "references");
+        uoneTagHandler.tag(gameEdgesSQSQueue, "FUNCTIONALITY", "references");
 
         /**
          * environment variables for lambdas
@@ -226,12 +226,12 @@ class GameReadDefinitionStack extends HdmiStack {
          * games in graph this is a read stack but since cdk wont allow to  add stream in other
          * stack then the table was created in so we have to add it here
          */
-        const gameDynamoTriggerHandler = hdmiLambda.newFunction(
+        const gameDynamoTriggerHandler = uoneLambda.newFunction(
             `${BASE_STACK_READ}Graphs-Insert-Handler-${prettyEnvName}`,
             "src/write/game-write-entrypoint.dynamodb.upsertGameInGraphHandler",
             envs,
             "references",
-            "HdMiGames",
+            "UOneGames",
             {
                 timeout: cdk.Duration.seconds(600),
                 ...vpcLambda,
@@ -260,12 +260,12 @@ class GameReadDefinitionStack extends HdmiStack {
          * followig is being used to call sqs trigger and create lamdba for it to store
          * edges in graph
          */
-        const gameUpsertEdgesSQSTriggerHandler = hdmiLambda.newFunction(
+        const gameUpsertEdgesSQSTriggerHandler = uoneLambda.newFunction(
             `${BASE_STACK}Edges-Upsert-Handler-${prettyEnvName}`,
             "src/write/game-write-entrypoint.sqs.upsertEdgesIntoGraphHandler",
             envs,
             "references",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -288,12 +288,12 @@ class GameReadDefinitionStack extends HdmiStack {
         /**
          * game games by search lambda
          */
-        const getGamesBySearch = hdmiLambda.newFunction(
+        const getGamesBySearch = uoneLambda.newFunction(
             `${BASE_STACK_READ}Get-Games-By-Search-${prettyEnvName}`,
             "src/read/game-read-entrypoint.rest.getGamesBySearchHandler",
             envs,
             "read-data",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -303,12 +303,12 @@ class GameReadDefinitionStack extends HdmiStack {
         /**
          * game games by search lambda
          */
-        const getGamesByIdsHandlerFN = hdmiLambda.newFunction(
+        const getGamesByIdsHandlerFN = uoneLambda.newFunction(
             `${BASE_STACK_READ}Get-Games-By-ID-List-${prettyEnvName}`,
             "src/read/game-read-entrypoint.rest.getGamesByIdsHandler",
             envs,
             "references",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -354,7 +354,7 @@ class GameReadDefinitionStage extends cdk.Stage {
         new GameReadDefinitionStack(
             cdkContext,
             this,
-            `Hdmi-Games-Read-${envName}`,
+            `UOne-Games-Read-${envName}`,
             envName,
             readStackProps
         );

@@ -5,11 +5,11 @@ const { updateGame, GameWriteService } = require("../../../src/write/services/ga
 const { GameConfiguration } = require('../../../src/game-configuration')
 const AWS = require('aws-sdk')
 const games_large = require('../../read/game/data/games_large.json');
-const { QuestServiceClient } = require("@hdmi/quest-clients/src/quest-service-client")
+const { QuestServiceClient } = require("@uone/quest-clients/src/quest-service-client")
 const { GameReadRepository } = require("../../../src/read/repositories/game-read-repository")
 const { WriteQuestGraphService } = require("../../../src/write/services/quest-write-graph-service")
-const { EntityReadClients } = require('@hdmi/hdmi-entity-clients').Read
-const { LambdaInvoker } = require('@heyday/hdmi-utils').Lambda
+const { EntityReadClients } = require('@uone/uone-entity-clients').Read
+const { LambdaInvoker } = require('@heyday/uone-utils').Lambda
 const { v4: uuid } = require("uuid");
 
 describe('GameWriteRestHandler', () => {

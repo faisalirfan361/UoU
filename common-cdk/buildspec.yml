@@ -17,7 +17,7 @@ phases:
       - projectname=$(echo $CODEBUILD_SOURCE_REPO_URL | cut -d/ -f5- | cut -d'.' -f1)
       - echo "Downloaded ShiftLeft..."
       - curl https://cdn.shiftleft.io/download/sl > /usr/local/bin/sl && chmod a+rx /usr/local/bin/sl
-      - aws codeartifact login --tool npm --repository hdmi-npm --domain hdmi --domain-owner $codeartifactdomain
+      - aws codeartifact login --tool npm --repository uone-npm --domain uone --domain-owner $codeartifactdomain
       - cd ./codebase
       - npm install
   build:

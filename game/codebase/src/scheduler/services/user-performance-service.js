@@ -4,7 +4,7 @@ const {GameConfiguration} = require('../../game-configuration')
  * UserPerformanceService service to expose user performance repo
  * and provide basic utlitlies to it
  * 
- * @param HDMIUserPerformance userPerfomanceRepo 
+ * @param UOneUserPerformance userPerfomanceRepo 
  * @returns 
  */
 function UserPerformanceService(userPerfomanceRepo) {

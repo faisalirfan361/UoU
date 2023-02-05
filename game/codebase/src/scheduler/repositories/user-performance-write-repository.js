@@ -14,7 +14,7 @@ function UserPerformanceWriteRepository(documentClient, gameConfiguration) {
         /**
          * Store / Upsert user performance data
          * 
-         * @param HDMIUserPerformaceObject performanceData 
+         * @param UOneUserPerformaceObject performanceData 
          * @returns 
          */
         upsert: async (performanceData) => { 

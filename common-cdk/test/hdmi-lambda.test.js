@@ -1,6 +1,6 @@
-const {HdmiLambda} = require('../src/hdmi-lambda')
+const {UOneLambda} = require('../src/uone-lambda')
 
-describe('HdmiLambda', () => {
+describe('UOneLambda', () => {
     process.env.CDK_DEFAULT_ACCOUNT = '12345'
     process.env.CDK_DEFAULT_REGION = 'us-west-2'
 
@@ -24,8 +24,8 @@ describe('HdmiLambda', () => {
                 }
             }
 
-            const hdmiLambda = HdmiLambda(testScope, lambda)
-            const construct = hdmiLambda.fromFunctionName('testFunction', '54321', 'us-east-1')
+            const uoneLambda = UOneLambda(testScope, lambda)
+            const construct = uoneLambda.fromFunctionName('testFunction', '54321', 'us-east-1')
             expect(construct).toStrictEqual({
                 id: '0001'
             })
@@ -46,22 +46,22 @@ describe('HdmiLambda', () => {
                 }
             }
 
-            const hdmiLambda = HdmiLambda(testScope, lambda)
-            const construct = hdmiLambda.fromFunctionName('testFunction')
+            const uoneLambda = UOneLambda(testScope, lambda)
+            const construct = uoneLambda.fromFunctionName('testFunction')
             expect(construct).toStrictEqual({
                 id: '0001'
             })
         })
 
         it('should try to return a lambda construct and throw an error when the function name is not provided', () => {
-            const hdmiLambda = HdmiLambda({}, {})
-            expect(() => hdmiLambda.fromFunctionName(null, '12345'))
+            const uoneLambda = UOneLambda({}, {})
+            expect(() => uoneLambda.fromFunctionName(null, '12345'))
                 .toThrowError(new Error('functionName is required'))
         })
 
         it('should try to return a lambda construct and throw an error when the accountId is not provided', () => {
-            const hdmiLambda = HdmiLambda({}, {})
-            expect(() => hdmiLambda.fromFunctionName('testFunction', null))
+            const uoneLambda = UOneLambda({}, {})
+            expect(() => uoneLambda.fromFunctionName('testFunction', null))
                 .toThrowError(new Error('accountId is required'))
         })
     })
@@ -92,14 +92,14 @@ describe('HdmiLambda', () => {
                     }
                 }
             }
-            const hdmiLambda = HdmiLambda(testScope, lambda, core)
+            const uoneLambda = UOneLambda(testScope, lambda, core)
 
-            const fn = hdmiLambda.newFunction('Hdmi-New-Fn', './src/path/to/entrypoint.handler')
+            const fn = uoneLambda.newFunction('UOne-New-Fn', './src/path/to/entrypoint.handler')
 
             expect(fn.scope).toStrictEqual(testScope)
-            expect(fn.id).toEqual('Hdmi-New-Fn')
+            expect(fn.id).toEqual('UOne-New-Fn')
             expect(fn.props).toStrictEqual({
-                functionName: 'Hdmi-New-Fn',
+                functionName: 'UOne-New-Fn',
                 runtime: lambda.Runtime.NODEJS_14_X,
                 code: lambda.Code.fromAsset('../codebase'),
                 timeout: core.Duration.seconds(30),
@@ -111,15 +111,15 @@ describe('HdmiLambda', () => {
         })
 
         it('should throw an error if the function name is not provided', () => {
-            const hdmiLambda = HdmiLambda(testScope, {}, {})
+            const uoneLambda = UOneLambda(testScope, {}, {})
 
-            expect(() => hdmiLambda.newFunction()).toThrowError(new Error('functionName is required'))
+            expect(() => uoneLambda.newFunction()).toThrowError(new Error('functionName is required'))
         })
 
         it('should throw an error if the handler is not provided', () => {
-            const hdmiLambda = HdmiLambda(testScope, {}, {})
+            const uoneLambda = UOneLambda(testScope, {}, {})
 
-            expect(() => hdmiLambda.newFunction('Hdmi-Function-Name')).toThrowError(new Error('handler is required'))
+            expect(() => uoneLambda.newFunction('UOne-Function-Name')).toThrowError(new Error('handler is required'))
         })
 
         it('should create a new function with the environment and props provided', () => {
@@ -147,10 +147,10 @@ describe('HdmiLambda', () => {
                     }
                 }
             }
-            const hdmiLambda = HdmiLambda(testScope, lambda, core)
+            const uoneLambda = UOneLambda(testScope, lambda, core)
 
-            const fn = hdmiLambda.newFunction(
-                'Hdmi-New-Fn',
+            const fn = uoneLambda.newFunction(
+                'UOne-New-Fn',
                 './src/path/to/entrypoint.handler',
                 {
                     SOME_CONFIG: 'configuration.value'
@@ -160,9 +160,9 @@ describe('HdmiLambda', () => {
                 })
 
             expect(fn.scope).toStrictEqual(testScope)
-            expect(fn.id).toEqual('Hdmi-New-Fn')
+            expect(fn.id).toEqual('UOne-New-Fn')
             expect(fn.props).toStrictEqual({
-                functionName: 'Hdmi-New-Fn',
+                functionName: 'UOne-New-Fn',
                 runtime: lambda.Runtime.NODEJS_14_X,
                 code: lambda.Code.fromAsset('../codebase'),
                 timeout: core.Duration.seconds(30),

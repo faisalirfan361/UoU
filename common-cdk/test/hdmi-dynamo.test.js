@@ -1,6 +1,6 @@
-const {HdmiDynamo} = require('../src/hdmi-dynamo')
+const {UOneDynamo} = require('../src/uone-dynamo')
 
-describe('HdmiDynamo', () => {
+describe('UOneDynamo', () => {
     const cdkContext = {
         env: 'Test',
         volatile: false
@@ -11,25 +11,25 @@ describe('HdmiDynamo', () => {
         accountId: '12345'
     }
 
-    describe('HdmiDynamo required params', () => {
+    describe('UOneDynamo required params', () => {
         it('should throw an error when the env is not provided', () => {
-            expect(() => HdmiDynamo())
+            expect(() => UOneDynamo())
                 .toThrowError(new Error('cdkContext is required'))
         })
 
         it('should throw an error when the scope is not provided', () => {
-            expect(() => HdmiDynamo(cdkContext))
+            expect(() => UOneDynamo(cdkContext))
                 .toThrowError(new Error('scope is required'))
         })
 
         it('should throw an error when the dynamodb is not provided', () => {
-            expect(() => HdmiDynamo(cdkContext, testScope))
+            expect(() => UOneDynamo(cdkContext, testScope))
                 .toThrowError(new Error('dynamodb is required'))
         })
     })
 
     describe('newDefaultPersistenceStack', () => {
-        const HdmiStack = class {
+        const UOneStack = class {
             constructor(cdkContext, scope, id, props) {
                 this.cdkContext = cdkContext
                 this.scope = scope
@@ -50,7 +50,7 @@ describe('HdmiDynamo', () => {
                 Table: class {
                     constructor(scope, id, props) {
                         expect(props).toStrictEqual({
-                            tableName: 'Hdmi-TestStack-Events-Test',
+                            tableName: 'UOne-TestStack-Events-Test',
                             partitionKey: {name: 'contextId', type: 'String'},
                             sortKey: {name: 'eventDate', type: 'Number'},
                             billingMode: 'PayPerRequest',
@@ -71,16 +71,16 @@ describe('HdmiDynamo', () => {
                 }
             }
 
-            const hdmiDynamo = HdmiDynamo(cdkContext, testScope, dynamodb, core, HdmiStack)
+            const uoneDynamo = UOneDynamo(cdkContext, testScope, dynamodb, core, UOneStack)
 
-            const defaultPersistenceStack = hdmiDynamo.newDefaultPersistenceStack('TestStack')
+            const defaultPersistenceStack = uoneDynamo.newDefaultPersistenceStack('TestStack')
 
             expect(defaultPersistenceStack.scope).toStrictEqual(testScope)
             expect(defaultPersistenceStack.cdkContext).toStrictEqual(cdkContext)
-            expect(defaultPersistenceStack.id).toEqual('Hdmi-TestStack-Write-Persistence-Test')
-            expect(defaultPersistenceStack.tableName).toEqual('Hdmi-TestStack-Events-Test')
+            expect(defaultPersistenceStack.id).toEqual('UOne-TestStack-Write-Persistence-Test')
+            expect(defaultPersistenceStack.tableName).toEqual('UOne-TestStack-Events-Test')
             expect(defaultPersistenceStack.props).toStrictEqual({
-                tableName: 'Hdmi-TestStack-Events-Test'
+                tableName: 'UOne-TestStack-Events-Test'
             })
         })
 
@@ -108,7 +108,7 @@ describe('HdmiDynamo', () => {
                 Table: class {
                     constructor(scope, id, props) {
                         expect(props).toStrictEqual({
-                            tableName: 'Hdmi-TestStack-Events-Test',
+                            tableName: 'UOne-TestStack-Events-Test',
                             partitionKey: {name: 'contextId', type: 'String'},
                             sortKey: {name: 'eventDate', type: 'Number'},
                             billingMode: 'PayPerRequest',
@@ -129,15 +129,15 @@ describe('HdmiDynamo', () => {
                 }
             }
 
-            const hdmiDynamo = HdmiDynamo(volatileContext, testScope, dynamodb, core, HdmiStack)
+            const uoneDynamo = UOneDynamo(volatileContext, testScope, dynamodb, core, UOneStack)
 
-            const defaultPersistenceStack = hdmiDynamo.newDefaultPersistenceStack('TestStack')
+            const defaultPersistenceStack = uoneDynamo.newDefaultPersistenceStack('TestStack')
 
             expect(defaultPersistenceStack.scope).toStrictEqual(testScope)
-            expect(defaultPersistenceStack.id).toEqual('Hdmi-TestStack-Write-Persistence-Test')
-            expect(defaultPersistenceStack.tableName).toEqual('Hdmi-TestStack-Events-Test')
+            expect(defaultPersistenceStack.id).toEqual('UOne-TestStack-Write-Persistence-Test')
+            expect(defaultPersistenceStack.tableName).toEqual('UOne-TestStack-Events-Test')
             expect(defaultPersistenceStack.props).toStrictEqual({
-                tableName: 'Hdmi-TestStack-Events-Test'
+                tableName: 'UOne-TestStack-Events-Test'
             })
         })
 
@@ -146,7 +146,7 @@ describe('HdmiDynamo', () => {
                 Table: class {
                     constructor(scope, id, props) {
                         expect(props).toStrictEqual({
-                            tableName: 'Hdmi-TestStack-Events-Test',
+                            tableName: 'UOne-TestStack-Events-Test',
                             partitionKey: {name: 'contextId', type: 'String'},
                             sortKey: {name: 'eventDate', type: 'Number'},
                             billingMode: 'PayPerRequest',
@@ -167,18 +167,18 @@ describe('HdmiDynamo', () => {
                 }
             }
 
-            const hdmiDynamo = HdmiDynamo(cdkContext, testScope, dynamodb, core, HdmiStack)
+            const uoneDynamo = UOneDynamo(cdkContext, testScope, dynamodb, core, UOneStack)
 
-            const defaultPersistenceStack = hdmiDynamo.newDefaultPersistenceStack('TestStack', {}, {
+            const defaultPersistenceStack = uoneDynamo.newDefaultPersistenceStack('TestStack', {}, {
                 otherProp: 'Value'
             })
 
             expect(defaultPersistenceStack.scope).toStrictEqual(testScope)
             expect(defaultPersistenceStack.cdkContext).toStrictEqual(cdkContext)
-            expect(defaultPersistenceStack.id).toEqual('Hdmi-TestStack-Write-Persistence-Test')
-            expect(defaultPersistenceStack.tableName).toEqual('Hdmi-TestStack-Events-Test')
+            expect(defaultPersistenceStack.id).toEqual('UOne-TestStack-Write-Persistence-Test')
+            expect(defaultPersistenceStack.tableName).toEqual('UOne-TestStack-Events-Test')
             expect(defaultPersistenceStack.props).toStrictEqual({
-                tableName: 'Hdmi-TestStack-Events-Test',
+                tableName: 'UOne-TestStack-Events-Test',
                 otherProp: 'Value'
             })
         })
@@ -188,7 +188,7 @@ describe('HdmiDynamo', () => {
                 Table: class {
                     constructor(scope, id, props) {
                         expect(props).toStrictEqual({
-                            tableName: 'Hdmi-TestStack-Events-Test',
+                            tableName: 'UOne-TestStack-Events-Test',
                             partitionKey: {name: 'contextId', type: 'String'},
                             sortKey: {name: 'eventDate', type: 'Number'},
                             billingMode: 'PayPerRequest',
@@ -210,24 +210,24 @@ describe('HdmiDynamo', () => {
                 }
             }
 
-            const hdmiDynamo = HdmiDynamo(cdkContext, testScope, dynamodb, core, HdmiStack)
+            const uoneDynamo = UOneDynamo(cdkContext, testScope, dynamodb, core, UOneStack)
 
-            const defaultPersistenceStack = hdmiDynamo.newDefaultPersistenceStack('TestStack', {
+            const defaultPersistenceStack = uoneDynamo.newDefaultPersistenceStack('TestStack', {
                 encryption: 'AWS_MANAGED'
             })
 
             expect(defaultPersistenceStack.scope).toStrictEqual(testScope)
             expect(defaultPersistenceStack.cdkContext).toStrictEqual(cdkContext)
-            expect(defaultPersistenceStack.id).toEqual('Hdmi-TestStack-Write-Persistence-Test')
-            expect(defaultPersistenceStack.tableName).toEqual('Hdmi-TestStack-Events-Test')
+            expect(defaultPersistenceStack.id).toEqual('UOne-TestStack-Write-Persistence-Test')
+            expect(defaultPersistenceStack.tableName).toEqual('UOne-TestStack-Events-Test')
             expect(defaultPersistenceStack.props).toStrictEqual({
-                tableName: 'Hdmi-TestStack-Events-Test'
+                tableName: 'UOne-TestStack-Events-Test'
             })
         })
 
         it('should throw an error when the projectName is not provided', () => {
-            const hdmiDynamo = HdmiDynamo(cdkContext, {}, {}, {})
-            expect(() => hdmiDynamo.newDefaultPersistenceStack())
+            const uoneDynamo = UOneDynamo(cdkContext, {}, {}, {})
+            expect(() => uoneDynamo.newDefaultPersistenceStack())
                 .toThrowError(new Error('projectName is required'))
         })
     })

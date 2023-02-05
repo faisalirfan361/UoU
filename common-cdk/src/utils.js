@@ -1,5 +1,5 @@
 /**
- * Utils and constants for the HdmiCDK
+ * Utils and constants for the UOneCDK
  */
 const TAG_CONSTANTS = Object.freeze({
     ENVIRONMENT: "ENVIRONMENT",

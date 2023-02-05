@@ -61,7 +61,7 @@ function GameSearchService() {
         /**
          * {
          *  "gameId",
-         *  ...HDMIGameObject // check confluence for UDMs
+         *  ...UOneGameObject // check confluence for UDMs
          * }
          *
          * document could any type of json document to be indexed
@@ -88,7 +88,7 @@ function GameSearchService() {
          * 
          * {
          *  "gameId",
-         *  ...HDMIGameObject // check confluence for UDMs
+         *  ...UOneGameObject // check confluence for UDMs
          * }
          *
          *update game document by ID

@@ -1,9 +1,9 @@
-const {HdmiApiGateway} = require('../src/hdmi-api-gateway')
+const {UOneApiGateway} = require('../src/uone-api-gateway')
 
 /**
  * @TODO Faisal and Awais we should increase tests in this
  */
-describe('HdmiApiGateway', () => {
+describe('UOneApiGateway', () => {
     const cdkContext = {
         env: 'Dev'
     }
@@ -13,8 +13,8 @@ describe('HdmiApiGateway', () => {
         class RestApi {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-API-Dev')
-                expect(options.restApiName).toEqual('Hdmi-Test-Gateway-API-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-API-Dev')
+                expect(options.restApiName).toEqual('UOne-Test-Gateway-API-Dev')
                 expect(options.deployOptions.stageName).toEqual('Dev')
                 expect(options.defaultCorsPreflightOptions).toStrictEqual({
                     allowOrigins: [],
@@ -37,12 +37,12 @@ describe('HdmiApiGateway', () => {
             apigateway
         }
 
-        const hdmiApiGateway = HdmiApiGateway(cdk, testScope, 'Test', cdkContext)
+        const uoneApiGateway = UOneApiGateway(cdk, testScope, 'Test', cdkContext)
 
-        const api = hdmiApiGateway.buildApiGateway(['GET'], false)
+        const api = uoneApiGateway.buildApiGateway(['GET'], false)
 
-        expect(api).toStrictEqual(new RestApi(testScope, 'Hdmi-Test-Gateway-API-Dev', {
-            restApiName: 'Hdmi-Test-Gateway-API-Dev',
+        expect(api).toStrictEqual(new RestApi(testScope, 'UOne-Test-Gateway-API-Dev', {
+            restApiName: 'UOne-Test-Gateway-API-Dev',
             deployOptions: {
                 stageName: 'Dev'
             },
@@ -60,8 +60,8 @@ describe('HdmiApiGateway', () => {
         class RestApi {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-API-Dev')
-                expect(options.restApiName).toEqual('Hdmi-Test-Gateway-API-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-API-Dev')
+                expect(options.restApiName).toEqual('UOne-Test-Gateway-API-Dev')
                 expect(options.deployOptions.stageName).toEqual('Dev')
                 expect(options.defaultCorsPreflightOptions).toStrictEqual({
                     allowOrigins: [],
@@ -81,7 +81,7 @@ describe('HdmiApiGateway', () => {
             DomainName: {
                 fromDomainNameAttributes: (scope, id, options) => {
                     expect(scope).toEqual(testScope)
-                    expect(id).toEqual('Hdmi-TestDomain-Dev')
+                    expect(id).toEqual('UOne-TestDomain-Dev')
                     expect(options).toStrictEqual({
                         domainName: 'test.heydaynow.com'
                     })
@@ -91,7 +91,7 @@ describe('HdmiApiGateway', () => {
             BasePathMapping: class {
                 constructor(scope, id, options) {
                     expect(scope).toEqual(testScope)
-                    expect(id).toEqual('Hdmi-TestBasePath-Dev')
+                    expect(id).toEqual('UOne-TestBasePath-Dev')
                     expect(options.basePath).toEqual('dev')
                     expect(options.domainName).toEqual('test.heydaynow.com')
                 }
@@ -102,15 +102,15 @@ describe('HdmiApiGateway', () => {
             apigateway
         }
 
-        const hdmiApiGateway = HdmiApiGateway(cdk, testScope, 'Test', {
+        const uoneApiGateway = UOneApiGateway(cdk, testScope, 'Test', {
             ...cdkContext,
             subdomain: 'test.heydaynow.com'
         })
 
-        const api = hdmiApiGateway.buildApiGateway(['GET'], false, 'dev')
+        const api = uoneApiGateway.buildApiGateway(['GET'], false, 'dev')
 
-        expect(api).toStrictEqual(new RestApi(testScope, 'Hdmi-Test-Gateway-API-Dev', {
-            restApiName: 'Hdmi-Test-Gateway-API-Dev',
+        expect(api).toStrictEqual(new RestApi(testScope, 'UOne-Test-Gateway-API-Dev', {
+            restApiName: 'UOne-Test-Gateway-API-Dev',
             deployOptions: {
                 stageName: 'Dev'
             },
@@ -128,18 +128,18 @@ describe('HdmiApiGateway', () => {
         class ApiKey {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-Key-Dev')
-                expect(options.apiKeyName).toEqual('Hdmi-Test-Gateway-Key-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-Key-Dev')
+                expect(options.apiKeyName).toEqual('UOne-Test-Gateway-Key-Dev')
             }
         }
 
         class UsagePlan {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-UsagePlan-Dev')
-                expect(options.name).toEqual('Hdmi-Test-Gateway-UsagePlan-Dev')
-                expect(options.apiKey).toStrictEqual(new ApiKey(testScope, 'Hdmi-Test-Gateway-Key-Dev', {
-                    apiKeyName: 'Hdmi-Test-Gateway-Key-Dev'
+                expect(id).toEqual('UOne-Test-Gateway-UsagePlan-Dev')
+                expect(options.name).toEqual('UOne-Test-Gateway-UsagePlan-Dev')
+                expect(options.apiKey).toStrictEqual(new ApiKey(testScope, 'UOne-Test-Gateway-Key-Dev', {
+                    apiKeyName: 'UOne-Test-Gateway-Key-Dev'
                 }))
             }
 
@@ -151,8 +151,8 @@ describe('HdmiApiGateway', () => {
         class RestApi {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-API-Dev')
-                expect(options.restApiName).toEqual('Hdmi-Test-Gateway-API-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-API-Dev')
+                expect(options.restApiName).toEqual('UOne-Test-Gateway-API-Dev')
                 expect(options.deployOptions.stageName).toEqual('Dev')
                 expect(options.defaultCorsPreflightOptions).toStrictEqual({
                     allowOrigins: [],
@@ -186,12 +186,12 @@ describe('HdmiApiGateway', () => {
             apigateway
         }
 
-        const hdmiApiGateway = HdmiApiGateway(cdk, testScope, 'Test', cdkContext)
+        const uoneApiGateway = UOneApiGateway(cdk, testScope, 'Test', cdkContext)
 
-        const api = hdmiApiGateway.buildApiGateway(['GET'], true)
+        const api = uoneApiGateway.buildApiGateway(['GET'], true)
 
-        expect(api).toStrictEqual(new RestApi(testScope, 'Hdmi-Test-Gateway-API-Dev', {
-            restApiName: 'Hdmi-Test-Gateway-API-Dev',
+        expect(api).toStrictEqual(new RestApi(testScope, 'UOne-Test-Gateway-API-Dev', {
+            restApiName: 'UOne-Test-Gateway-API-Dev',
             deployOptions: {
                 stageName: 'Dev'
             },
@@ -209,9 +209,9 @@ describe('HdmiApiGateway', () => {
         class ApiKey {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-Key-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-Key-Dev')
                 expect(options).toStrictEqual({
-                    apiKeyName: 'Hdmi-Test-Gateway-Key-Dev',
+                    apiKeyName: 'UOne-Test-Gateway-Key-Dev',
                     value: 'k3y'
                 })
             }
@@ -220,10 +220,10 @@ describe('HdmiApiGateway', () => {
         class UsagePlan {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-UsagePlan-Dev')
-                expect(options.name).toEqual('Hdmi-Test-Gateway-UsagePlan-Dev')
-                expect(options.apiKey).toStrictEqual(new ApiKey(testScope, 'Hdmi-Test-Gateway-Key-Dev', {
-                    apiKeyName: 'Hdmi-Test-Gateway-Key-Dev',
+                expect(id).toEqual('UOne-Test-Gateway-UsagePlan-Dev')
+                expect(options.name).toEqual('UOne-Test-Gateway-UsagePlan-Dev')
+                expect(options.apiKey).toStrictEqual(new ApiKey(testScope, 'UOne-Test-Gateway-Key-Dev', {
+                    apiKeyName: 'UOne-Test-Gateway-Key-Dev',
                     value: 'k3y'
                 }))
             }
@@ -236,8 +236,8 @@ describe('HdmiApiGateway', () => {
         class RestApi {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-API-Dev')
-                expect(options.restApiName).toEqual('Hdmi-Test-Gateway-API-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-API-Dev')
+                expect(options.restApiName).toEqual('UOne-Test-Gateway-API-Dev')
                 expect(options.deployOptions.stageName).toEqual('Dev')
                 expect(options.defaultCorsPreflightOptions).toStrictEqual({
                     allowOrigins: [],
@@ -269,12 +269,12 @@ describe('HdmiApiGateway', () => {
             apigateway
         }
 
-        const hdmiApiGateway = HdmiApiGateway(cdk, testScope, 'Test', cdkContext)
+        const uoneApiGateway = UOneApiGateway(cdk, testScope, 'Test', cdkContext)
 
-        const api = hdmiApiGateway.buildApiGateway(['GET'], {apiKeyValue: 'k3y'})
+        const api = uoneApiGateway.buildApiGateway(['GET'], {apiKeyValue: 'k3y'})
 
-        expect(api).toStrictEqual(new RestApi(testScope, 'Hdmi-Test-Gateway-API-Dev', {
-            restApiName: 'Hdmi-Test-Gateway-API-Dev',
+        expect(api).toStrictEqual(new RestApi(testScope, 'UOne-Test-Gateway-API-Dev', {
+            restApiName: 'UOne-Test-Gateway-API-Dev',
             deployOptions: {
                 stageName: 'Dev'
             },
@@ -292,8 +292,8 @@ describe('HdmiApiGateway', () => {
         class RestApi {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-API-Dev')
-                expect(options.restApiName).toEqual('Hdmi-Test-Gateway-API-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-API-Dev')
+                expect(options.restApiName).toEqual('UOne-Test-Gateway-API-Dev')
                 expect(options.deployOptions.stageName).toEqual('Dev')
                 expect(options.defaultCorsPreflightOptions).toStrictEqual({
                     allowOrigins: [],
@@ -316,12 +316,12 @@ describe('HdmiApiGateway', () => {
             apigateway
         }
 
-        const hdmiApiGateway = HdmiApiGateway(cdk, testScope, 'Test', {
+        const uoneApiGateway = UOneApiGateway(cdk, testScope, 'Test', {
             ...cdkContext,
             subdomain: 'test.heydaynow.com'
         })
 
-        expect(() => hdmiApiGateway.buildApiGateway(['GET'], false)).toThrow(new Error('basePath parameter is required when using a subdomain'))
+        expect(() => uoneApiGateway.buildApiGateway(['GET'], false)).toThrow(new Error('basePath parameter is required when using a subdomain'))
     })
 
     it('should throw an error if allowedMethods is not defined', () => {
@@ -330,8 +330,8 @@ describe('HdmiApiGateway', () => {
         class RestApi {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-Gateway-API-Dev')
-                expect(options.restApiName).toEqual('Hdmi-Test-Gateway-API-Dev')
+                expect(id).toEqual('UOne-Test-Gateway-API-Dev')
+                expect(options.restApiName).toEqual('UOne-Test-Gateway-API-Dev')
                 expect(options.deployOptions.stageName).toEqual('Dev')
                 expect(options.defaultCorsPreflightOptions).toStrictEqual({
                     allowOrigins: [],
@@ -354,16 +354,16 @@ describe('HdmiApiGateway', () => {
             apigateway
         }
 
-        const hdmiApiGateway = HdmiApiGateway(cdk, testScope, 'Test', cdkContext)
+        const uoneApiGateway = UOneApiGateway(cdk, testScope, 'Test', cdkContext)
 
-        expect(() => hdmiApiGateway.buildApiGateway()).toThrow(new Error('allowedMethods parameter is required'))
+        expect(() => uoneApiGateway.buildApiGateway()).toThrow(new Error('allowedMethods parameter is required'))
     })
 
     it('should throw an error if projectName is not defined', () => {
-        expect(() => HdmiApiGateway({}, {}, undefined, 'Dev')).toThrow(new Error('projectName parameter is required'))
+        expect(() => UOneApiGateway({}, {}, undefined, 'Dev')).toThrow(new Error('projectName parameter is required'))
     })
 
     it('should throw an error if env is not defined', () => {
-        expect(() => HdmiApiGateway({}, {}, 'Test', undefined)).toThrow(new Error('cdkContext parameter is required'))
+        expect(() => UOneApiGateway({}, {}, 'Test', undefined)).toThrow(new Error('cdkContext parameter is required'))
     })
 })

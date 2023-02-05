@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const cdk = require("aws-cdk-lib");
-const { HdMiGameProject } = require("../lib/project");
+const { UOneGameProject } = require("../lib/project");
 
 const app = new cdk.App();
 
@@ -23,6 +23,6 @@ environments.set("shared-services", {
 });
 
 // sbx-micro pipeline
-const sbxMicroProject = new HdMiGameProject(app, "HdMi-Games-Project-SbxMicro", 'sbx-micro', environments);
+const sbxMicroProject = new UOneGameProject(app, "UOne-Games-Project-SbxMicro", 'sbx-micro', environments);
 // dev pipeline
-const devMicroProject = new HdMiGameProject(app, "HdMi-Games-Project-Dev", 'dev', environments);
+const devMicroProject = new UOneGameProject(app, "UOne-Games-Project-Dev", 'dev', environments);

@@ -1,11 +1,11 @@
 /**
  * This must be used in each stack as based class to proper tagging and logging
  * 
- * @param HDMIStackCore core 
+ * @param UOneStackCore core 
  * @returns 
  */
-function HdmiStackClass(core) {
-    class HdmiStack extends core.Stack {
+function UOneStackClass(core) {
+    class UOneStack extends core.Stack {
         constructor(cdkContext, scope, id, props) {
             console.log("props ", props)
             console.log("cdkContext ", cdkContext)
@@ -17,7 +17,7 @@ function HdmiStackClass(core) {
         }
     }
 
-    return HdmiStack
+    return UOneStack
 }
 
-module.exports = {HdmiStackClass}
+module.exports = {UOneStackClass}

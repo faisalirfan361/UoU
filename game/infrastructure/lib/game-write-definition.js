@@ -7,19 +7,19 @@ const iam = require("aws-cdk-lib/aws-iam");
 const ec2 = require("aws-cdk-lib/aws-ec2");
 const ssm = require("aws-cdk-lib/aws-ssm");
 
-const QUEST_BASE_STACK = "Hdmi-Quest-"
+const QUEST_BASE_STACK = "UOne-Quest-"
 const QUEST_BASE_STACK_SERVICE = QUEST_BASE_STACK + "Service-"
-const BASE_STACK = "Hdmi-Games-";
+const BASE_STACK = "UOne-Games-";
 const BASE_STACK_WRITE = BASE_STACK + "Write-";
 const ENV_PROD = "prod";
-const { HdmiLambda, HdmiVPC, HdmiStackClass, HdmiTagHandler } = require("@hdmi/common-cdk");
+const { UOneLambda, UOneVPC, UOneStackClass, UOneTagHandler } = require("@uone/common-cdk");
 
-const HdmiStack = HdmiStackClass(cdk);
+const UOneStack = UOneStackClass(cdk);
 
 /**
  * GameWriteDefinition this is to create stack for write path
  */
-class GameWriteDefinition extends HdmiStack {
+class GameWriteDefinition extends UOneStack {
     /**
      * @param {cdkContext} cdkContext
      * @param {cdk.Construct} scope
@@ -31,8 +31,8 @@ class GameWriteDefinition extends HdmiStack {
 
         const env = props.env;
 
-        const hdmiVPC = new HdmiVPC(this, ec2);
-        let vpcLambda = hdmiVPC.getDefaultHdmiConfigWithVPC(
+        const uoneVPC = new UOneVPC(this, ec2);
+        let vpcLambda = uoneVPC.getDefaultUOneConfigWithVPC(
             cdk,
             props.tags.backboneEnv
         );
@@ -41,35 +41,35 @@ class GameWriteDefinition extends HdmiStack {
         const prettyEnvName = envName.replace(/-/g, " ").replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }).replace(/ /g, "");
-        const hdmiTagHandler = HdmiTagHandler(cdk.Tags, { envName: envName });
+        const uoneTagHandler = UOneTagHandler(cdk.Tags, { envName: envName });
 
         /**
          * Adding tags for Game Write definition Stack
          */ 
-        hdmiTagHandler.tag(this, "PROJECT", "HdMiGames-Write");
-        hdmiTagHandler.tag(this, "ENVIRONMENT", envName);
-        hdmiTagHandler.tag(this, "OWNER", "Eng");
+        uoneTagHandler.tag(this, "PROJECT", "UOneGames-Write");
+        uoneTagHandler.tag(this, "ENVIRONMENT", envName);
+        uoneTagHandler.tag(this, "OWNER", "Eng");
 
-        let gameTableName = `Hdmi-Games-Table-${prettyEnvName}`
+        let gameTableName = `UOne-Games-Table-${prettyEnvName}`
         // following will be replaced by string param fixing import value loop issue
         // cdk.Fn.importValue(
         //     `${BASE_STACK}Game-Table-Name-${envName}`
         // );
-        let hdmiLambda = new HdmiLambda(this, lambda, cdk, cdkContext);
-        const questUpsertEntitiesFunction = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-QuestGateway-ServiceFn-UpsertEntities-${envName}`
+        let uoneLambda = new UOneLambda(this, lambda, cdk, cdkContext);
+        const questUpsertEntitiesFunction = uoneLambda.fromFunctionAttributes(
+            `UOne-QuestGateway-ServiceFn-UpsertEntities-${envName}`
         );
-        const questUpsertPathsFunction = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-QuestGateway-ServiceFn-UpsertPaths-${envName}`
+        const questUpsertPathsFunction = uoneLambda.fromFunctionAttributes(
+            `UOne-QuestGateway-ServiceFn-UpsertPaths-${envName}`
         );
-        const questExecuteQueryFunction = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-Quest-Service-ExecuteContextQueryHandler-${envName}`
+        const questExecuteQueryFunction = uoneLambda.fromFunctionAttributes(
+            `UOne-Quest-Service-ExecuteContextQueryHandler-${envName}`
         );
-        const questExecuteScriptFunction = hdmiLambda.fromFunctionAttributes(
+        const questExecuteScriptFunction = uoneLambda.fromFunctionAttributes(
             `${QUEST_BASE_STACK_SERVICE}ExecuteScriptHandler-${envName}`
         );
-        const getEntitiesByIDList = hdmiLambda.fromFunctionAttributes(
-            `Hdmi-Entity-Read-Get-Entities-By-Id-List-FN-MS-${envName}`
+        const getEntitiesByIDList = uoneLambda.fromFunctionAttributes(
+            `UOne-Entity-Read-Get-Entities-By-Id-List-FN-MS-${envName}`
         );
         /**
          * followig is being used to add access to Event Bus
@@ -116,12 +116,12 @@ class GameWriteDefinition extends HdmiStack {
          * followig is being used to add support for Cron Game Scheduler
          * games in graph
          */
-        const gameCronHandler = hdmiLambda.newFunction(
+        const gameCronHandler = uoneLambda.newFunction(
             `${BASE_STACK_WRITE}Cron-Handler-${prettyEnvName}`,
             "src/write/game-write-entrypoint.rest.scheduleGameDetailsHandler",
             envData,
             "scheduling",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -147,12 +147,12 @@ class GameWriteDefinition extends HdmiStack {
         /**
          * followig is being used to add Insert Game Lambda
          */
-        const insertGameFn = hdmiLambda.newFunction(
+        const insertGameFn = uoneLambda.newFunction(
             `${BASE_STACK_WRITE}InsertGame-${prettyEnvName}`,
             "src/write/game-write-entrypoint.rest.insertGameHandler",
             envData,
             "references",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -161,12 +161,12 @@ class GameWriteDefinition extends HdmiStack {
         /**
          * followig is being used to add Update Game Lambda
          */
-        const updateGameFn = hdmiLambda.newFunction(
+        const updateGameFn = uoneLambda.newFunction(
             `${BASE_STACK_WRITE}UpdateGame-${prettyEnvName}`,
             "src/write/game-write-entrypoint.rest.updateGameHandler",
             envData,
             "references",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -175,12 +175,12 @@ class GameWriteDefinition extends HdmiStack {
         /**
          *  Lambda Accept Duel
          */
-        const acceptDuelFN = hdmiLambda.newFunction(
+        const acceptDuelFN = uoneLambda.newFunction(
             `${BASE_STACK_WRITE}AcceptDuel-${prettyEnvName}`,
             "src/write/game-write-entrypoint.rest.acceptDuelMSHandler",
             envData,
             "references",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -190,12 +190,12 @@ class GameWriteDefinition extends HdmiStack {
         /**
          * followig is being used to add delete Game Lambda
          */
-        const deleteGameFn = hdmiLambda.newFunction(
+        const deleteGameFn = uoneLambda.newFunction(
             `${BASE_STACK_WRITE}DeleteGame-${prettyEnvName}`,
             "src/write/game-write-entrypoint.rest.deleteGameHandler",
             envData,
             "references",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -275,7 +275,7 @@ class GameWriteDefinitionStage extends cdk.Stage {
         new GameWriteDefinition(
             cdkContext,
             this,
-            `Hdmi-Games-Write-${env}`,
+            `UOne-Games-Write-${env}`,
             writeStackProps
         );
     }

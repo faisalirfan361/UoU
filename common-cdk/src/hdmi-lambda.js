@@ -1,18 +1,18 @@
 const environment = require('./environment-configuration')
-const { HdmiTagHandler } = require('./hdmi-tag-handler')
+const { UOneTagHandler } = require('./uone-tag-handler')
 const cdk = require('aws-cdk-lib');
 const { TAG_CONSTANTS } = require("./utils");
 /**
  * Wrapper for AWS.Lambda provides wrappers and assigns VPC
  * and applies all necessary tags
  * 
- * @param HDMIStackScope scope 
+ * @param UOneStackScope scope 
  * @param AWS.Lambda lambda 
  * @param HDNStackCore core 
  * @param HDNCdkContext cdkContext 
  * @returns 
  */
-function HdmiLambda(scope, lambda, core, cdkContext) {
+function UOneLambda(scope, lambda, core, cdkContext) {
     return Object.freeze({
         /**
          * Load function by Name
@@ -36,7 +36,7 @@ function HdmiLambda(scope, lambda, core, cdkContext) {
          * @param String environment 
          * @param String functionality 
          * @param String projectName 
-         * @param HDMIProps props 
+         * @param UOneProps props 
          * @returns 
          */
         newFunction: (functionName, handler, environment = {},functionality, projectName, props = {}) => {
@@ -73,9 +73,9 @@ function HdmiLambda(scope, lambda, core, cdkContext) {
                 },
                 ...props
             })
-            const hdmiTagHandler = HdmiTagHandler(cdk.Tags, cdkContext)
+            const uoneTagHandler = UOneTagHandler(cdk.Tags, cdkContext)
             // append tags
-            hdmiTagHandler.tag(
+            uoneTagHandler.tag(
                 lambdaFunc,
                 TAG_CONSTANTS.FUNCTIONALITY,
                 functionality
@@ -83,7 +83,7 @@ function HdmiLambda(scope, lambda, core, cdkContext) {
             return lambdaFunc;
         },
         /**
-         * laod HDMILambda from given account by attributes
+         * laod UOneLambda from given account by attributes
          * 
          * @param String functionName 
          * @param String accountId 
@@ -114,4 +114,4 @@ function HdmiLambda(scope, lambda, core, cdkContext) {
     })
 }
 
-module.exports = {HdmiLambda}
+module.exports = {UOneLambda}

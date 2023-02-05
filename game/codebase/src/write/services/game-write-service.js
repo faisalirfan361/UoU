@@ -3,7 +3,7 @@ const { v4: uuid } = require("uuid");
 const AWS = require("aws-sdk");
 const eventBridge = new AWS.EventBridge();
 /**
- * GameWriteService Write service for HDMIGames
+ * GameWriteService Write service for UOneGames
  * 
  * @param GameWriteRepository gameWriteRepository 
  * @param GameSchedulerService{*} gameSchedulerService 
@@ -188,7 +188,7 @@ function GameWriteService(
                     Source: "hdn",
                     EventBusName: "BackboneMainAppBus",
                     Detail: JSON.stringify({
-                        sender: game.user_id ? game.user_id : "hdmi-game",
+                        sender: game.user_id ? game.user_id : "uone-game",
                         recipients: notificationRecipients,
                         message: `${game.winnerProfile.firstName} ${game.winnerProfile.lastName} has won the '${game.title}' challenge.`,
                         data: {
@@ -262,7 +262,7 @@ function GameWriteService(
             //         Source: "hdn",
             //         EventBusName: "BackboneMainAppBus",
             //         Detail: JSON.stringify({
-            //             sender: game.user_id ? game.user_id : "hdmi-game",
+            //             sender: game.user_id ? game.user_id : "uone-game",
             //             recipients: game.user_id,
             //             message: `Your opponent has declined your DUEL request.`,
             //             data: {
@@ -299,7 +299,7 @@ function GameWriteService(
                         Source: "hdn",
                         EventBusName: "BackboneMainAppBus",
                         Detail: JSON.stringify({
-                            sender: "HdMi-game",
+                            sender: "UOne-game",
                             recipients: [game.user_id],
                             message: `Your opponent has accepted your DUEL request.`,
                             data: {

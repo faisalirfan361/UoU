@@ -1,6 +1,6 @@
-const {HdmiJwtAuthorizer} = require('../src/hdmi-jwt-authorizer')
+const {UOneJwtAuthorizer} = require('../src/uone-jwt-authorizer')
 
-describe('HdmiJwtAuthorizer', () => {
+describe('UOneJwtAuthorizer', () => {
     const cdkContext = {
         env: 'Dev',
         volatile: false
@@ -18,7 +18,7 @@ describe('HdmiJwtAuthorizer', () => {
         class Role {
             constructor(scope, id, properties) {
                 expect(scope).toEqual(testScope)
-                expect(id).toStrictEqual('Hdmi-Test-Role-Authorizer-Dev')
+                expect(id).toStrictEqual('UOne-Test-Role-Authorizer-Dev')
                 expect(properties).toStrictEqual({
                     assumedBy: new ServicePrincipal('apigateway.amazonaws.com')
                 })
@@ -35,15 +35,15 @@ describe('HdmiJwtAuthorizer', () => {
         const expectedServicePrincipal = new ServicePrincipal('apigateway.amazonaws.com')
         const expectedRole = new Role(
             testScope,
-            'Hdmi-Test-Role-Authorizer-Dev',
+            'UOne-Test-Role-Authorizer-Dev',
             {
                 assumedBy: expectedServicePrincipal
             }
         )
 
-        const hdmiLambda = {
+        const uoneLambda = {
             fromFunctionName: (functionName) => {
-                expect(functionName).toEqual('Hdmi-Test-ServiceFn-Authorizer-Dev')
+                expect(functionName).toEqual('UOne-Test-ServiceFn-Authorizer-Dev')
 
                 return {
                     id: '1337',
@@ -57,7 +57,7 @@ describe('HdmiJwtAuthorizer', () => {
         class TokenAuthorizer {
             constructor(scope, id, options) {
                 expect(scope).toEqual(testScope)
-                expect(id).toEqual('Hdmi-Test-JwtAuthorizer-Dev')
+                expect(id).toEqual('UOne-Test-JwtAuthorizer-Dev')
                 expect(options.handler.id).toEqual('1337')
                 expect(options.assumeRole).toStrictEqual(expectedRole)
 
@@ -74,13 +74,13 @@ describe('HdmiJwtAuthorizer', () => {
             iam
         }
 
-        const hdmiJwtAuthorizer = HdmiJwtAuthorizer(cdk, testScope, 'Test', cdkContext, hdmiLambda)
+        const uoneJwtAuthorizer = UOneJwtAuthorizer(cdk, testScope, 'Test', cdkContext, uoneLambda)
 
-        const authorizer = hdmiJwtAuthorizer.getAuthorizer('Hdmi-Test-ServiceFn-Authorizer-Dev')
+        const authorizer = uoneJwtAuthorizer.getAuthorizer('UOne-Test-ServiceFn-Authorizer-Dev')
 
         expect(authorizer).toStrictEqual(new TokenAuthorizer(
             testScope,
-            'Hdmi-Test-JwtAuthorizer-Dev',
+            'UOne-Test-JwtAuthorizer-Dev',
             {
                 handler: {
                     id: '1337'
@@ -91,10 +91,10 @@ describe('HdmiJwtAuthorizer', () => {
     })
 
     it('should throw an error if projectName is not defined', () => {
-        expect(() => HdmiJwtAuthorizer({}, {}, undefined, cdkContext)).toThrow(new Error('projectName parameter is required'))
+        expect(() => UOneJwtAuthorizer({}, {}, undefined, cdkContext)).toThrow(new Error('projectName parameter is required'))
     })
 
     it('should throw an error if env is not defined', () => {
-        expect(() => HdmiJwtAuthorizer({}, {}, 'Test', undefined)).toThrow(new Error('cdkContext parameter is required'))
+        expect(() => UOneJwtAuthorizer({}, {}, 'Test', undefined)).toThrow(new Error('cdkContext parameter is required'))
     })
 })

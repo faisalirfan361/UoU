@@ -1,4 +1,4 @@
-const { HdmiTagHandler } = require("./hdmi-tag-handler")
+const { UOneTagHandler } = require("./uone-tag-handler")
 const cdk = require('aws-cdk-lib');
 const { TAG_CONSTANTS } = require("./utils");
 /**
@@ -7,13 +7,13 @@ const { TAG_CONSTANTS } = require("./utils");
  * and tracked across multiple accounts, stacks, services and environments
  * 
  * @param HDNCdkContext cdkContext 
- * @param HDMIStackScope scope 
+ * @param UOneStackScope scope 
  * @param AWS.DynamoDB dynamodb 
- * @param HDMIStackCore core 
- * @param HDMIStack HdmiStack 
+ * @param UOneStackCore core 
+ * @param UOneStack UOneStack 
  * @returns 
  */
-function HdmiDynamo(cdkContext, scope, dynamodb, core, HdmiStack) {
+function UOneDynamo(cdkContext, scope, dynamodb, core, UOneStack) {
     if(!cdkContext) {
         throw new Error('cdkContext is required')
     }
@@ -27,7 +27,7 @@ function HdmiDynamo(cdkContext, scope, dynamodb, core, HdmiStack) {
     }
 
     const {envName, volatile} = cdkContext
-    const hdmiTagHandler = HdmiTagHandler(cdk.Tags, cdkContext)
+    const uoneTagHandler = UOneTagHandler(cdk.Tags, cdkContext)
 
     return Object.freeze({
         newDefaultPersistenceStack: function (projectName, functionality, tableConfiguration = {}, props = {}) {
@@ -42,10 +42,10 @@ function HdmiDynamo(cdkContext, scope, dynamodb, core, HdmiStack) {
             const removalPolicy = volatile ? core.RemovalPolicy.DESTROY : core.RemovalPolicy.RETAIN
 
             /**
-             * Extends HdmiStack please check HdmiStack for more details
+             * Extends UOneStack please check UOneStack for more details
              * but it does basic taggings, datadog and hystrix mappings
              */
-            class PersistenceStack extends HdmiStack {
+            class PersistenceStack extends UOneStack {
                 constructor(cdkContext, scope, id, props, tableConfiguration) {
                     super(cdkContext, scope, id, props)
                     this.tableName = props.tableName
@@ -61,13 +61,13 @@ function HdmiDynamo(cdkContext, scope, dynamodb, core, HdmiStack) {
             }
 
             const stackProps = {
-                tableName: `Hdmi-${projectName}-Events-${envName}`,
+                tableName: `UOne-${projectName}-Events-${envName}`,
                 ...props
             }
 
-            const myStack = new PersistenceStack(cdkContext, scope, `Hdmi-${projectName}-Write-Persistence-${envName}`, stackProps, tableConfiguration);
+            const myStack = new PersistenceStack(cdkContext, scope, `UOne-${projectName}-Write-Persistence-${envName}`, stackProps, tableConfiguration);
             // functionality and project/service specific tags
-            hdmiTagHandler.tag(
+            uoneTagHandler.tag(
                 myStack,
                 TAG_CONSTANTS.FUNCTIONALITY,
                 functionality
@@ -77,4 +77,4 @@ function HdmiDynamo(cdkContext, scope, dynamodb, core, HdmiStack) {
     })
 }
 
-module.exports = {HdmiDynamo}
+module.exports = {UOneDynamo}

@@ -1,16 +1,16 @@
-const { HdmiTagHandler } = require('@hdmi/common-cdk');
+const { UOneTagHandler } = require('@uone/common-cdk');
 const cdk = require('aws-cdk-lib');
 const { PolicyStatement, Effect } = require('aws-cdk-lib/aws-iam');
 const { CodePipeline, CodePipelineSource, CodeBuildStep } = require('aws-cdk-lib/pipelines');
 
 /**
- *  HdMiGamePipeline base stack's core pipline for Game read, Write and Scheduler Stacks
+ *  UOneGamePipeline base stack's core pipline for Game read, Write and Scheduler Stacks
  */
-class HdMiGamePipeline extends cdk.Stack {
+class UOneGamePipeline extends cdk.Stack {
     envName;
     repo;
     branchName;
-    hdmiTagHandler;
+    uoneTagHandler;
     prettyEnvName;
 
     /**
@@ -30,7 +30,7 @@ class HdMiGamePipeline extends cdk.Stack {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }).replace(/ /g, "");
         this.branchName = branchName;
-        this.hdmiTagHandler = HdmiTagHandler(cdk.Tags, {envName: envName});
+        this.uoneTagHandler = UOneTagHandler(cdk.Tags, {envName: envName});
         this.stages = [];
         this.code = CodePipelineSource.codeCommit(this.repo, this.branchName);
         this.pipeline = this.getPipeLine();
@@ -61,7 +61,7 @@ class HdMiGamePipeline extends cdk.Stack {
         return new CodeBuildStep("Publish", {
             commands: [
                 // branchName == "master" ? 'npm version clean' : 'npm version patch',
-                "aws codeartifact login --tool npm --repository hdmi-npm --domain hdmi --domain-owner 972576019456",
+                "aws codeartifact login --tool npm --repository uone-npm --domain uone --domain-owner 972576019456",
                 "cd codebase",
                 "npm publish",
             ], 
@@ -83,7 +83,7 @@ class HdMiGamePipeline extends cdk.Stack {
                     effect: Effect.ALLOW,
                     actions: ['codeartifact:GetAuthorizationToken',
                     ],
-                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:repository/hdmi/hdmi-npm`]
+                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:repository/uone/uone-npm`]
                 }),
                 /**
                  * publish PublishPackageVersion access
@@ -146,7 +146,7 @@ class HdMiGamePipeline extends cdk.Stack {
                         "codeartifact:PublishPackageVersion",
                         "codecommit:*"
                     ],
-                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:domain/hdmi/*`]
+                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:domain/uone/*`]
                 }),
                 /**
                  * full access to code commit for shared account
@@ -173,8 +173,8 @@ class HdMiGamePipeline extends cdk.Stack {
      * @returns 
      */
     getPipeLine(){
-        const pipeline = new CodePipeline(this, `HdMi-Game-Pipeline-${this.envName}`, {
-            pipelineName: `hdmi-game-${this.envName}`,
+        const pipeline = new CodePipeline(this, `UOne-Game-Pipeline-${this.envName}`, {
+            pipelineName: `uone-game-${this.envName}`,
             selfMutation: true,
             crossAccountKeys: true,
             synth: new CodeBuildStep('Synth', {
@@ -184,13 +184,13 @@ class HdMiGamePipeline extends cdk.Stack {
                  */
                 commands: [
                     'cd codebase',
-                    'aws codeartifact login --tool npm --repository hdmi-npm --domain hdmi --domain-owner 972576019456',
+                    'aws codeartifact login --tool npm --repository uone-npm --domain uone --domain-owner 972576019456',
                     'npm i',
                     'cd ../infrastructure',
                     'npm i',
                     'npm run build',
                     'npm i -g cdk',
-                    `cdk synth HdMi-Games-Project-${this.prettyEnvName}/HdMi-Games-Pipeline-${this.prettyEnvName}`
+                    `cdk synth UOne-Games-Project-${this.prettyEnvName}/UOne-Games-Pipeline-${this.prettyEnvName}`
                 ],
                 primaryOutputDirectory: 'infrastructure/cdk.out', 
                 rolePolicyStatements: [
@@ -211,7 +211,7 @@ class HdMiGamePipeline extends cdk.Stack {
                         effect: Effect.ALLOW,
                         actions: ['codeartifact:GetAuthorizationToken',
                         ],
-                        resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:repository/hdmi/hdmi-npm`]
+                        resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:repository/uone/uone-npm`]
                     }),
                     /**
                      * publish PublishPackageVersion access
@@ -274,7 +274,7 @@ class HdMiGamePipeline extends cdk.Stack {
                             "codeartifact:PublishPackageVersion",
                             "codecommit:*"
                         ],
-                        resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:domain/hdmi/*`]
+                        resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:domain/uone/*`]
                     }),
                     /**
                      * full access to code commit for shared account
@@ -299,14 +299,14 @@ class HdMiGamePipeline extends cdk.Stack {
         /**
          * base stack tags
          */
-        this.hdmiTagHandler.tag(pipeline,"PROJECT", "HdMiGames");
-        this.hdmiTagHandler.tag(pipeline,"ENVIRONMENT", this.envName.replace(/-/g, " ").replace(/\w\S*/g, function(txt) {
+        this.uoneTagHandler.tag(pipeline,"PROJECT", "UOneGames");
+        this.uoneTagHandler.tag(pipeline,"ENVIRONMENT", this.envName.replace(/-/g, " ").replace(/\w\S*/g, function(txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }).replace(/ /g, ""));
-        this.hdmiTagHandler.tag(pipeline,"FUNCTIONALITY", "SDLC");
-        this.hdmiTagHandler.tag(pipeline,"OWNER", "Eng");
+        this.uoneTagHandler.tag(pipeline,"FUNCTIONALITY", "SDLC");
+        this.uoneTagHandler.tag(pipeline,"OWNER", "Eng");
         
         return pipeline;
     }
 }
-module.exports = { HdMiGamePipeline }
+module.exports = { UOneGamePipeline }

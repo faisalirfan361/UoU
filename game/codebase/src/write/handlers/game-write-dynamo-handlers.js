@@ -4,10 +4,10 @@ const AWS = require('aws-sdk')
  * GameWriteDynamoHandler: this should be used to write from AWS DynamoDB Trigger
  * this is the only tunnel for write page using DynamoDB triggers
  * 
- * Since this is part of HDMIGame (a core service) We do not have
+ * Since this is part of UOneGame (a core service) We do not have
  * direct rest/APiGateway interface to it, you must implment either
- * HDMIGameClient or HDMIGameGateway for open paths, check JIRA and 
- * HDMIGameGateway for swagger links and client functions
+ * UOneGameClient or UOneGameGateway for open paths, check JIRA and 
+ * UOneGameGateway for swagger links and client functions
  * 
  * Dependencies
  * @param GameService gameService 

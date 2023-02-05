@@ -5,7 +5,7 @@ const cxschema = require('aws-cdk-lib/cloud-assembly-schema');
  * we must use this for all stack out puts, 
  * do not use the stack out params as they create circular dependencies
  * 
- * @param HdmiStackScope scope 
+ * @param UOneStackScope scope 
  * @param String parameterName 
  * @param String dummyValue 
  * @returns 

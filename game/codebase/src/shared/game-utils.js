@@ -1,12 +1,12 @@
 /**
- * GameUtils provides basic utilities for HDMIGames
+ * GameUtils provides basic utilities for UOneGames
  */
 const GameUtils = Object.freeze({
     /**
      * generateGameSchedule it generates game schedules based on types
      * DAILY< WEEKLY and MONTHLY, based on that it generates AWS Cron for gmes
      * 
-     * @param HdmiGame game 
+     * @param UOneGame game 
      * @param GameConstants GameConstants 
      * @returns 
      */

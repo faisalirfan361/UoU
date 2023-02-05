@@ -6,7 +6,7 @@ const documentClient = new AWS.DynamoDB.DocumentClient()
  
 const gameHandler = GameHandler(gameAggregate)
 /**
- * Entry point for HDMIGameWrite 
+ * Entry point for UOneGameWrite 
  */
 module.exports = {
     ...gameHandler

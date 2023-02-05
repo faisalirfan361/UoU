@@ -1,18 +1,18 @@
 const {match} = require('@othree.io/cerillo')
 const awscdk = require('aws-cdk-lib');
-const { HdmiTagHandler } = require('./hdmi-tag-handler');
+const { UOneTagHandler } = require('./uone-tag-handler');
 const { TAG_CONSTANTS } = require("./utils");
 /**
- * HdmiApiGateway will work as source for all API Gateway Micros
+ * UOneApiGateway will work as source for all API Gateway Micros
  * this will provide read and write path for each Micro's Gateway
  * 
- * @param HDMIAwsCdkCore cdk 
- * @param HDMIStackScope scope 
+ * @param UOneAwsCdkCore cdk 
+ * @param UOneStackScope scope 
  * @param Strig projectName 
- * @param HDMICDKContext cdkContext 
+ * @param UOneCDKContext cdkContext 
  * @returns 
  */
-function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
+function UOneApiGateway(cdk, scope, projectName, cdkContext) {
     if (!projectName) {
         throw new Error('projectName parameter is required')
     }
@@ -27,7 +27,7 @@ function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
     return Object.freeze({
         /**
          * This takes array of allowedMethods, basePath and apiKeyConfig
-         * returns base API object wrapped in HDMIApiGateway
+         * returns base API object wrapped in UOneApiGateway
          * 
          * @param String[] allowedMethods 
          * @param String apiKeyConfig 
@@ -42,8 +42,8 @@ function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
             /**
              * create root / base API for the micro read and write
              */
-            const api = new apigateway.RestApi(scope, `Hdmi-${projectName}-Gateway-API-${envName}`, {
-                restApiName: `Hdmi-${projectName}-Gateway-API-${envName}`,
+            const api = new apigateway.RestApi(scope, `UOne-${projectName}-Gateway-API-${envName}`, {
+                restApiName: `UOne-${projectName}-Gateway-API-${envName}`,
                 deployOptions: {
                     stageName: envName
                 },
@@ -58,8 +58,8 @@ function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
              * allows us to add tags and this will be used for logging, reporting and costing
              * It applies all basic tags from stack like project name, department and team
              */
-            const hdmiTagHandler = HdmiTagHandler(awscdk.Tags, cdkContext)
-            hdmiTagHandler.tag(
+            const uoneTagHandler = UOneTagHandler(awscdk.Tags, cdkContext)
+            uoneTagHandler.tag(
                 api,
                 TAG_CONSTANTS.FUNCTIONALITY,
                 "public-networking"
@@ -70,7 +70,7 @@ function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
              * adds usage plant o the service, API stage and base tags
              */
             if (apiKeyConfig) {
-                const keyId = `Hdmi-${projectName}-Gateway-Key-${envName}`
+                const keyId = `UOne-${projectName}-Gateway-Key-${envName}`
 
                 const apiKeyOptions = match(apiKeyConfig)
                     .when(_ => _.apiKeyValue).then(_ => ({
@@ -85,15 +85,15 @@ function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
                 const defaultApiKey = api.addApiKey(keyId, apiKeyOptions)
 
                 // usage plan must be on root of each service gateway
-                const defaultUsagePlan = api.addUsagePlan(`Hdmi-${projectName}-Gateway-UsagePlan-${envName}`, {
-                    name: `Hdmi-${projectName}-Gateway-UsagePlan-${envName}`,
+                const defaultUsagePlan = api.addUsagePlan(`UOne-${projectName}-Gateway-UsagePlan-${envName}`, {
+                    name: `UOne-${projectName}-Gateway-UsagePlan-${envName}`,
                     apiKey: defaultApiKey
                 })
 
                 defaultUsagePlan.addApiStage({
                     stage: api.deploymentStage
                 })
-                hdmiTagHandler.tag(
+                uoneTagHandler.tag(
                     defaultUsagePlan,
                     TAG_CONSTANTS.FUNCTIONALITY,
                     "public-networking"
@@ -108,16 +108,16 @@ function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
                     throw new Error('basePath parameter is required when using a subdomain')
                 }
 
-                const domain = apigateway.DomainName.fromDomainNameAttributes(scope, `Hdmi-${projectName}Domain-${envName}`, {
+                const domain = apigateway.DomainName.fromDomainNameAttributes(scope, `UOne-${projectName}Domain-${envName}`, {
                     domainName: subdomain
                 })
 
-               const apiBasePath = new apigateway.BasePathMapping(scope, `Hdmi-${projectName}BasePath-${envName}`, {
+               const apiBasePath = new apigateway.BasePathMapping(scope, `UOne-${projectName}BasePath-${envName}`, {
                     basePath: basePath,
                     domainName: domain,
                     restApi: api
                 })
-                hdmiTagHandler.tag(
+                uoneTagHandler.tag(
                     apiBasePath,
                     TAG_CONSTANTS.FUNCTIONALITY,
                     "public-networking"
@@ -130,4 +130,4 @@ function HdmiApiGateway(cdk, scope, projectName, cdkContext) {
     })
 }
 
-module.exports = {HdmiApiGateway}
+module.exports = {UOneApiGateway}

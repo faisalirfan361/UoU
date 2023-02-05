@@ -1,6 +1,6 @@
-const {HdmiSns} = require('../src/hdmi-sns')
+const {UOneSns} = require('../src/uone-sns')
 
-describe('HdmiSns', () => {
+describe('UOneSns', () => {
     process.env.CDK_DEFAULT_ACCOUNT = '12345'
     process.env.CDK_DEFAULT_REGION = 'us-west-2'
 
@@ -14,14 +14,14 @@ describe('HdmiSns', () => {
         accountId: '12345'
     }
 
-    describe('HdmiSns required params', () => {
+    describe('UOneSns required params', () => {
         it('should throw an error when the env is not provided', () => {
-            expect(() => HdmiSns())
+            expect(() => UOneSns())
                 .toThrowError(new Error('cdkContext is required'))
         })
 
         it('should throw an error when the sns is not provided', () => {
-            expect(() => HdmiSns(cdkContext))
+            expect(() => UOneSns(cdkContext))
                 .toThrowError(new Error('sns is required'))
         })
     })
@@ -33,8 +33,8 @@ describe('HdmiSns', () => {
                 Topic: {
                     fromTopicArn: (scope, id, arn) => {
                         expect(scope).toStrictEqual(testScope)
-                        expect(id).toEqual('Hdmi-Events-Topic')
-                        expect(arn).toEqual('arn:aws:sns:us-east-1:54321:Hdmi-Events-Topic')
+                        expect(id).toEqual('UOne-Events-Topic')
+                        expect(arn).toEqual('arn:aws:sns:us-east-1:54321:UOne-Events-Topic')
                         return {
                             id: '0001'
                         }
@@ -42,8 +42,8 @@ describe('HdmiSns', () => {
                 }
             }
 
-            const hdmiSns = HdmiSns(cdkContext, sns)
-            const construct = hdmiSns.fromTopicName(testScope)('Hdmi-Events-Topic', '54321', 'us-east-1')
+            const uoneSns = UOneSns(cdkContext, sns)
+            const construct = uoneSns.fromTopicName(testScope)('UOne-Events-Topic', '54321', 'us-east-1')
             expect(construct).toStrictEqual({
                 id: '0001'
             })
@@ -54,8 +54,8 @@ describe('HdmiSns', () => {
                 Topic: {
                     fromTopicArn: (scope, id, arn) => {
                         expect(scope).toStrictEqual(testScope)
-                        expect(id).toEqual('Hdmi-Events-Topic')
-                        expect(arn).toEqual('arn:aws:sns:us-west-2:12345:Hdmi-Events-Topic')
+                        expect(id).toEqual('UOne-Events-Topic')
+                        expect(arn).toEqual('arn:aws:sns:us-west-2:12345:UOne-Events-Topic')
                         return {
                             id: '0001'
                         }
@@ -63,34 +63,34 @@ describe('HdmiSns', () => {
                 }
             }
 
-            const hdmiSns = HdmiSns(cdkContext, sns)
-            const construct = hdmiSns.fromTopicName(testScope)('Hdmi-Events-Topic')
+            const uoneSns = UOneSns(cdkContext, sns)
+            const construct = uoneSns.fromTopicName(testScope)('UOne-Events-Topic')
             expect(construct).toStrictEqual({
                 id: '0001'
             })
         })
 
         it('should throw an error when the scope is not provided', () => {
-            const hdmiSns = HdmiSns(cdkContext, {}, {})
-            expect(() => hdmiSns.fromTopicName()())
+            const uoneSns = UOneSns(cdkContext, {}, {})
+            expect(() => uoneSns.fromTopicName()())
                 .toThrowError(new Error('scope is required'))
         })
 
         it('should throw an error when the topic name is not provided', () => {
-            const hdmiSns = HdmiSns(cdkContext, {}, {})
-            expect(() => hdmiSns.fromTopicName(testScope)(null, '12345'))
+            const uoneSns = UOneSns(cdkContext, {}, {})
+            expect(() => uoneSns.fromTopicName(testScope)(null, '12345'))
                 .toThrowError(new Error('topicName is required'))
         })
 
         it('should throw an error when the accountId is not provided', () => {
-            const hdmiSns = HdmiSns(cdkContext, {}, {})
-            expect(() => hdmiSns.fromTopicName(testScope)('Hdmi-Events-Topic', null))
+            const uoneSns = UOneSns(cdkContext, {}, {})
+            expect(() => uoneSns.fromTopicName(testScope)('UOne-Events-Topic', null))
                 .toThrowError(new Error('accountId is required'))
         })
     })
 
     describe('newDefaultEventBusStack', () => {
-        const HdmiStack = class {
+        const UOneStack = class {
             constructor(cdkContext, scope, id, props) {
                 this.cdkContext = cdkContext
                 this.scope = scope
@@ -104,7 +104,7 @@ describe('HdmiSns', () => {
                 Topic: class {
                     constructor(scope, id, props) {
                         expect(props).toStrictEqual({
-                            topicName: 'Hdmi-TestStack-Topic-Test',
+                            topicName: 'UOne-TestStack-Topic-Test',
                             displayName: 'TestStack Event Bus'
                         })
                         this.scope = scope
@@ -114,15 +114,15 @@ describe('HdmiSns', () => {
                 }
             }
 
-            const hdmiSns = HdmiSns(cdkContext, sns, HdmiStack)
+            const uoneSns = UOneSns(cdkContext, sns, UOneStack)
 
-            const eventBusStack = hdmiSns.newDefaultEventBusStack(testScope, 'TestStack')
+            const eventBusStack = uoneSns.newDefaultEventBusStack(testScope, 'TestStack')
 
             expect(eventBusStack.scope).toStrictEqual(testScope)
-            expect(eventBusStack.id).toEqual('Hdmi-TestStack-EventBus-Test')
-            expect(eventBusStack.topicName).toEqual('Hdmi-TestStack-Topic-Test')
+            expect(eventBusStack.id).toEqual('UOne-TestStack-EventBus-Test')
+            expect(eventBusStack.topicName).toEqual('UOne-TestStack-Topic-Test')
             expect(eventBusStack.props).toStrictEqual({
-                topicName: 'Hdmi-TestStack-Topic-Test',
+                topicName: 'UOne-TestStack-Topic-Test',
                 projectName: 'TestStack'
             })
         })
@@ -132,7 +132,7 @@ describe('HdmiSns', () => {
                 Topic: class {
                     constructor(scope, id, props) {
                         expect(props).toStrictEqual({
-                            topicName: 'Hdmi-TestStack-Topic-Test',
+                            topicName: 'UOne-TestStack-Topic-Test',
                             displayName: 'TestStack Event Bus'
                         })
                         this.scope = scope
@@ -142,31 +142,31 @@ describe('HdmiSns', () => {
                 }
             }
 
-            const hdmiSns = HdmiSns(cdkContext, sns, HdmiStack)
+            const uoneSns = UOneSns(cdkContext, sns, UOneStack)
 
-            const eventBusStack = hdmiSns.newDefaultEventBusStack(testScope, 'TestStack', {
+            const eventBusStack = uoneSns.newDefaultEventBusStack(testScope, 'TestStack', {
                 someProp: true
             })
 
             expect(eventBusStack.scope).toStrictEqual(testScope)
-            expect(eventBusStack.id).toEqual('Hdmi-TestStack-EventBus-Test')
-            expect(eventBusStack.topicName).toEqual('Hdmi-TestStack-Topic-Test')
+            expect(eventBusStack.id).toEqual('UOne-TestStack-EventBus-Test')
+            expect(eventBusStack.topicName).toEqual('UOne-TestStack-Topic-Test')
             expect(eventBusStack.props).toStrictEqual({
-                topicName: 'Hdmi-TestStack-Topic-Test',
+                topicName: 'UOne-TestStack-Topic-Test',
                 projectName: 'TestStack',
                 someProp: true
             })
         })
 
         it('should throw an error when the scope is not provided', () => {
-            const hdmiSns = HdmiSns(cdkContext, {}, {}, {})
-            expect(() => hdmiSns.newDefaultEventBusStack())
+            const uoneSns = UOneSns(cdkContext, {}, {}, {})
+            expect(() => uoneSns.newDefaultEventBusStack())
                 .toThrowError(new Error('scope is required'))
         })
 
         it('should throw an error when the projectName is not provided', () => {
-            const hdmiSns = HdmiSns(cdkContext, {}, {}, {})
-            expect(() => hdmiSns.newDefaultEventBusStack(testScope))
+            const uoneSns = UOneSns(cdkContext, {}, {}, {})
+            expect(() => uoneSns.newDefaultEventBusStack(testScope))
                 .toThrowError(new Error('projectName is required'))
         })
     })

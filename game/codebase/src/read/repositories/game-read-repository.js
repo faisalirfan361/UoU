@@ -2,7 +2,7 @@ const { Try } = require("@othree.io/optional");
 const { GameConfiguration } = require("../../game-configuration");
 /**
  * GameReadRepository is dynamo Repo for all the games
- * HDMI-Games-Env should gives you access in AWS Console.
+ * UOne-Games-Env should gives you access in AWS Console.
  * 
  * @param AWS.DynamoDB.DocumentClient documentClient 
  * @param ReadConfiguration readConfiguration 

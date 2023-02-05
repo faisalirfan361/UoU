@@ -2,7 +2,7 @@ const {Try} = require('@othree.io/optional')
 const AWS = require('aws-sdk');
 /**
  * GameWriteRepository the only write path to games dynamodb
- * HDMI-Game-ENV (dyanoDB)
+ * UOne-Game-ENV (dyanoDB)
  * 
  * @param AWS.DynamoDB.DocumentClient documentClient 
  * @param DameConfiguration gameConfiguration 
@@ -14,7 +14,7 @@ function GameWriteRepository(documentClient, gameConfiguration) {
         /**
          * Upserts game object in dynamoDB
          * 
-         * @param HDMIGame game 
+         * @param UOneGame game 
          * @returns 
          */
         upsert: async (game) => { 
@@ -35,7 +35,7 @@ function GameWriteRepository(documentClient, gameConfiguration) {
         /**
          * Since with never delete a game we just archive it using this function
          * 
-         * @param HDMIGame game 
+         * @param UOneGame game 
          * @returns 
          */
         archiveGame: async (game) => {
@@ -55,7 +55,7 @@ function GameWriteRepository(documentClient, gameConfiguration) {
          * update games in dynamo
          * it does remove schedules which are then added back by the triggers
          * 
-         * @param HDMIGame game 
+         * @param UOneGame game 
          */
         update: async (game) => {
             let expressionAttributeNames = Object.entries(game).reduce((acc, cur) => ({...acc, [`#${cur[0]}`]: cur[0]} ), {})
@@ -78,7 +78,7 @@ function GameWriteRepository(documentClient, gameConfiguration) {
         },
         /**
          * We only delete the game when Admin request is 
-         * HDMIAdmin Only
+         * UOneAdmin Only
          * 
          * @param String gameId 
          * @returns 

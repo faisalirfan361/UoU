@@ -9,7 +9,7 @@ const {
 
 const { UserPerformanceHandler } = require("./user-performance-handler");
 const { CalculatorClient } =
-    require("@hdmi/hdmi-calculator-clients").Calculator;
+    require("@uone/uone-calculator-clients").Calculator;
 
 const documentClient = new AWS.DynamoDB.DocumentClient(); 
 const userPerformanceReadRepository = UserPerformanceReadRepository(

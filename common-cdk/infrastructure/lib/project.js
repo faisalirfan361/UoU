@@ -1,15 +1,15 @@
-const {HdMiCommonCDKPipeline } = require("./pipeline");
+const {UOneCommonCDKPipeline } = require("./pipeline");
 const cdk = require('aws-cdk-lib');
 const {Repository } = require('aws-cdk-lib/aws-codecommit');
 const {PolicyStatement, Effect} = require('@aws-cdk/aws-iam');
-const {HdMiCommonCDKPackageStage } = require('./hdmi-common-cdk');
+const {UOneCommonCDKPackageStage } = require('./uone-common-cdk');
 const { CodeBuildStep } = require("aws-cdk-lib/pipelines");
-const { HdmiTagHandler } = require("../../src/hdmi-tag-handler");
+const { UOneTagHandler } = require("../../src/uone-tag-handler");
 /**
  * This is CI/CD project, This must added to each micro to make sure all pipelines
  * implement datadog and hystrix you may want to use HDNRepoGenerator
  */
-class HdMiCommonCDKProject extends cdk.Stack {
+class UOneCommonCDKProject extends cdk.Stack {
     /**
      * 
      * @param HDNStackScope scope 
@@ -19,19 +19,19 @@ class HdMiCommonCDKProject extends cdk.Stack {
     constructor(scope, id, environments) {
         super(scope, id, { env: environments.get('shared-services') });
 
-        const hdmiTagHandler = HdmiTagHandler(cdk.Tags, {envName: "shared-services"});
-        hdmiTagHandler.tagStack(this,"CommonCDK","CDN");
+        const uoneTagHandler = UOneTagHandler(cdk.Tags, {envName: "shared-services"});
+        uoneTagHandler.tagStack(this,"CommonCDK","CDN");
 
         // We must download common CDK accross the board in eaech pipeline
-        const repository = Repository.fromRepositoryName(this, 'HdMi-Common-CDK-Repo-Reference', 'common-cdk');
-        hdmiTagHandler.tag(repository,"PROJECT","CommonCDK");
-        hdmiTagHandler.tag(repository,"ENVIRONMENT","SharedServices");
-        hdmiTagHandler.tag(repository,"FUNCTIONALITY","SDLC");
-        hdmiTagHandler.tag(repository,"OWNER","Eng");
+        const repository = Repository.fromRepositoryName(this, 'UOne-Common-CDK-Repo-Reference', 'common-cdk');
+        uoneTagHandler.tag(repository,"PROJECT","CommonCDK");
+        uoneTagHandler.tag(repository,"ENVIRONMENT","SharedServices");
+        uoneTagHandler.tag(repository,"FUNCTIONALITY","SDLC");
+        uoneTagHandler.tag(repository,"OWNER","Eng");
 
-        const hdmiPipelineSbxMicro = new HdMiCommonCDKPipeline(this, 'HdMi-Common-CDK-Pipeline', repository, 'sbx-micro', 'sbx-micro', {env: environments.get('shared-services')});
-        const hdmiPipelineSbxMicroStage = hdmiPipelineSbxMicro.getPipeLine();
-        const myStage = hdmiPipelineSbxMicroStage.addStage(new HdMiCommonCDKPackageStage(this, 'HdMi-Common-CDK-Package-Stage', repository, 'sbx-micro', { env: environments.get('sbx-micro') }));
+        const uonePipelineSbxMicro = new UOneCommonCDKPipeline(this, 'UOne-Common-CDK-Pipeline', repository, 'sbx-micro', 'sbx-micro', {env: environments.get('shared-services')});
+        const uonePipelineSbxMicroStage = uonePipelineSbxMicro.getPipeLine();
+        const myStage = uonePipelineSbxMicroStage.addStage(new UOneCommonCDKPackageStage(this, 'UOne-Common-CDK-Package-Stage', repository, 'sbx-micro', { env: environments.get('sbx-micro') }));
         myStage.addPost(this.addPublish(myStage, 'sbx-micro',repository))
     }
     
@@ -49,7 +49,7 @@ class HdMiCommonCDKProject extends cdk.Stack {
         // console.log(repository);
         return new CodeBuildStep('Publish',{
             commands :[
-                `aws codeartifact login --tool npm --repository hdmi-npm --domain hdmi --domain-owner ${process.env.DOMAIN_OWNER}`,
+                `aws codeartifact login --tool npm --repository uone-npm --domain uone --domain-owner ${process.env.DOMAIN_OWNER}`,
                 "npm publish",
             ],
             rolePolicyStatements: [
@@ -70,7 +70,7 @@ class HdMiCommonCDKProject extends cdk.Stack {
                     effect: Effect.ALLOW,
                     actions: ['codeartifact:GetAuthorizationToken',
                     ],
-                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:repository/hdmi/hdmi-npm`]
+                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:repository/uone/uone-npm`]
                 }),
                 /**
                  * publish PublishPackageVersion access
@@ -133,7 +133,7 @@ class HdMiCommonCDKProject extends cdk.Stack {
                         "codeartifact:PublishPackageVersion",
                         "codecommit:*"
                     ],
-                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:domain/hdmi/*`]
+                    resources: [`arn:aws:codeartifact:us-west-2:${process.env.DOMAIN_ID}:domain/uone/*`]
                 }),
                 /**
                  * full access to code commit for shared account
@@ -155,4 +155,4 @@ class HdMiCommonCDKProject extends cdk.Stack {
         });
     }
 }
-module.exports = { HdMiCommonCDKProject }
+module.exports = { UOneCommonCDKProject }

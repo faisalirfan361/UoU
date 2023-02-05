@@ -1,12 +1,12 @@
-const {createResponse} = require('@heyday/hdmi-utils').Rest
+const {createResponse} = require('@heyday/uone-utils').Rest
 const {GameConfiguration} = require('../../../game-configuration')
 
 /**
- * This is Read Rest path for HdmiGame
- * Since this is part of HDMIGame (a core service) We do not have
+ * This is Read Rest path for UOneGame
+ * Since this is part of UOneGame (a core service) We do not have
  * direct rest/APiGateway interface to it, you must implment either
- * HDMIGameClient or HDMIGameGateway for open paths, check JIRA and 
- * HDMIGameGateway for swagger links and client functions
+ * UOneGameClient or UOneGameGateway for open paths, check JIRA and 
+ * UOneGameGateway for swagger links and client functions
  * 
  * @param GameReadService gameReadService 
  * @returns 

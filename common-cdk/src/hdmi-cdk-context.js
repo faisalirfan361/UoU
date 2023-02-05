@@ -1,10 +1,10 @@
 /**
- * HdmiCdkContext generates base for  AWS CDK Context 
- * @param HDMIApp app 
+ * UOneCdkContext generates base for  AWS CDK Context 
+ * @param UOneApp app 
  * @param String envName 
  * @returns 
  */
-function HdmiCdkContext(app,envName) {
+function UOneCdkContext(app,envName) {
 
     if(!envName)
         throw new Error('envName parameter is required')
@@ -30,4 +30,4 @@ function HdmiCdkContext(app,envName) {
     })
 }
 
-module.exports = {HdmiCdkContext}
+module.exports = {UOneCdkContext}

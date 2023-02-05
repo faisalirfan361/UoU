@@ -1,6 +1,6 @@
 const cdk = require('aws-cdk-lib');
 const s3 = require('aws-cdk-lib/aws-s3');
-const { HdmiTagHandler } = require('../../src/hdmi-tag-handler');
+const { UOneTagHandler } = require('../../src/uone-tag-handler');
 const lambda = require('aws-cdk-lib/aws-lambda');
 const { RemovalPolicy } = require('aws-cdk-lib');
 
@@ -12,7 +12,7 @@ const { RemovalPolicy } = require('aws-cdk-lib');
  * Connect with Faisal and confluence for further docs
  * 
  */
-class HdMiCommonCDKPackageStack extends cdk.Stack {
+class UOneCommonCDKPackageStack extends cdk.Stack {
     constructor(scope, id, repo, envName, props) {
       super(scope, id, props);
   
@@ -30,12 +30,12 @@ class HdMiCommonCDKPackageStack extends cdk.Stack {
       /**
        * DO NOT add follow tags in your stacks or it will fail to deploy
        */
-      const hdmiTagHandler = HdmiTagHandler(cdk.Tags, {envName: envName})
-      hdmiTagHandler.tag(lambdaVersion,"PROJECT","CommonCDK");
-        hdmiTagHandler.tag(lambdaVersion,"ENVIRONMENT",envName);
-        hdmiTagHandler.tag(lambdaVersion,"FUNCTIONALITY","SDLC");
-        hdmiTagHandler.tag(lambdaVersion,"OWNER","Eng");
+      const uoneTagHandler = UOneTagHandler(cdk.Tags, {envName: envName})
+      uoneTagHandler.tag(lambdaVersion,"PROJECT","CommonCDK");
+        uoneTagHandler.tag(lambdaVersion,"ENVIRONMENT",envName);
+        uoneTagHandler.tag(lambdaVersion,"FUNCTIONALITY","SDLC");
+        uoneTagHandler.tag(lambdaVersion,"OWNER","Eng");
     }
 }
 
-module.exports = { HdMiCommonCDKPackageStack }
+module.exports = { UOneCommonCDKPackageStack }

@@ -164,7 +164,7 @@ function GameSchedulerService(gameWriteRepository, readQuestGraphService, entity
                 Source: "hdn",
                 EventBusName: "BackboneMainAppBus",
                 Detail: JSON.stringify({
-                    sender: game.user_id ? game.user_id : "hdmi-game",
+                    sender: game.user_id ? game.user_id : "uone-game",
                     recipients: notificationRecipients,
                     message: game.isDuel ? `You have been invited to a new duel “${game.title}”. Please go to Duels to accept.` : `New Challenge '${
                         game.title
@@ -189,7 +189,7 @@ function GameSchedulerService(gameWriteRepository, readQuestGraphService, entity
                 Tags: [
                     {
                         Key: 'PROJECT', 
-                        Value: 'HdMiGames' 
+                        Value: 'UOneGames' 
                     },
                     {
                         Key: 'FUNCTIONALITY', 

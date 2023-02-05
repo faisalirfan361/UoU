@@ -3,13 +3,13 @@
  * We must append or discuss all change sin this accross the teams
  * 
  * @param HDNCdkContext cdk 
- * @param HDMIStackScope scope 
+ * @param UOneStackScope scope 
  * @param String projectName 
  * @param AWSContext cdkContext 
- * @param HdmiLambda hdmiLambda 
+ * @param UOneLambda uoneLambda 
  * @returns 
  */
-function HdmiJwtAuthorizer(cdk, scope, projectName, cdkContext, hdmiLambda) {
+function UOneJwtAuthorizer(cdk, scope, projectName, cdkContext, uoneLambda) {
     const { apigateway, iam } = cdk
 
     if (!projectName) {
@@ -24,22 +24,22 @@ function HdmiJwtAuthorizer(cdk, scope, projectName, cdkContext, hdmiLambda) {
 
     return {
         /**
-         * provide custom authorizer which musy implement HDMIAuthorizer Lambda
+         * provide custom authorizer which musy implement UOneAuthorizer Lambda
          * 
          * @param Function authorizerFnImport 
          * @returns 
          */
         getAuthorizer: (authorizerFnImport) => {
-            const role = new iam.Role(scope, `Hdmi-${projectName}-Role-Authorizer-${envName}`, {
+            const role = new iam.Role(scope, `UOne-${projectName}-Role-Authorizer-${envName}`, {
                 assumedBy: new iam.ServicePrincipal('apigateway.amazonaws.com'),
             })
 
-            const authorizerHandler = hdmiLambda.fromFunctionName(authorizerFnImport)
+            const authorizerHandler = uoneLambda.fromFunctionName(authorizerFnImport)
             authorizerHandler.grantInvoke(role)
 
             const authorizer = new apigateway.TokenAuthorizer(
                 scope,
-                `Hdmi-${projectName}-JwtAuthorizer-${envName}`,
+                `UOne-${projectName}-JwtAuthorizer-${envName}`,
                 {
                     handler: authorizerHandler,
                     assumeRole: role
@@ -51,4 +51,4 @@ function HdmiJwtAuthorizer(cdk, scope, projectName, cdkContext, hdmiLambda) {
     }
 }
 
-module.exports = { HdmiJwtAuthorizer }
+module.exports = { UOneJwtAuthorizer }

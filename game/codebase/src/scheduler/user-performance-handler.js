@@ -1,4 +1,4 @@
-const {createResponse} = require('@heyday/hdmi-utils').Rest
+const {createResponse} = require('@heyday/uone-utils').Rest
 const {GameConfiguration} = require('../game-configuration')
 const AWS = require('aws-sdk')
 /**

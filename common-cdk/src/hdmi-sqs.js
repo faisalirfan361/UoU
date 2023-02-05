@@ -1,5 +1,5 @@
 const environment = require('./environment-configuration')
-const { HdmiTagHandler } = require('./hdmi-tag-handler')
+const { UOneTagHandler } = require('./uone-tag-handler')
 const cdk = require('aws-cdk-lib');
 const { TAG_CONSTANTS } = require("./utils");
 
@@ -7,13 +7,13 @@ const { TAG_CONSTANTS } = require("./utils");
  * this should be used in each stack to provide async write route
  * 
  * @param HDNCdkContext cdkContext 
- * @param HDMIStackScope scope 
+ * @param UOneStackScope scope 
  * @param AWS.SQS sqs 
- * @param HDMIStackCore core 
- * @param HdmiStack HdmiStack 
+ * @param UOneStackCore core 
+ * @param UOneStack UOneStack 
  * @returns 
  */
-function HdmiSqs(cdkContext, scope, sqs, core, HdmiStack) {
+function UOneSqs(cdkContext, scope, sqs, core, UOneStack) {
     if(!cdkContext) {
         throw new Error('cdkContext is required')
     }
@@ -54,15 +54,15 @@ function HdmiSqs(cdkContext, scope, sqs, core, HdmiStack) {
         /**
          * generate new async route for your stack, you mush provide listener along with the props
          * 
-         * @param HDMIStackScope scope 
+         * @param UOneStackScope scope 
          * @param String projectName 
          * @param String functionality 
-         * @param HDMIProps props 
+         * @param UOneProps props 
          * @returns 
          */
-        createDefaultProjectionEventsStack: (hdmiSqs, sns, subs, projectName, whitelist, topicName,functionality, props) => {
-            if(!hdmiSqs) {
-                throw new Error('hdmiSns is required')
+        createDefaultProjectionEventsStack: (uoneSqs, sns, subs, projectName, whitelist, topicName,functionality, props) => {
+            if(!uoneSqs) {
+                throw new Error('uoneSns is required')
             }
 
             if(!sns) {
@@ -88,32 +88,32 @@ function HdmiSqs(cdkContext, scope, sqs, core, HdmiStack) {
                 throw new Error('core is required')
             }
 
-            class DefaultProjectionEventsStack extends HdmiStack {
+            class DefaultProjectionEventsStack extends UOneStack {
                 constructor(cdkContext, scope, id, props) {
                     super(cdkContext, scope, id, props)
                     this.queueName = props.queueName
 
-                    const eventBus = hdmiSns.fromTopicName(this)(props.topicName, cdkContext.envObj.account,  cdkContext.envObj.region)
+                    const eventBus = uoneSns.fromTopicName(this)(props.topicName, cdkContext.envObj.account,  cdkContext.envObj.region)
 
-                    const readDLQ = new sqs.Queue(this, `Hdmi-${props.projectName}-SQS-EventsDLQ${envName}`, {
-                        queueName: `Hdmi-${props.projectName}-SQS-EventsDLQ${envName}`,
+                    const readDLQ = new sqs.Queue(this, `UOne-${props.projectName}-SQS-EventsDLQ${envName}`, {
+                        queueName: `UOne-${props.projectName}-SQS-EventsDLQ${envName}`,
                         retentionPeriod: core.Duration.days(14)
                     })
-                    const hdmiTagHandler = HdmiTagHandler(cdk.Tags, cdkContext)
+                    const uoneTagHandler = UOneTagHandler(cdk.Tags, cdkContext)
 
-                    hdmiTagHandler.tag(readDLQ,"PROJECT",projectName);
-                    hdmiTagHandler.tag(readDLQ,"ENVIRONMENT",envName);
-                    hdmiTagHandler.tag(readDLQ,"FUNCTIONALITY",functionality);
-                    hdmiTagHandler.tag(readDLQ,"OWNER","Eng");
+                    uoneTagHandler.tag(readDLQ,"PROJECT",projectName);
+                    uoneTagHandler.tag(readDLQ,"ENVIRONMENT",envName);
+                    uoneTagHandler.tag(readDLQ,"FUNCTIONALITY",functionality);
+                    uoneTagHandler.tag(readDLQ,"OWNER","Eng");
 
-                    const readEvents = new sqs.Queue(this, `Hdmi-${props.projectName}-SQS-Events-${envName}`, {
+                    const readEvents = new sqs.Queue(this, `UOne-${props.projectName}-SQS-Events-${envName}`, {
                         queueName: props.queueName,
                         deadLetterQueue: {
                             queue: readDLQ,
                             maxReceiveCount: 1
                         }
                     })
-                    hdmiTagHandler.tag(
+                    uoneTagHandler.tag(
                         readEvents,
                         TAG_CONSTANTS.FUNCTIONALITY,
                         functionality
@@ -136,14 +136,14 @@ function HdmiSqs(cdkContext, scope, sqs, core, HdmiStack) {
             }
 
             const stackProps = {
-                queueName: `Hdmi-${projectName}-SQS-Events-${envName}`,
+                queueName: `UOne-${projectName}-SQS-Events-${envName}`,
                 topicName: topicName,
                 projectName: projectName,
                 whitelist: whitelist,
                 ...props
             }
 
-            const projEventStack = new DefaultProjectionEventsStack(cdkContext, scope, `Hdmi-${projectName}-DefaultProjectionEvents-${envName}`, stackProps);
+            const projEventStack = new DefaultProjectionEventsStack(cdkContext, scope, `UOne-${projectName}-DefaultProjectionEvents-${envName}`, stackProps);
             
 
             return projEventStack;
@@ -151,4 +151,4 @@ function HdmiSqs(cdkContext, scope, sqs, core, HdmiStack) {
     })
 }
 
-module.exports = {HdmiSqs}
+module.exports = {UOneSqs}

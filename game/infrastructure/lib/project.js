@@ -1,47 +1,47 @@
-const { HdMiGamePipeline } = require("./pipeline");
+const { UOneGamePipeline } = require("./pipeline");
 const cdk = require("aws-cdk-lib");
 const { Repository } = require("aws-cdk-lib/aws-codecommit");
 const { PolicyStatement, Effect } = require("@aws-cdk/aws-iam");
-const { HdMiGamePackageStage } = require("./hdmi-game-stage");
+const { UOneGamePackageStage } = require("./uone-game-stage");
 const { CodeBuildStep } = require("aws-cdk-lib/pipelines");
-const { HdmiCdkContext, HdmiTagHandler } = require("@hdmi/common-cdk");
+const { UOneCdkContext, UOneTagHandler } = require("@uone/common-cdk");
 const { GameReadDefinitionStage } = require("./game-read-definition");
 const { GameWriteDefinitionStage } = require("./game-write-definition");
 const { GameSchedulerDefinitionStage } = require("./game-scheduler-definition");
 const { AVAILABLE_ENVS } = require("./available-envs");
 
 /**
- * HdMiGameProject for add a project for the repo in codecommit pipelines
+ * UOneGameProject for add a project for the repo in codecommit pipelines
  */
-class HdMiGameProject extends cdk.Stack {
+class UOneGameProject extends cdk.Stack {
     constructor(scope, id, envName, environments) {
         super(scope, id, { env: environments.get("shared-services") });
 
         const prettyEnvName = envName.replace(/-/g, " ").replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }).replace(/ /g, "");
-        const cdkContext = HdmiCdkContext(scope, envName);
-        const hdmiTagHandler = HdmiTagHandler(cdk.Tags, {
+        const cdkContext = UOneCdkContext(scope, envName);
+        const uoneTagHandler = UOneTagHandler(cdk.Tags, {
             envName: "shared-services",
         });
 
         // Load repo from CodeCommit
         const repository = Repository.fromRepositoryName(
             this,
-            `HdMi-Games-Repo-Reference-${envName}`,
+            `UOne-Games-Repo-Reference-${envName}`,
             "game"
         );
-        hdmiTagHandler.tag(repository, "PROJECT", "HdMiGames");
-        hdmiTagHandler.tag(repository, "ENVIRONMENT", "SharedServices");
-        hdmiTagHandler.tag(repository, "FUNCTIONALITY", "SDLC");
-        hdmiTagHandler.tag(repository, "OWNER", "Eng");
+        uoneTagHandler.tag(repository, "PROJECT", "UOneGames");
+        uoneTagHandler.tag(repository, "ENVIRONMENT", "SharedServices");
+        uoneTagHandler.tag(repository, "FUNCTIONALITY", "SDLC");
+        uoneTagHandler.tag(repository, "OWNER", "Eng");
 
         /**
          * create base pipeline
          */
-        const pipeline = new HdMiGamePipeline(
+        const pipeline = new UOneGamePipeline(
             this,
-            `HdMi-Games-Pipeline-${prettyEnvName}`,
+            `UOne-Games-Pipeline-${prettyEnvName}`,
             repository,
             envName,
             environments.get(envName).branch,
@@ -53,7 +53,7 @@ class HdMiGameProject extends cdk.Stack {
          */
         const readStackProps = {
             tags: {
-                PROJECT: "HdmiGames",
+                PROJECT: "UOneGames",
                 ENVIRONMENT: this.prettyEnvName,
                 OWNER: "Eng",
                 backboneEnv: environments.get(envName).backboneEnv,
@@ -67,7 +67,7 @@ class HdMiGameProject extends cdk.Stack {
          */
         const writeStackProps = {
             tags: {
-                PROJECT: "HdmiGames",
+                PROJECT: "UOneGames",
                 ENVIRONMENT: prettyEnvName,
                 OWNER: "Eng",
                 backboneEnv: environments.get(envName).backboneEnv,
@@ -81,7 +81,7 @@ class HdMiGameProject extends cdk.Stack {
          */
         pipeline.addStage(new GameReadDefinitionStage(
             this,
-            `HdMi-Games-Read-Stage-${prettyEnvName}`, 
+            `UOne-Games-Read-Stage-${prettyEnvName}`, 
             cdkContext,
             envName,
             readStackProps,
@@ -92,7 +92,7 @@ class HdMiGameProject extends cdk.Stack {
          */
         pipeline.addStage(new GameWriteDefinitionStage(
             this,
-            `HdMi-Games-Write-Stage-${prettyEnvName}`,
+            `UOne-Games-Write-Stage-${prettyEnvName}`,
             cdkContext,
             envName,
             writeStackProps,
@@ -103,7 +103,7 @@ class HdMiGameProject extends cdk.Stack {
          */
         pipeline.addStage(new GameSchedulerDefinitionStage(
             this,
-            `HdMi-Games-Scheduler-Stage-${prettyEnvName}`,
+            `UOne-Games-Scheduler-Stage-${prettyEnvName}`,
             cdkContext,
             envName,
             writeStackProps,
@@ -112,4 +112,4 @@ class HdMiGameProject extends cdk.Stack {
     }
 }
 
-module.exports = { HdMiGameProject };
+module.exports = { UOneGameProject };

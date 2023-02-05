@@ -1,7 +1,7 @@
 {
-  "name": "@hdmi/game",
+  "name": "@uone/game",
   "version": "0.1.2",
-  "description": "HDMI Game",
+  "description": "UOne Game",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -12,10 +12,10 @@
   "author": "heyday",
   "license": "ISC",
   "dependencies": {
-    "@hdmi/hdmi-calculator-clients": "1.1.1",
-    "@hdmi/hdmi-entity-clients": "0.1.8",
-    "@hdmi/quest-clients": "1.9.14",
-    "@heyday/hdmi-utils": "^0.3.0",
+    "@uone/uone-calculator-clients": "1.1.1",
+    "@uone/uone-entity-clients": "0.1.8",
+    "@uone/quest-clients": "1.9.14",
+    "@heyday/uone-utils": "^0.3.0",
     "@othree.io/optional": "^0.7.0",
     "@shelf/jest-dynamodb": "^3.1.2",
     "jest-dynalite": "^3.6.1",

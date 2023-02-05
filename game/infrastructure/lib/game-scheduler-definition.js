@@ -7,20 +7,20 @@ const es = require("aws-cdk-lib/aws-elasticsearch");
 const targets = require("aws-cdk-lib/aws-events-targets");
 const events = require("aws-cdk-lib/aws-events");
 const { DynamoEventSource } = require("aws-cdk-lib/aws-lambda-event-sources");
-const { HdmiLambda, HdmiVPC, HdmiStackClass, HdmiTagHandler } = require("@hdmi/common-cdk");
+const { UOneLambda, UOneVPC, UOneStackClass, UOneTagHandler } = require("@uone/common-cdk");
 const ssm = require("aws-cdk-lib/aws-ssm");
 const cxschema = require("aws-cdk-lib/cloud-assembly-schema");
 
-const BASE_STACK = "Hdmi-Games-";
+const BASE_STACK = "UOne-Games-";
 const BASE_STACK_READ = BASE_STACK + "Read-";
-const BASE_STACK_SCHEDULER = "Hdmi-Games-Scorer-";
-const ENTITY_BASE_STACK_READ = "Hdmi-Entity-Read-";
-const SERVICE_CALC_FN = "arn:Hdmi-Calculator-ServiceFn-";
+const BASE_STACK_SCHEDULER = "UOne-Games-Scorer-";
+const ENTITY_BASE_STACK_READ = "UOne-Entity-Read-";
+const SERVICE_CALC_FN = "arn:UOne-Calculator-ServiceFn-";
 const iam = require("aws-cdk-lib/aws-iam");
 
-const HdmiStack = HdmiStackClass(cdk);
+const UOneStack = UOneStackClass(cdk);
 
-class GameSchedulerDefinition extends HdmiStack {
+class GameSchedulerDefinition extends UOneStack {
     /**
      * @param {cdkContext} cdkContext
      * @param {cdk.Construct} scope
@@ -35,32 +35,32 @@ class GameSchedulerDefinition extends HdmiStack {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }).replace(/ /g, "");
         
-        const hdmiVPC = new HdmiVPC(this, ec2);
-        let vpcLambda = hdmiVPC.getDefaultHdmiConfigWithVPC(
+        const uoneVPC = new UOneVPC(this, ec2);
+        let vpcLambda = uoneVPC.getDefaultUOneConfigWithVPC(
             cdk,
             props.tags.backboneEnv
         );
-        const hdmiTagHandler = HdmiTagHandler(cdk.Tags, { envName: envName });
-        const hdmiLambda = HdmiLambda(this, lambda, cdk, cdkContext);
+        const uoneTagHandler = UOneTagHandler(cdk.Tags, { envName: envName });
+        const uoneLambda = UOneLambda(this, lambda, cdk, cdkContext);
         /**
          * Adding tags for Game Schedulers definition Stack
          */ 
-        hdmiTagHandler.tag(this, "PROJECT", "HdMiGames-Schedulers");
-        hdmiTagHandler.tag(this, "ENVIRONMENT", envName);
-        hdmiTagHandler.tag(this, "OWNER", "Eng");
+        uoneTagHandler.tag(this, "PROJECT", "UOneGames-Schedulers");
+        uoneTagHandler.tag(this, "ENVIRONMENT", envName);
+        uoneTagHandler.tag(this, "OWNER", "Eng");
         const restFnCalculateHandlerArn = this.generateLambdaARNByName(
             cdkContext,
-            `Hdmi-Calculator-ServiceFn-CalculateHandler-${envName}`
+            `UOne-Calculator-ServiceFn-CalculateHandler-${envName}`
         );
         const restFnCalculateHandler = lambda.Function.fromFunctionArn(
             this,
             `${SERVICE_CALC_FN}CalculateHandler-${envName}`,
             restFnCalculateHandlerArn
         );
-        const getEntityListByTypeFN = hdmiLambda.fromFunctionAttributes(`Hdmi-Entity-Read-GetEntityListByTypeNoCognito-FN-MS-${envName}`)
+        const getEntityListByTypeFN = uoneLambda.fromFunctionAttributes(`UOne-Entity-Read-GetEntityListByTypeNoCognito-FN-MS-${envName}`)
 
         // this temporary will be reverted today we need this to fix CICD for entity
-        const getAllEntitiesByTypeNClientNoCognitoFN = hdmiLambda.fromFunctionAttributes(`Hdmi-Entity-Read-GetAllByTypeNClientNoCogMS-FN-MS-${envName}`)
+        const getAllEntitiesByTypeNClientNoCognitoFN = uoneLambda.fromFunctionAttributes(`UOne-Entity-Read-GetAllByTypeNClientNoCogMS-FN-MS-${envName}`)
 
         // this.loadFunctionByARN(
         //     this,
@@ -83,7 +83,7 @@ class GameSchedulerDefinition extends HdmiStack {
          * adding indexed to make search better
          */
         // following will be replaced by string param fixing import value loop issue
-        let gameTableName = `Hdmi-Games-Table-${prettyEnvName}`
+        let gameTableName = `UOne-Games-Table-${prettyEnvName}`
         // following will be replaced by string param fixing import value loop issue
         // cdk.Fn.importValue(
         //     `${BASE_STACK}Game-Table-Name-${envName}`
@@ -121,7 +121,7 @@ class GameSchedulerDefinition extends HdmiStack {
             },
             sortKey: { name: "userId", type: dynamodb.AttributeType.STRING },
         });
-        hdmiTagHandler.tag(userPerformanceTable, "FUNCTIONALITY", "read-data");
+        uoneTagHandler.tag(userPerformanceTable, "FUNCTIONALITY", "read-data");
 
         /**
          * Environment vairbles to be added to lambda functions
@@ -144,12 +144,12 @@ class GameSchedulerDefinition extends HdmiStack {
         /**
          * GetUserPerformanceDataByuserId get user perofrmance data by ID
          */
-        const getUserPerformanceHandler = hdmiLambda.newFunction(
+        const getUserPerformanceHandler = uoneLambda.newFunction(
             `${BASE_STACK_SCHEDULER}GetUserPerformanceDataByuserId-MS-${prettyEnvName}`,
             "src/scheduler/game-scheduler-entrypoint.rest.getUserPerformanceDataByuserId",
             envs,
             "read-data",
-            "HdMiGames",
+            "UOneGames",
             {
                 ...vpcLambda,
             }
@@ -218,7 +218,7 @@ class GameSchedulerDefinitionStage extends cdk.Stage {
         new GameSchedulerDefinition(
             cdkContext,
             this,
-            `Hdmi-Games-Scheduler-${prettyEnvName}`,
+            `UOne-Games-Scheduler-${prettyEnvName}`,
             writeStackProps
         );
     }

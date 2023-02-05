@@ -5,11 +5,11 @@ const { TAG_CONSTANTS } = require("./utils");
  * This is base tagHandler to apply tags on each service,
  * stack, resource and more it auto applies all the base tags
  * 
- * @param HDMITagService tagService 
- * @param HDMICDKContext cdkContext 
+ * @param UOneTagService tagService 
+ * @param UOneCDKContext cdkContext 
  * @returns 
  */
-function HdmiTagHandler(tagService, cdkContext) {
+function UOneTagHandler(tagService, cdkContext) {
 
     if (!tagService) {
         throw new Error('tag service is required')
@@ -66,4 +66,4 @@ function HdmiTagHandler(tagService, cdkContext) {
     }
 }
 
-module.exports = {HdmiTagHandler}
+module.exports = {UOneTagHandler}

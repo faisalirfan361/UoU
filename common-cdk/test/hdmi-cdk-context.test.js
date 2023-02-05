@@ -1,6 +1,6 @@
-const {HdmiCdkContext} = require('../src/hdmi-cdk-context')
+const {UOneCdkContext} = require('../src/uone-cdk-context')
 
-describe('HdmiCdkContext', () => {
+describe('UOneCdkContext', () => {
     it('should return the cdk context', () => {
         const app = {
             node: {
@@ -15,7 +15,7 @@ describe('HdmiCdkContext', () => {
                 }
             }
         }
-        const context = HdmiCdkContext(app)
+        const context = UOneCdkContext(app)
         expect(context).toStrictEqual({
             env: 'Prod',
             volatile: true,
@@ -31,7 +31,7 @@ describe('HdmiCdkContext', () => {
             }
         }
 
-        const context = HdmiCdkContext(app)
+        const context = UOneCdkContext(app)
 
         expect(context).toStrictEqual({
             env: 'Dev',
