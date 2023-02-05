@@ -1,0 +1,6 @@
+{
+  "app": "node bin/main.js",
+  "context": {
+    "aws-cdk:enableDiffNoFail": "true"
+  }
+}

@@ -1,0 +1,137 @@
+[
+    {
+        "cstatus": true,
+        "end_date": "2022-09-01T01:50:00.000Z",
+        "winnerPoints": "12",
+        "clientId": "test-client",
+        "kpi_id": "test-kpi-fb5c6441-1c0c-49e9-ab4a-94233c338fbe",
+        "kpi_name": "CWT-flp",
+        "teams": [
+            "heydaytest-group-default",
+            "heydaytest-group-group0",
+            "heydaytest-group-group0_group3"
+        ],
+        "schedule": "DAILY",
+        "challengesUser": [
+            {
+                "first_name": "Brian",
+                "last_name": "Flock",
+                "user_id": "test-user-58afac27-e8f5-45cc-bad8-0d6967570e48",
+                "team_id": "test-group-default"
+            },
+            {
+                "first_name": "Ethan",
+                "last_name": "LuBean",
+                "user_id": "test-user-d78fa21a-02fb-459c-b662-7de8de52c316",
+                "team_id": "test-group-default"
+            },
+            {
+                "first_name": "Emmy",
+                "last_name": "Gerry",
+                "user_id": "test-user-653773b5-753a-4b8e-901e-7e5c95aceba1",
+                "team_id": "test-group-default"
+            }
+        ],
+        "start_date": "2022-08-01T01:50:36.225Z",
+        "description": "chief2",
+        "gameId": "b2d399dd-1b4d-42a6-94b6-9369ed8d70bd",
+        "title": "chief2"
+    },
+    {
+        "cstatus": true,
+        "end_date": "2022-09-01T01:50:00.000Z",
+        "winnerPoints": "12",
+        "clientId": "test-client",
+        "kpi_id": "test-kpi-fb5c6441-1c0c-49e9-ab4a-94233c338fbe",
+        "kpi_name": "CWT-flp",
+        "teams": [
+            "heydaytest-group-default",
+            "heydaytest-group-group0",
+            "heydaytest-group-group0_group3"
+        ],
+        "schedule": "DAILY",
+        "challengesUser": [
+            {
+                "first_name": "Brian",
+                "last_name": "Flock",
+                "user_id": "test-user-58afac27-e8f5-45cc-bad8-0d6967570e48",
+                "team_id": "test-group-default"
+            },
+            {
+                "first_name": "Ethan",
+                "last_name": "LuBean",
+                "user_id": "test-user-d78fa21a-02fb-459c-b662-7de8de52c316",
+                "team_id": "test-group-default"
+            },
+            {
+                "first_name": "Emmy",
+                "last_name": "Gerry",
+                "user_id": "test-user-653773b5-753a-4b8e-901e-7e5c95aceba1",
+                "team_id": "test-group-default"
+            },
+            {
+                "first_name": "First Name 22",
+                "last_name": "First Name 22",
+                "user_id": "heydaytest-user-22",
+                "team_id": "heydaytest-group-default"
+            }
+        ],
+        "start_date": "2022-08-01T01:50:36.225Z",
+        "description": "chief2",
+        "gameId": "b2d399dd-1b4d-42a6-94b6-9369ed8d70bd",
+        "title": "chief2"
+    },
+    {
+        "cstatus": true,
+        "end_date": "2022-09-01T01:50:00.000Z",
+        "winnerPoints": "12",
+        "clientId": "test-client",
+        "kpi_id": "test-kpi-fb5c6441-1c0c-49e9-ab4a-94233c338fbe",
+        "kpi_name": "CWT-flp",
+        "teams": null,
+        "schedule": "DAILY",
+        "challengesUser": [
+            {
+                "first_name": "Brian",
+                "last_name": "Flock",
+                "user_id": "test-user-58afac27-e8f5-45cc-bad8-0d6967570e48",
+                "team_id": "test-group-default"
+            },
+            {
+                "first_name": "Ethan",
+                "last_name": "LuBean",
+                "user_id": "test-user-d78fa21a-02fb-459c-b662-7de8de52c316",
+                "team_id": "test-group-default"
+            },
+            {
+                "first_name": "Emmy",
+                "last_name": "Gerry",
+                "user_id": "test-user-653773b5-753a-4b8e-901e-7e5c95aceba1",
+                "team_id": "test-group-default"
+            }
+        ],
+        "start_date": "2022-08-01T01:50:36.225Z",
+        "description": "chief2",
+        "gameId": "b2d399dd-1b4d-42a6-94b6-9369ed8d70bd",
+        "title": "chief2"
+    },
+    {
+        "cstatus": true,
+        "end_date": "2022-09-01T01:50:00.000Z",
+        "winnerPoints": "12",
+        "clientId": "test-client",
+        "kpi_id": "test-kpi-fb5c6441-1c0c-49e9-ab4a-94233c338fbe",
+        "kpi_name": "CWT-flp",
+        "teams": [
+            "heydaytest-group-default",
+            "heydaytest-group-group0",
+            "heydaytest-group-group0_group3"
+        ],
+        "schedule": "DAILY",
+        "challengesUser": [],
+        "start_date": "2022-08-01T01:50:36.225Z",
+        "description": "chief2",
+        "gameId": "b2d399dd-1b4d-42a6-94b6-9369ed8d70bd",
+        "title": "chief2"
+    }
+]

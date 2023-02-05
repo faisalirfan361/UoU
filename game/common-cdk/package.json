@@ -1,0 +1,27 @@
+{
+  "name": "@hdmi/common-cdk",
+  "version": "1.0.27",
+  "description": "Heydaynow Common Cdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:heydaynow/hdmi-cdk-utils.git"
+  },
+  "keywords": [
+    "heydaynow",
+    "common",
+    "cdk"
+  ],
+  "author": "heydaynow",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "@othree.io/cerillo": "^0.1.0",
+    "aws-cdk-lib": "2.18.0"
+  }
+}

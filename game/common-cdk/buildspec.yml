@@ -1,0 +1,43 @@
+version: 0.2
+
+env:
+  shell: bash
+  variables:
+    SHIFTLEFT_LANG_JS: true
+    SHIFTLEFT_WAIT: false # view shiftleft in web console, don't hang builds
+    SHIFTLEFT_DIAGNOSTIC: true
+    codeartifactdomain: 972576019456
+  secrets-manager:
+    SLUSER: "shiftleft-credentials-CICD:shiftleftuser"
+    SHIFTLEFT_ACCESS_TOKEN: "shiftleft-credentials-CICD:shiftlefttoken"
+
+phases:
+  pre_build:
+    commands:
+      - projectname=$(echo $CODEBUILD_SOURCE_REPO_URL | cut -d/ -f5- | cut -d'.' -f1)
+      - echo "Downloaded ShiftLeft..."
+      - curl https://cdn.shiftleft.io/download/sl > /usr/local/bin/sl && chmod a+rx /usr/local/bin/sl
+      - aws codeartifact login --tool npm --repository hdmi-npm --domain hdmi --domain-owner $codeartifactdomain
+      - cd ./codebase
+      - npm install
+  build:
+    commands: # Do stuff here
+      - npm run test
+      - npm run build
+  post_build:
+    commands:
+      - sl auth --token $SHIFTLEFT_ACCESS_TOKEN
+      - echo Starting code analysis with NG SAST...
+      - sl analyze --js --app $projectname
+    finally:
+      - echo "Ran NG SAST on your code"
+      - echo $CODEBUILD_SOURCE_REPO_URL
+artifacts:
+  files:
+    - "codebase/**/*"
+reports:
+  jest_reports:
+    files:
+      - buildtestreport.xml
+    file-format: JUNITXML
+    base-directory: codebase/

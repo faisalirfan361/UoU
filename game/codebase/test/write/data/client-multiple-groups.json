@@ -1,0 +1,2818 @@
+[
+    {
+        "departmentId": "heyday-group-default",
+        "created_at": "2022-02-04T16:46:27.936Z",
+        "groupId": "heydaytest-group-default",
+        "entityId": "heydaytest-user-0",
+        "groupIds": [
+            "heydaytest-group-default"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICApNu64r8IDA.png?version=e47e8f1ebe119271f4758ca66c94e7a8",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-default",
+            "enabled": 1,
+            "firstName": "First Name 0",
+            "groupId": "heydaytest-group-default",
+            "lastName": "First Name 0",
+            "pointsBalance": 0,
+            "pointsCumulative": 4406,
+            "roleId": "heydaytest-role-admin",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_0_First_Name_0@heydaytest.com"
+        },
+        "points": 100,
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-admin",
+        "updated_at": "2022-04-29T10:03:13.016Z",
+        "isActive": true,
+        "cognitoIdentityId": "da03a25e-554e-4df6-bd2c-d580e3163b8c",
+        "type": "user"
+    },
+    {
+        "departmentId": "heyday-group-0",
+        "created_at": "2022-02-04T16:46:22.319Z",
+        "groupId": "heydaytest-group-group0",
+        "entityId": "heydaytest-user-1",
+        "groupIds": [
+            "heydaytest-group-group0"
+        ],
+        "points": 0,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA1Nu_-IUIDA.png?version=8bdec28ecd06946fddded0abf5f38fb8",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group0",
+            "enabled": 1,
+            "firstName": "First Name 1",
+            "groupId": "heydaytest-group-group0",
+            "lastName": "First Name 1",
+            "pointsBalance": 0,
+            "pointsCumulative": 50983,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_1_First_Name_1@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-05-07T20:48:02.767Z",
+        "isActive": true,
+        "cognitoIdentityId": "572709a1-9e76-4bf2-97c5-2cdffb0a44b1",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 262959
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 14,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 7.666666666666666,
+                "2022-05-06": 13,
+                "2022-05-10": 40.33560000000001,
+                "2022-05-11": 9
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-10": 123.361
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 11,
+                    "2022-05-06": 13,
+                    "2022-05-09": 14,
+                    "2022-05-10": 10,
+                    "2022-05-11": 9
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-10": 123.361
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-05": 1
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-10": 123.361
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-10": 3
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-10": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 11,
+                    "2022-05-06": 13,
+                    "2022-05-09": 14,
+                    "2022-05-10": 10,
+                    "2022-05-11": 9
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-10": 8.273
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-10": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heydaytest-group-group1_group2",
+        "created_at": "2022-02-05T17:38:22.239Z",
+        "groupId": "heydaytest-group-group1_group2",
+        "entityId": "heydaytest-user-2",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group2",
+            "heydaytest-group-group1_group2"
+        ],
+        "points": 150,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAqJKQqKQLDA.png?version=2af9b3a13058df39c7d249d47185ccbe",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group2",
+            "enabled": 1,
+            "firstName": "First Name 2",
+            "groupId": "heydaytest-group-group1_group2",
+            "lastName": "First Name 2",
+            "pointsBalance": 0,
+            "pointsCumulative": 1993,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_2_First_Name_2@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:05:10.179Z",
+        "isActive": true,
+        "cognitoIdentityId": "6c766467-19c3-4622-a4f0-5fc9c2b20970",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 42614
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 11.366733333333332,
+                "2022-05-07": 6.666666666666666,
+                "2022-05-08": 1,
+                "2022-05-05": 11.218777777777778,
+                "2022-05-06": 10.299299999999999,
+                "2022-05-10": 21.568250000000003,
+                "2022-05-11": 3
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 16.57,
+                    "2022-05-06": 3.992,
+                    "2022-05-09": 15.389,
+                    "2022-05-10": 45.638
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 9,
+                    "2022-05-08": 1,
+                    "2022-05-05": 20,
+                    "2022-05-06": 26,
+                    "2022-05-10": 23,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 16.57,
+                    "2022-05-06": 3.992,
+                    "2022-05-09": 15.389,
+                    "2022-05-10": 45.638
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 16.57,
+                    "2022-05-06": 3.992,
+                    "2022-05-09": 15.389,
+                    "2022-05-10": 45.638
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-06": 3,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1,
+                    "2022-05-07": 2
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 0,
+                    "2022-05-06": 0,
+                    "2022-05-09": 11.697000000000001,
+                    "2022-05-10": 8.3905
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 1,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 9,
+                    "2022-05-08": 1,
+                    "2022-05-05": 20,
+                    "2022-05-06": 26,
+                    "2022-05-10": 23,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 9.259,
+                    "2022-05-06": 34.017,
+                    "2022-05-09": 8.803333333333335,
+                    "2022-05-10": 21.378
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 1,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-default",
+        "created_at": "2022-02-04T16:46:24.542Z",
+        "groupId": "heydaytest-group-group0_group3",
+        "entityId": "heydaytest-user-3",
+        "groupIds": [
+            "heydaytest-group-group0",
+            "heydaytest-group-group3",
+            "heydaytest-group-group0_group3"
+        ],
+        "points": 110,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA9KmXwaAIDA.png?version=e8808eaf4915cd3ebfbcdd80e45df438",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group0_group3",
+            "enabled": 1,
+            "firstName": "First Name 3",
+            "groupId": "heydaytest-group-group0_group3",
+            "lastName": "First Name 3",
+            "pointsBalance": 0,
+            "pointsCumulative": 264152,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_3_First_Name_3@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-05-07T20:48:08.406Z",
+        "isActive": true,
+        "cognitoIdentityId": "c9224307-d30e-43af-bc2c-c7c397dac70a",
+        "hdn_data": {
+            "enrolledChallengesCount": 2,
+            "points": 1193550
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 43.6555462962963,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 0,
+                "2022-05-06": 0,
+                "2022-05-10": 90.77790101010102,
+                "2022-05-11": 33.95846153846155
+            },
+            "kpisState": {
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 13,
+                    "2022-05-10": 18,
+                    "2022-05-11": 18
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-09": 212.233,
+                    "2022-05-10": 778.934,
+                    "2022-05-11": 216.841
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-10": 5,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-09": 3,
+                    "2022-05-10": 5,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-5c025593-bea3-428a-9d37-7eac2c6a6b66": {
+                    "2022-05-11": 27.648
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-09": 7.17825,
+                    "2022-05-10": 7.83611111111111,
+                    "2022-05-11": 6.410333333333334
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-09": 3,
+                    "2022-05-10": 5,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-09": 70.74433333333333,
+                    "2022-05-10": 77.8934,
+                    "2022-05-11": 72.28033333333333
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-10": 5,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-09": 70.74433333333333,
+                    "2022-05-10": 77.8934,
+                    "2022-05-11": 72.28033333333333
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 13,
+                    "2022-05-10": 18,
+                    "2022-05-11": 18
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group4",
+        "created_at": "2022-02-05T17:37:49.202Z",
+        "groupId": "heydaytest-group-group1_group4",
+        "entityId": "heydaytest-user-4",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group4",
+            "heydaytest-group-group1_group4"
+        ],
+        "points": 400,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICArK_X0fYJDA.png?version=60549dc37a71da1fefc3a4a92c581d29",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group4",
+            "enabled": 1,
+            "firstName": "First Name 4",
+            "groupId": "heydaytest-group-group1_group4",
+            "lastName": "First Name 4",
+            "pointsBalance": 0,
+            "pointsCumulative": 359859,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_4_First_Name_4@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:11.646Z",
+        "isActive": true,
+        "cognitoIdentityId": "33b2ad22-8848-4cb0-b343-45ad95a8f393",
+        "hdn_data": {
+            "enrolledChallengesCount": 2,
+            "points": 1865798
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 187.7967236111111,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 139.43802797202798,
+                "2022-05-06": 225.47866161616156,
+                "2022-05-10": 129.06125694444447,
+                "2022-05-11": 114.96405
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 97.62592307692309,
+                    "2022-05-06": 115.38777777777779,
+                    "2022-05-09": 117.28074999999998,
+                    "2022-05-10": 103.15050000000001,
+                    "2022-05-11": 72.684
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-09": 1,
+                    "2022-05-05": 1,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 17,
+                    "2022-05-06": 19,
+                    "2022-05-09": 18,
+                    "2022-05-10": 13,
+                    "2022-05-11": 12
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 1269.1370000000002,
+                    "2022-05-06": 2076.98,
+                    "2022-05-09": 1876.4919999999997,
+                    "2022-05-10": 1237.806,
+                    "2022-05-11": 872.208
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 2,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 97.62592307692309,
+                    "2022-05-06": 115.38777777777779,
+                    "2022-05-09": 117.28074999999998,
+                    "2022-05-10": 103.15050000000001,
+                    "2022-05-11": 72.684
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-05": 13,
+                    "2022-05-06": 18,
+                    "2022-05-09": 15,
+                    "2022-05-10": 11,
+                    "2022-05-11": 12
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 0,
+                    "2022-05-06": 0,
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 17,
+                    "2022-05-06": 19,
+                    "2022-05-09": 18,
+                    "2022-05-10": 13,
+                    "2022-05-11": 12
+                },
+                "heydaytest-kpi-5c025593-bea3-428a-9d37-7eac2c6a6b66": {
+                    "2022-05-06": 89.0995,
+                    "2022-05-09": 67.31625,
+                    "2022-05-10": 47.39233333333334,
+                    "2022-05-11": 76.348
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 7.429461538461538,
+                    "2022-05-06": 7.410222222222223,
+                    "2022-05-09": 7.1909333333333345,
+                    "2022-05-10": 7.23575,
+                    "2022-05-11": 7.716500000000001
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-05": 13,
+                    "2022-05-06": 18,
+                    "2022-05-09": 15,
+                    "2022-05-10": 11,
+                    "2022-05-11": 12
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group4_group6",
+        "created_at": "2022-02-05T17:38:04.622Z",
+        "groupId": "heydaytest-group-group4_group6",
+        "entityId": "heydaytest-user-5",
+        "groupIds": [
+            "heydaytest-group-group4",
+            "heydaytest-group-group5",
+            "heydaytest-group-group4_group6"
+        ],
+        "points": 190,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAxP3KkM0KDA.png?version=f772bf7d69b29443b1117b0d0e136d25",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group4_group6",
+            "enabled": 1,
+            "firstName": "First Name 5",
+            "groupId": "heydaytest-group-group4_group6",
+            "lastName": "First Name 5",
+            "pointsBalance": 0,
+            "pointsCumulative": 10592,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Pacific",
+            "username": "First_Name_5_First_Name_5@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-05-07T20:49:39.165Z",
+        "isActive": false,
+        "cognitoIdentityId": "be8107df-8ae1-4ea4-90c4-e43b45ef6517",
+        "hdn_data": {
+            "enrolledChallengesCount": 207,
+            "points": 76660
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 25.337449999999997,
+                "2022-05-07": 5.666666666666666,
+                "2022-05-08": 1,
+                "2022-05-05": 17.650888888888886,
+                "2022-05-06": 15.302500000000002,
+                "2022-05-10": 40.673500000000004,
+                "2022-05-11": 88.11951851851852
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 28.435,
+                    "2022-05-06": 20.079,
+                    "2022-05-09": 50.212,
+                    "2022-05-10": 58.79625,
+                    "2022-05-11": 154.45766666666668
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 19,
+                    "2022-05-07": 8,
+                    "2022-05-08": 1,
+                    "2022-05-05": 18,
+                    "2022-05-06": 16,
+                    "2022-05-10": 17,
+                    "2022-05-11": 5
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 28.435,
+                    "2022-05-06": 60.237,
+                    "2022-05-09": 100.424,
+                    "2022-05-10": 235.185,
+                    "2022-05-11": 463.37300000000005
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 28.435,
+                    "2022-05-06": 20.079,
+                    "2022-05-09": 50.212,
+                    "2022-05-10": 58.79625,
+                    "2022-05-11": 154.45766666666668
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-06": 4,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1,
+                    "2022-05-07": 1
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 3,
+                    "2022-05-09": 2,
+                    "2022-05-10": 4,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 17.3675,
+                    "2022-05-06": 0,
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 19,
+                    "2022-05-07": 8,
+                    "2022-05-08": 1,
+                    "2022-05-05": 18,
+                    "2022-05-06": 16,
+                    "2022-05-10": 17,
+                    "2022-05-11": 5
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 18.1855,
+                    "2022-05-06": 10.63,
+                    "2022-05-09": 9.5265,
+                    "2022-05-10": 10.9575,
+                    "2022-05-11": 4.787333333333334
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 3,
+                    "2022-05-09": 2,
+                    "2022-05-10": 4,
+                    "2022-05-11": 3
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group3_group7",
+        "created_at": "2022-02-05T17:38:16.887Z",
+        "groupId": "heydaytest-group-group3_group7",
+        "entityId": "heydaytest-user-6",
+        "groupIds": [
+            "heydaytest-group-group3",
+            "heydaytest-group-group7",
+            "heydaytest-group-group3_group7"
+        ],
+        "points": 10200,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAqLLBko8LDA.png?version=d447e4452e72f8f6f23525f789ed984c",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group3_group7",
+            "enabled": 1,
+            "firstName": "First Name 6",
+            "groupId": "heydaytest-group-group3_group7",
+            "lastName": "First Name 6",
+            "pointsBalance": 0,
+            "pointsCumulative": 894,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_6_First_Name_6@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:05:00.806Z",
+        "isActive": true,
+        "cognitoIdentityId": "e5eefdd0-cf48-4147-b71e-e5b7c9225910",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 31433
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 17.951499999999996,
+                "2022-05-07": 7,
+                "2022-05-08": 1,
+                "2022-05-05": 17.345666666666666,
+                "2022-05-06": 8.333333333333332,
+                "2022-05-10": 7,
+                "2022-05-11": 69.74355555555556
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-09": 42.48,
+                    "2022-05-05": 32.29,
+                    "2022-05-11": 198.66
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 19,
+                    "2022-05-07": 7,
+                    "2022-05-08": 1,
+                    "2022-05-05": 15,
+                    "2022-05-06": 11,
+                    "2022-05-10": 10,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-09": 42.48,
+                    "2022-05-05": 32.29,
+                    "2022-05-11": 198.66
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-09": 42.48,
+                    "2022-05-05": 32.29,
+                    "2022-05-11": 198.66
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 1,
+                    "2022-05-06": 3,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-09": 1,
+                    "2022-05-05": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-09": 0,
+                    "2022-05-05": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 19,
+                    "2022-05-07": 7,
+                    "2022-05-08": 1,
+                    "2022-05-05": 15,
+                    "2022-05-06": 11,
+                    "2022-05-10": 10,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-09": 11.075,
+                    "2022-05-05": 27.241,
+                    "2022-05-11": 21.712
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-09": 1,
+                    "2022-05-05": 1,
+                    "2022-05-11": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group3_group7",
+        "created_at": "2022-02-04T16:46:27.607Z",
+        "groupId": "heydaytest-group-group3_group7",
+        "entityId": "heydaytest-user-7",
+        "groupIds": [
+            "heydaytest-group-group3",
+            "heydaytest-group-group7",
+            "heydaytest-group-group3_group7"
+        ],
+        "points": 190,
+        "attributes": {
+            "lastName": "First Name 7",
+            "temporary": "I am not for long here",
+            "rootGroupId": "heydaytest-group-default",
+            "clientId": "heydaytest-client",
+            "pointsBalance": 0,
+            "roleId": "heydaytest-role-agent",
+            "timezone": "US/Mountain",
+            "departmentId": "heydaytest-group-group3_group7",
+            "groupId": "heydaytest-group-group3_group7",
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA7La9_LwIDA.png?version=701123afe78ab000a076904c255338d8",
+            "enabled": 1,
+            "firstName": "First Name 7",
+            "pointsCumulative": 0,
+            "username": "First_Name_7_First_Name_7@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:03:12.004Z",
+        "isActive": true,
+        "cognitoIdentityId": "6637854d-1f09-42a6-a8e8-7c74740307bb",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 3666
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 3,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 2.333333333333333,
+                "2022-05-06": 0,
+                "2022-05-04": 0,
+                "2022-05-10": 7.7692499999999995
+            },
+            "kpisState": {
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 3,
+                    "2022-05-05": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-10": 18.82
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 3,
+                    "2022-05-05": 3,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 3,
+                    "2022-05-05": 3,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-10": 10.257
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group4_group5_group6",
+        "created_at": "2022-02-04T16:46:32.604Z",
+        "groupId": "heydaytest-group-group4_group5_group6",
+        "entityId": "heydaytest-user-8",
+        "groupIds": [
+            "heydaytest-group-group4",
+            "heydaytest-group-group5",
+            "heydaytest-group-group6",
+            "heydaytest-group-group4_group5_group6"
+        ],
+        "points": 1220,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA7PbalN0IDA.png?version=529be6b7576e94780b4adef17ee0d470",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group4_group5_group6",
+            "enabled": 1,
+            "firstName": "First Name 8",
+            "groupId": "heydaytest-group-group4_group5_group6",
+            "lastName": "First Name 8",
+            "pointsBalance": 0,
+            "pointsCumulative": 670,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_8_First_Name_8@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:03:22.959Z",
+        "isActive": true,
+        "cognitoIdentityId": "933a2d4f-8c63-4b7c-8a25-868db7c9c97e",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 7430
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 33.00905,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 2,
+                "2022-05-06": 48.278333333333336,
+                "2022-05-10": 9.30275,
+                "2022-05-11": 1
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-09": 100.51,
+                    "2022-05-06": 91.2805
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-06": 1
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 2,
+                    "2022-05-06": 2,
+                    "2022-05-09": 4,
+                    "2022-05-10": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-09": 100.51,
+                    "2022-05-06": 365.122
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-06": 2
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-09": 100.51,
+                    "2022-05-06": 91.2805
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 1,
+                    "2022-05-06": 1
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-09": 1,
+                    "2022-05-06": 3
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-09": 8.1625,
+                    "2022-05-06": 0,
+                    "2022-05-10": 21.709
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 2,
+                    "2022-05-06": 2,
+                    "2022-05-09": 4,
+                    "2022-05-10": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-09": 9.398,
+                    "2022-05-06": 17.657,
+                    "2022-05-10": 13.502
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-09": 1,
+                    "2022-05-06": 3
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group5_group8",
+        "created_at": "2022-02-05T17:38:13.893Z",
+        "groupId": "heydaytest-group-group1_group5_group8",
+        "entityId": "heydaytest-user-9",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group5",
+            "heydaytest-group-group8",
+            "heydaytest-group-group1_group5_group8"
+        ],
+        "points": 1330,
+        "attributes": {
+            "lastName": "First Name 9",
+            "temporary": "I am not for long here",
+            "rootGroupId": "heydaytest-group-default",
+            "clientId": "heydaytest-client",
+            "pointsBalance": 0,
+            "roleId": "heydaytest-role-agent",
+            "timezone": "US/Mountain",
+            "departmentId": "heydaytest-group-group1_group5_group8",
+            "groupId": "heydaytest-group-group1_group5_group8",
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA5M_f3_8KDA.png?version=498d19ce9cdb8df3244ebd552b2c1c89",
+            "enabled": 1,
+            "firstName": "First Name 9",
+            "pointsCumulative": 0,
+            "username": "First_Name_9_First_Name_9@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:56.153Z",
+        "isActive": true,
+        "cognitoIdentityId": "da789c89-5dfd-4eaa-83d4-7a1cc3af25b2",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 18862
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 58.74075,
+                "2022-05-07": 5.666666666666666,
+                "2022-05-08": 1,
+                "2022-05-05": 51.439548148148155,
+                "2022-05-06": 9,
+                "2022-05-10": 81.67059999999998,
+                "2022-05-11": 3
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-09": 134.523,
+                    "2022-05-05": 78.44466666666666,
+                    "2022-05-10": 154.68733333333333
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 18,
+                    "2022-05-07": 8,
+                    "2022-05-08": 1,
+                    "2022-05-05": 16,
+                    "2022-05-06": 12,
+                    "2022-05-10": 10,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-09": 269.046,
+                    "2022-05-05": 235.334,
+                    "2022-05-10": 464.062
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-09": 134.523,
+                    "2022-05-05": 78.44466666666666,
+                    "2022-05-10": 154.68733333333333
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-06": 3,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1,
+                    "2022-05-07": 1
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-09": 2,
+                    "2022-05-05": 3,
+                    "2022-05-10": 3
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-09": 0,
+                    "2022-05-05": 14.439400000000001,
+                    "2022-05-10": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 18,
+                    "2022-05-07": 8,
+                    "2022-05-08": 1,
+                    "2022-05-05": 16,
+                    "2022-05-06": 12,
+                    "2022-05-10": 10,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-09": 8.3155,
+                    "2022-05-05": 18.293200000000002,
+                    "2022-05-10": 16.269333333333332
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-09": 2,
+                    "2022-05-05": 3,
+                    "2022-05-10": 3
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group0_group1_group2",
+        "created_at": "2022-02-05T17:38:01.003Z",
+        "groupId": "heydaytest-group-group0_group1_group2",
+        "entityId": "heydaytest-user-10",
+        "groupIds": [
+            "heydaytest-group-group0",
+            "heydaytest-group-group1",
+            "heydaytest-group-group2",
+            "heydaytest-group-group0_group1_group2"
+        ],
+        "points": 3400,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAqILr6bQKDA.png?version=0c2e5eb377fa2b36580409bf326a4db3",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group0_group1_group2",
+            "enabled": 1,
+            "firstName": "First Name 10",
+            "groupId": "heydaytest-group-group0_group1_group2",
+            "lastName": "First Name 10",
+            "pointsBalance": 0,
+            "pointsCumulative": 964,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Pacific",
+            "username": "First_Name_10_First_Name_10@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:32.394Z",
+        "isActive": true,
+        "cognitoIdentityId": "dad001c1-f64a-41f9-9f9a-4b6446b6af01",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 17436
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 15.666666666666664,
+                "2022-05-07": 7.666666666666668,
+                "2022-05-08": 1,
+                "2022-05-05": 12.333333333333332,
+                "2022-05-06": 9,
+                "2022-05-10": 9.666666666666668,
+                "2022-05-11": 3
+            },
+            "kpisState": {
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 3,
+                    "2022-05-09": 3,
+                    "2022-05-10": 1,
+                    "2022-05-07": 3
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 10,
+                    "2022-05-08": 1,
+                    "2022-05-05": 18,
+                    "2022-05-06": 12,
+                    "2022-05-10": 14,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 10,
+                    "2022-05-08": 1,
+                    "2022-05-05": 18,
+                    "2022-05-06": 12,
+                    "2022-05-10": 14,
+                    "2022-05-11": 3
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group0_group1_group2",
+        "created_at": "2022-02-05T17:38:05.294Z",
+        "groupId": "heydaytest-group-group0_group1_group2",
+        "entityId": "heydaytest-user-11",
+        "groupIds": [
+            "heydaytest-group-group0",
+            "heydaytest-group-group1",
+            "heydaytest-group-group2",
+            "heydaytest-group-group0_group1_group2"
+        ],
+        "points": 2100,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAlKu419EKDA.png?version=dcaf9b4e4725204032564f7e364c00a0",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group0_group1_group2",
+            "enabled": 1,
+            "firstName": "First Name 11",
+            "groupId": "heydaytest-group-group0_group1_group2",
+            "lastName": "First Name 11",
+            "pointsBalance": 0,
+            "pointsCumulative": 82561,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_11_First_Name_11@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:40.037Z",
+        "isActive": true,
+        "cognitoIdentityId": "c386e5bd-81e2-4a3b-85bf-6d8663654283",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 448661
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 17,
+                "2022-05-07": 1,
+                "2022-05-08": 0,
+                "2022-05-05": 22,
+                "2022-05-06": 21,
+                "2022-05-10": 17.333333333333336,
+                "2022-05-11": 11.666666666666668
+            },
+            "kpisState": {
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 1,
+                    "2022-05-10": 2,
+                    "2022-05-07": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 22,
+                    "2022-05-06": 21,
+                    "2022-05-09": 25,
+                    "2022-05-10": 25,
+                    "2022-05-07": 1,
+                    "2022-05-11": 17
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 22,
+                    "2022-05-06": 21,
+                    "2022-05-09": 25,
+                    "2022-05-10": 25,
+                    "2022-05-07": 1,
+                    "2022-05-11": 17
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group0_group1_group2",
+        "created_at": "2022-02-05T17:38:27.827Z",
+        "groupId": "heydaytest-group-group0_group1_group2",
+        "entityId": "heydaytest-user-12",
+        "groupIds": [
+            "heydaytest-group-group0",
+            "heydaytest-group-group1",
+            "heydaytest-group-group2",
+            "heydaytest-group-group0_group1_group2"
+        ],
+        "points": 2200,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICApLzehcELDA.png?version=3f64f6454d9963e5c7ee9b425d74b35b",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group0_group1_group2",
+            "enabled": 1,
+            "firstName": "First Name 12",
+            "groupId": "heydaytest-group-group0_group1_group2",
+            "lastName": "First Name 12",
+            "pointsBalance": 0,
+            "pointsCumulative": 67821,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_12_First_Name_12@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:05:20.013Z",
+        "isActive": true,
+        "cognitoIdentityId": "2cb3a4f7-ff0d-4fe6-9b23-efb9d2340f3e",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 535616
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 83.85428205128206,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 83.14237662337663,
+                "2022-05-06": 101.61654870129868,
+                "2022-05-10": 93.88017922077921,
+                "2022-05-11": 35.388333333333335
+            },
+            "kpisState": {
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 2,
+                    "2022-05-06": 8,
+                    "2022-05-09": 5,
+                    "2022-05-10": 7,
+                    "2022-05-11": 5
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 687.586,
+                    "2022-05-06": 929.805,
+                    "2022-05-09": 735.3040000000001,
+                    "2022-05-10": 854.928,
+                    "2022-05-11": 216.421
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-05": 7,
+                    "2022-05-06": 10,
+                    "2022-05-09": 7,
+                    "2022-05-10": 9,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 4,
+                    "2022-05-09": 5,
+                    "2022-05-10": 5,
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-5c025593-bea3-428a-9d37-7eac2c6a6b66": {
+                    "2022-05-09": 183.449
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 11.527,
+                    "2022-05-06": 11.14775,
+                    "2022-05-09": 13.802000000000001,
+                    "2022-05-10": 13.6214,
+                    "2022-05-11": 12.57
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 4,
+                    "2022-05-09": 5,
+                    "2022-05-10": 5,
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 98.22657142857143,
+                    "2022-05-06": 66.41464285714285,
+                    "2022-05-09": 61.27533333333334,
+                    "2022-05-10": 61.06628571428571,
+                    "2022-05-11": 72.14033333333333
+                },
+                "heydaytest-kpi-c57391d6-cfcc-4d0f-9919-03371813d7cd": {
+                    "2022-05-09": 1
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-05": 6,
+                    "2022-05-06": 10,
+                    "2022-05-09": 7,
+                    "2022-05-10": 9,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 98.22657142857143,
+                    "2022-05-06": 66.41464285714285,
+                    "2022-05-09": 61.27533333333334,
+                    "2022-05-10": 61.06628571428571,
+                    "2022-05-11": 72.14033333333333
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 0,
+                    "2022-05-06": 0,
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 2,
+                    "2022-05-06": 8,
+                    "2022-05-09": 5,
+                    "2022-05-10": 7,
+                    "2022-05-11": 5
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group5_group6_group9",
+        "created_at": "2022-02-05T17:38:21.716Z",
+        "groupId": "heydaytest-group-group5_group6_group9",
+        "entityId": "heydaytest-user-13",
+        "groupIds": [
+            "heydaytest-group-group5",
+            "heydaytest-group-group6",
+            "heydaytest-group-group9",
+            "heydaytest-group-group5_group6_group9"
+        ],
+        "points": 3400,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA_PD47aELDA.png?version=a31abd935584f7baf8eb06b842428ccc",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group5_group6_group9",
+            "enabled": 1,
+            "firstName": "First Name 13",
+            "groupId": "heydaytest-group-group5_group6_group9",
+            "lastName": "First Name 13",
+            "pointsBalance": 0,
+            "pointsCumulative": 4874,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Pacific",
+            "username": "First_Name_13_First_Name_13@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:05:08.880Z",
+        "isActive": true,
+        "cognitoIdentityId": "884bf1b1-a7c0-4c3b-89b7-9da82a88a98e",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 41433
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 128.1399347222222,
+                "2022-05-07": 409.91846969696957,
+                "2022-05-08": 4,
+                "2022-05-05": 38.098222222222226,
+                "2022-05-06": 172.20082870370368,
+                "2022-05-10": 129.90394444444445,
+                "2022-05-11": 46.78700000000001
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 89.214,
+                    "2022-05-06": 180.08522222222223,
+                    "2022-05-09": 291.8233333333333,
+                    "2022-05-10": 250.325,
+                    "2022-05-07": 1111.5435,
+                    "2022-05-11": 122.642
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 5,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1,
+                    "2022-05-07": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 9,
+                    "2022-05-08": 4,
+                    "2022-05-05": 18,
+                    "2022-05-06": 19,
+                    "2022-05-10": 16,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 89.214,
+                    "2022-05-06": 1620.767,
+                    "2022-05-09": 875.4699999999999,
+                    "2022-05-10": 1001.3,
+                    "2022-05-07": 2223.087,
+                    "2022-05-11": 245.284
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 5,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1,
+                    "2022-05-07": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 89.214,
+                    "2022-05-06": 180.08522222222223,
+                    "2022-05-09": 291.8233333333333,
+                    "2022-05-10": 250.325,
+                    "2022-05-07": 1111.5435,
+                    "2022-05-11": 122.642
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 1,
+                    "2022-05-06": 5,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 18.434,
+                    "2022-05-06": 2.9629000000000003,
+                    "2022-05-09": 11.9208,
+                    "2022-05-10": 0,
+                    "2022-05-07": 16.449666666666666,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-06": 4,
+                    "2022-05-09": 2,
+                    "2022-05-10": 3,
+                    "2022-05-07": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 9,
+                    "2022-05-08": 4,
+                    "2022-05-05": 18,
+                    "2022-05-06": 19,
+                    "2022-05-10": 16,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 18.808,
+                    "2022-05-06": 21.5096,
+                    "2022-05-09": 15.64175,
+                    "2022-05-10": 15.897333333333334,
+                    "2022-05-07": 24.4795,
+                    "2022-05-11": 12.089
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-06": 4,
+                    "2022-05-09": 2,
+                    "2022-05-10": 3,
+                    "2022-05-07": 1,
+                    "2022-05-11": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group7_group9",
+        "created_at": "2022-02-05T17:38:17.579Z",
+        "groupId": "heydaytest-group-group1_group7_group9",
+        "entityId": "heydaytest-user-14",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group7",
+            "heydaytest-group-group9",
+            "heydaytest-group-group1_group7_group9"
+        ],
+        "points": 1450,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAqMLQzJELDA.png?version=a74298b0260b0e8743bcfc4e94d8fd71",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group7_group9",
+            "enabled": 1,
+            "firstName": "First Name 14",
+            "groupId": "heydaytest-group-group1_group7_group9",
+            "lastName": "First Name 14",
+            "pointsBalance": 0,
+            "pointsCumulative": 4215,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_14_First_Name_14@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:05:02.505Z",
+        "isActive": true,
+        "cognitoIdentityId": "30f46c49-5ca5-48b0-bdf0-e319af0c1c6b",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 21284
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 13,
+                "2022-05-07": 7.333333333333334,
+                "2022-05-08": 1,
+                "2022-05-05": 15,
+                "2022-05-06": 61.22500000000001,
+                "2022-05-10": 9,
+                "2022-05-11": 310.4956111111111
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-06": 191.746,
+                    "2022-05-11": 694.4385000000001
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 19,
+                    "2022-05-07": 10,
+                    "2022-05-08": 1,
+                    "2022-05-05": 15,
+                    "2022-05-06": 11,
+                    "2022-05-10": 13,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-06": 191.746,
+                    "2022-05-11": 1388.8770000000002
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-06": 191.746,
+                    "2022-05-11": 694.4385000000001
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-06": 3,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1,
+                    "2022-05-07": 2
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-06": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-06": 1,
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 19,
+                    "2022-05-07": 10,
+                    "2022-05-08": 1,
+                    "2022-05-05": 15,
+                    "2022-05-06": 11,
+                    "2022-05-10": 13,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-06": 10.012,
+                    "2022-05-11": 6.7065
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-06": 1,
+                    "2022-05-11": 2
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group4_group8_group10",
+        "created_at": "2022-02-05T17:38:26.637Z",
+        "groupId": "heydaytest-group-group4_group8_group10",
+        "entityId": "heydaytest-user-15",
+        "groupIds": [
+            "heydaytest-group-group4",
+            "heydaytest-group-group8",
+            "heydaytest-group-group10",
+            "heydaytest-group-group4_group8_group10"
+        ],
+        "points": 5500,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA1OqM9LoLDA.png?version=30fc97e06f0eb73d40bf06c263e6009e",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group4_group8_group10",
+            "enabled": 1,
+            "firstName": "First Name 15",
+            "groupId": "heydaytest-group-group4_group8_group10",
+            "lastName": "First Name 15",
+            "pointsBalance": 0,
+            "pointsCumulative": 13161,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_15_First_Name_15@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:05:17.656Z",
+        "isActive": false,
+        "cognitoIdentityId": "a65e1fdd-c8c5-4ac0-9dbb-5236c1ac984f",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 83413
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 113.03372857142857,
+                "2022-05-07": 156.20578333333333,
+                "2022-05-08": 0,
+                "2022-05-05": 13,
+                "2022-05-06": 13.720699999999997,
+                "2022-05-10": 143.06907499999997,
+                "2022-05-11": 2.966111111111111
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-06": 28.643,
+                    "2022-05-09": 118.552,
+                    "2022-05-10": 230.73975,
+                    "2022-05-07": 303.70366666666666,
+                    "2022-05-11": 1.342
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 13,
+                    "2022-05-06": 11,
+                    "2022-05-09": 18,
+                    "2022-05-10": 15,
+                    "2022-05-07": 7,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-06": 28.643,
+                    "2022-05-09": 829.864,
+                    "2022-05-10": 922.959,
+                    "2022-05-07": 911.111,
+                    "2022-05-11": 1.342
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-07": 1
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-06": 28.643,
+                    "2022-05-09": 118.552,
+                    "2022-05-10": 230.73975,
+                    "2022-05-07": 303.70366666666666,
+                    "2022-05-11": 1.342
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 1,
+                    "2022-05-06": 2,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-06": 1,
+                    "2022-05-09": 7,
+                    "2022-05-10": 4,
+                    "2022-05-07": 3,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-06": 12.6005,
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-07": 11.228333333333333,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 13,
+                    "2022-05-06": 11,
+                    "2022-05-09": 18,
+                    "2022-05-10": 15,
+                    "2022-05-07": 7,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-06": 12.6775,
+                    "2022-05-09": 12.369285714285715,
+                    "2022-05-10": 7.25225,
+                    "2022-05-07": 11.311166666666665,
+                    "2022-05-11": 12.669
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-06": 1,
+                    "2022-05-09": 7,
+                    "2022-05-10": 4,
+                    "2022-05-07": 3,
+                    "2022-05-11": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group3_group9",
+        "created_at": "2022-02-04T16:46:29.439Z",
+        "groupId": "heydaytest-group-group1_group3_group9",
+        "entityId": "heydaytest-user-16",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group3",
+            "heydaytest-group-group9",
+            "heydaytest-group-group1_group3_group9"
+        ],
+        "points": 9800,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA3NikyckIDA.png?version=807ad50fe441b34f96e03946bab43ce5",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group3_group9",
+            "enabled": 1,
+            "firstName": "First Name 16",
+            "groupId": "heydaytest-group-group1_group3_group9",
+            "lastName": "First Name 16",
+            "pointsBalance": 0,
+            "pointsCumulative": 3480,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_16_First_Name_16@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:03:16.535Z",
+        "isActive": true,
+        "cognitoIdentityId": "ab50ce82-47b6-4abe-88b8-df59da4c3fe7",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 3792
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 0,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 0,
+                "2022-05-06": 0,
+                "2022-05-10": 0,
+                "2022-05-11": 118.20458333333333
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-11": 187.52733333333333
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-11": 562.582
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-11": 187.52733333333333
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-11": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group3_group9",
+        "created_at": "2022-02-05T17:38:00.347Z",
+        "groupId": "heydaytest-group-group1_group3_group9",
+        "entityId": "heydaytest-user-17",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group3",
+            "heydaytest-group-group9",
+            "heydaytest-group-group1_group3_group9"
+        ],
+        "points": 3300,
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAjPft_bIKDA.png?version=818ddd0d4fb72afa6b4d756d7baf354f",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group3_group9",
+            "enabled": 1,
+            "firstName": "First Name 17",
+            "groupId": "heydaytest-group-group1_group3_group9",
+            "lastName": "First Name 17",
+            "pointsBalance": 0,
+            "pointsCumulative": 2544,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_17_First_Name_17@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:31.394Z",
+        "isActive": false,
+        "cognitoIdentityId": "392b4277-743e-4e5b-84ad-a423eb14f486",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 20316
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 17.666666666666668,
+                "2022-05-07": 7.666666666666668,
+                "2022-05-08": 1,
+                "2022-05-05": 13,
+                "2022-05-06": 11,
+                "2022-05-10": 10.333333333333332,
+                "2022-05-11": 3
+            },
+            "kpisState": {
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 5,
+                    "2022-05-09": 3,
+                    "2022-05-10": 1,
+                    "2022-05-07": 3
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 25,
+                    "2022-05-07": 10,
+                    "2022-05-08": 1,
+                    "2022-05-05": 19,
+                    "2022-05-06": 14,
+                    "2022-05-10": 15,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 25,
+                    "2022-05-07": 10,
+                    "2022-05-08": 1,
+                    "2022-05-05": 19,
+                    "2022-05-06": 14,
+                    "2022-05-10": 15,
+                    "2022-05-11": 3
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group3_group9",
+        "created_at": "2022-02-05T17:37:57.409Z",
+        "groupId": "heydaytest-group-group1_group3_group9",
+        "entityId": "heydaytest-user-18",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group3",
+            "heydaytest-group-group9",
+            "heydaytest-group-group1_group3_group9"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA1Nay5qUKDA.png?version=7c2024fdf5a455b174d14c64a64dc5b9",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group3_group9",
+            "enabled": 1,
+            "firstName": "First Name 18",
+            "groupId": "heydaytest-group-group1_group3_group9",
+            "lastName": "First Name 18",
+            "pointsBalance": 0,
+            "pointsCumulative": 138470,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_18_First_Name_18@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:25.507Z",
+        "isActive": true,
+        "cognitoIdentityId": "19ab2c6b-f770-4a15-ba2e-61e1137dca54",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 704855
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 138.65173863636363,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 126.12916363636363,
+                "2022-05-06": 241.79872150072154,
+                "2022-05-10": 233.42414583333328,
+                "2022-05-11": 147.96552525252525
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 112.42540000000001,
+                    "2022-05-06": 112.40319047619047,
+                    "2022-05-09": 81.41506249999999,
+                    "2022-05-10": 152.1743125,
+                    "2022-05-11": 145.09688888888888
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-05": 7,
+                    "2022-05-06": 12,
+                    "2022-05-09": 12,
+                    "2022-05-10": 8,
+                    "2022-05-11": 6
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 3,
+                    "2022-05-06": 11,
+                    "2022-05-09": 6,
+                    "2022-05-10": 6,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 1124.2540000000001,
+                    "2022-05-06": 2360.467,
+                    "2022-05-09": 1302.6409999999998,
+                    "2022-05-10": 2434.789,
+                    "2022-05-11": 1305.872
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-05": 7,
+                    "2022-05-06": 12,
+                    "2022-05-09": 13,
+                    "2022-05-10": 8,
+                    "2022-05-11": 6
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 112.42540000000001,
+                    "2022-05-06": 112.40319047619047,
+                    "2022-05-09": 81.41506249999999,
+                    "2022-05-10": 152.1743125,
+                    "2022-05-11": 145.09688888888888
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 0,
+                    "2022-05-06": 0,
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-05": 3,
+                    "2022-05-06": 9,
+                    "2022-05-09": 4,
+                    "2022-05-10": 8,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 3,
+                    "2022-05-06": 11,
+                    "2022-05-09": 6,
+                    "2022-05-10": 6,
+                    "2022-05-11": 4
+                },
+                "heydaytest-kpi-5c025593-bea3-428a-9d37-7eac2c6a6b66": {
+                    "2022-05-10": 11
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 12.316,
+                    "2022-05-06": 10.512555555555556,
+                    "2022-05-09": 14.697999999999999,
+                    "2022-05-10": 6.952125,
+                    "2022-05-11": 5.555
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-05": 3,
+                    "2022-05-06": 9,
+                    "2022-05-09": 4,
+                    "2022-05-10": 8,
+                    "2022-05-11": 3
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group3_group6_group9",
+        "created_at": "2022-02-04T16:46:22.045Z",
+        "groupId": "heydaytest-group-group3_group6_group9",
+        "entityId": "heydaytest-user-19",
+        "groupIds": [
+            "heydaytest-group-group3",
+            "heydaytest-group-group6",
+            "heydaytest-group-group9",
+            "heydaytest-group-group3_group6_group9"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAqKLFuIUIDA.png?version=2fb9b61af3d0ec09c61c64faa17d28ce",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group3_group6_group9",
+            "enabled": 1,
+            "firstName": "First Name 19",
+            "groupId": "heydaytest-group-group3_group6_group9",
+            "lastName": "First Name 19",
+            "pointsBalance": 0,
+            "pointsCumulative": 1397,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_19_First_Name_19@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:02:59.997Z",
+        "isActive": true,
+        "cognitoIdentityId": "fe68ff0e-a8ad-4730-b0e0-2b5db16cf26b",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 16899
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 177.10620000000003,
+                "2022-05-07": 7,
+                "2022-05-08": 1,
+                "2022-05-05": 11,
+                "2022-05-06": 8.333333333333332,
+                "2022-05-10": 7.666666666666666,
+                "2022-05-11": 3
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-09": 573.419
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 18,
+                    "2022-05-07": 7,
+                    "2022-05-08": 1,
+                    "2022-05-05": 16,
+                    "2022-05-06": 11,
+                    "2022-05-10": 11,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-09": 573.419
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-09": 573.419
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 3,
+                    "2022-05-09": 3,
+                    "2022-05-10": 1
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-09": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-09": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 18,
+                    "2022-05-07": 7,
+                    "2022-05-08": 1,
+                    "2022-05-05": 16,
+                    "2022-05-06": 11,
+                    "2022-05-10": 11,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-09": 9.805
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-09": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group3_group6",
+        "created_at": "2022-02-04T16:46:34.679Z",
+        "groupId": "heydaytest-group-group3_group6",
+        "entityId": "heydaytest-user-20",
+        "groupIds": [
+            "heydaytest-group-group3",
+            "heydaytest-group-group6",
+            "heydaytest-group-group3_group6"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICApNyv8-cIDA.png?version=130b8a25f4c04ca6f88af165c610f8b0",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group3_group6",
+            "enabled": 1,
+            "firstName": "First Name 20",
+            "groupId": "heydaytest-group-group3_group6",
+            "lastName": "First Name 20",
+            "pointsBalance": 0,
+            "pointsCumulative": 173220,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_20_First_Name_20@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:03:26.346Z",
+        "isActive": true,
+        "cognitoIdentityId": "1ff28867-4b64-46b5-b5b0-3bfd68717eea",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 255783
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 0,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 0,
+                "2022-05-06": 0,
+                "2022-05-10": 0,
+                "2022-05-11": 147.47050000000004
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-11": 228.49899999999997
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-11": 1142.495
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-11": 228.49899999999997
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-11": 8.682500000000001
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-11": 2
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group6_group9",
+        "created_at": "2022-02-04T16:46:26.057Z",
+        "groupId": "heydaytest-group-group6_group9",
+        "entityId": "heydaytest-user-21",
+        "groupIds": [
+            "heydaytest-group-group6",
+            "heydaytest-group-group9",
+            "heydaytest-group-group6_group9"
+        ],
+        "attributes": {
+            "lastName": "First Name 21",
+            "temporary": "I am not for long here",
+            "rootGroupId": "heydaytest-group-default",
+            "clientId": "heydaytest-client",
+            "pointsBalance": 0,
+            "roleId": "heydaytest-role-agent",
+            "timezone": "US/Mountain",
+            "departmentId": "heydaytest-group-group6_group9",
+            "groupId": "heydaytest-group-group6_group9",
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA7Pn5mbIIDA.png?version=fd127b55ef90964a5a58c91b7766162a",
+            "enabled": 1,
+            "firstName": "First Name 21",
+            "pointsCumulative": 0,
+            "username": "First_Name_21_First_Name_21@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:03:08.155Z",
+        "isActive": true,
+        "cognitoIdentityId": "8b49de63-7003-40ab-aeb8-32120f4f5132",
+        "hdn_data": {
+            "enrolledChallengesCount": 0
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-04-30": 0,
+                "2022-04-29": 129.1978424242424,
+                "2022-05-05": 0,
+                "2022-05-03": 29.644227272727278,
+                "2022-05-04": 26.60447272727273,
+                "2022-05-01": 0,
+                "2022-05-02": 0
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-03": 50.59675,
+                    "2022-05-04": 37.754599999999996,
+                    "2022-04-29": 79.97433333333332
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-03": 3,
+                    "2022-05-04": 2,
+                    "2022-04-29": 11
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-03": 2,
+                    "2022-05-04": 4,
+                    "2022-04-29": 11
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-03": 202.387,
+                    "2022-05-04": 188.773,
+                    "2022-04-29": 1199.6149999999998
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-03": 3,
+                    "2022-05-04": 2,
+                    "2022-04-29": 11
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-03": 50.59675,
+                    "2022-05-04": 37.754599999999996,
+                    "2022-04-29": 79.97433333333332
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-03": 0,
+                    "2022-05-04": 0,
+                    "2022-04-29": 0
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-03": 1,
+                    "2022-05-04": 3,
+                    "2022-04-29": 4
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-03": 2,
+                    "2022-05-04": 4,
+                    "2022-04-29": 11
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-03": 10.506,
+                    "2022-05-04": 10.366999999999999,
+                    "2022-04-29": 9.612599999999999
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-03": 1,
+                    "2022-05-04": 3,
+                    "2022-04-29": 4
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-default",
+        "created_at": "2022-02-05T17:38:11.489Z",
+        "groupId": "heydaytest-group-default",
+        "entityId": "heydaytest-user-22",
+        "groupIds": [
+            "heydaytest-group-default"
+        ],
+        "attributes": {
+            "lastName": "First Name 22",
+            "temporary": "I am not for long here",
+            "rootGroupId": "heydaytest-group-default",
+            "clientId": "heydaytest-client",
+            "pointsBalance": 0,
+            "roleId": "heydaytest-role-agent",
+            "timezone": "US/Mountain",
+            "departmentId": "heydaytest-group-default",
+            "groupId": "heydaytest-group-default",
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAqMLelvIKDA.png?version=9d65bdd6ec36995e26780b016f065a4f",
+            "enabled": 1,
+            "firstName": "First Name 22",
+            "pointsCumulative": 0,
+            "username": "First_Name_22_First_Name_22@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:51.988Z",
+        "isActive": true,
+        "cognitoIdentityId": "274cb9c2-28bc-4bf7-a711-76199482943c",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 813
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 1,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 0,
+                "2022-05-06": 0,
+                "2022-05-03": 1,
+                "2022-05-04": 1
+            },
+            "kpisState": {
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 1
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 1,
+                    "2022-05-03": 1,
+                    "2022-05-04": 1
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 1,
+                    "2022-05-03": 1,
+                    "2022-05-04": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-default",
+        "created_at": "2022-02-05T17:38:36.168Z",
+        "groupId": "heydaytest-group-default",
+        "entityId": "heydaytest-user-23",
+        "groupIds": [
+            "heydaytest-group-default"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICApNC92-YLDA.png?version=0af427d08c7fec70bf97e73d943a401c",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-default",
+            "enabled": 1,
+            "firstName": "First Name 23",
+            "groupId": "heydaytest-group-default",
+            "lastName": "First Name 23",
+            "pointsBalance": 0,
+            "pointsCumulative": 1044,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_23_First_Name_23@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:05:33.814Z",
+        "isActive": true,
+        "cognitoIdentityId": "34bd692d-9c1a-413c-9e2c-7938a77381b2",
+        "hdn_data": {
+            "enrolledChallengesCount": 199,
+            "points": 4027
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 0,
+                "2022-05-07": 0,
+                "2022-05-08": 0,
+                "2022-05-05": 57.38033333333335,
+                "2022-05-06": 0,
+                "2022-05-10": 0,
+                "2022-05-11": 47.13783333333333
+            },
+            "kpisState": {
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 85.07050000000001,
+                    "2022-05-11": 93.609
+                },
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 85.07050000000001,
+                    "2022-05-11": 93.609
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-05": 2,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 170.14100000000002,
+                    "2022-05-11": 93.609
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-05": 2,
+                    "2022-05-11": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-default",
+        "created_at": "2022-02-05T17:38:14.745Z",
+        "groupId": "heydaytest-group-default",
+        "entityId": "heydaytest-user-24",
+        "groupIds": [
+            "heydaytest-group-default"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICArI7EpIULDA.png?version=fdfd94fec7dc7de4bf6464812fb4bf1f",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-default",
+            "enabled": 1,
+            "firstName": "First Name 24",
+            "groupId": "heydaytest-group-default",
+            "lastName": "First Name 24",
+            "pointsBalance": 0,
+            "pointsCumulative": 92642,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_24_First_Name_24@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:04:57.958Z",
+        "isActive": true,
+        "cognitoIdentityId": "d197f7ad-73d2-47a6-b627-27d51139d016",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 625538
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 22.370136363636366,
+                "2022-05-07": 1,
+                "2022-05-08": 0,
+                "2022-05-05": 50.85954976851853,
+                "2022-05-06": 31.845233333333333,
+                "2022-05-10": 34.54212121212121,
+                "2022-05-11": 12.139636363636363
+            },
+            "kpisState": {
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 22,
+                    "2022-05-06": 20,
+                    "2022-05-09": 25,
+                    "2022-05-10": 24,
+                    "2022-05-07": 1,
+                    "2022-05-11": 17
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 424.90000000000003,
+                    "2022-05-06": 147.933,
+                    "2022-05-09": 114.04499999999999,
+                    "2022-05-10": 177.68099999999998,
+                    "2022-05-11": 25.388
+                },
+                "heydaytest-kpi-1547634d-172f-49bf-91ed-96fe81763db5": {
+                    "2022-05-05": 1
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 2,
+                    "2022-05-10": 3,
+                    "2022-05-07": 1,
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-05": 8,
+                    "2022-05-06": 3,
+                    "2022-05-09": 4,
+                    "2022-05-10": 3,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-5c025593-bea3-428a-9d37-7eac2c6a6b66": {
+                    "2022-05-05": 20.9155,
+                    "2022-05-06": 14.529,
+                    "2022-05-09": 6.0835,
+                    "2022-05-10": 15.512333333333332,
+                    "2022-05-11": 11.847
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 8.076875,
+                    "2022-05-06": 11.368333333333332,
+                    "2022-05-09": 8.9205,
+                    "2022-05-10": 11.316,
+                    "2022-05-11": 7.525
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-05": 8,
+                    "2022-05-06": 3,
+                    "2022-05-09": 4,
+                    "2022-05-10": 3,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 47.211111111111116,
+                    "2022-05-06": 49.311,
+                    "2022-05-09": 28.511249999999997,
+                    "2022-05-10": 59.227,
+                    "2022-05-11": 25.388
+                },
+                "heydaytest-kpi-43e19acd-00cc-44ec-8d90-fb3cf9d6b7b9": {
+                    "2022-05-05": 1
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 47.211111111111116,
+                    "2022-05-06": 49.311,
+                    "2022-05-09": 28.511249999999997,
+                    "2022-05-10": 59.227,
+                    "2022-05-11": 25.388
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 0,
+                    "2022-05-06": 0,
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 22,
+                    "2022-05-06": 20,
+                    "2022-05-09": 25,
+                    "2022-05-10": 24,
+                    "2022-05-07": 1,
+                    "2022-05-11": 17
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group6_group9",
+        "created_at": "2022-02-04T16:46:23.208Z",
+        "groupId": "heydaytest-group-group6_group9",
+        "entityId": "heydaytest-user-25",
+        "groupIds": [
+            "heydaytest-group-group6",
+            "heydaytest-group-group9",
+            "heydaytest-group-group6_group9"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA1NmWvJIIDA.png?version=f79b794bc7e05ed1330fa52dd832e5fc",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group6_group9",
+            "enabled": 1,
+            "firstName": "First Name 25",
+            "groupId": "heydaytest-group-group6_group9",
+            "lastName": "First Name 25",
+            "pointsBalance": 0,
+            "pointsCumulative": 2993,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_25_First_Name_25@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:02:59.952Z",
+        "isActive": true,
+        "cognitoIdentityId": "4c62501b-39a1-4d97-8cf3-4bab7932a394",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 34679
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 14.333333333333332,
+                "2022-05-07": 6.666666666666666,
+                "2022-05-08": 1,
+                "2022-05-05": 14.577,
+                "2022-05-06": 33.754979999999996,
+                "2022-05-10": 13,
+                "2022-05-11": 5
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-06": 38.7604
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 21,
+                    "2022-05-07": 9,
+                    "2022-05-08": 1,
+                    "2022-05-05": 14,
+                    "2022-05-06": 21,
+                    "2022-05-10": 19,
+                    "2022-05-11": 5
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-06": 193.802
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-06": 38.7604
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-06": 3,
+                    "2022-05-09": 1,
+                    "2022-05-10": 1,
+                    "2022-05-07": 2
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 19.879,
+                    "2022-05-06": 0
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-06": 5
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 21,
+                    "2022-05-07": 9,
+                    "2022-05-08": 1,
+                    "2022-05-05": 14,
+                    "2022-05-06": 21,
+                    "2022-05-10": 19,
+                    "2022-05-11": 5
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 10.429,
+                    "2022-05-06": 11.227
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-06": 5
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group5",
+        "created_at": "2022-02-04T16:46:43.039Z",
+        "groupId": "heydaytest-group-group1_group5",
+        "entityId": "heydaytest-user-26",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group5",
+            "heydaytest-group-group1_group5"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICA7NTykLEJDA.png?version=a68918675463baa64cf9ddcbed92395b",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group5",
+            "enabled": 1,
+            "firstName": "First Name 26",
+            "groupId": "heydaytest-group-group1_group5",
+            "lastName": "First Name 26",
+            "pointsBalance": 0,
+            "pointsCumulative": 97908,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Mountain",
+            "username": "First_Name_26_First_Name_26@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:03:48.195Z",
+        "isActive": false,
+        "cognitoIdentityId": "6f308a17-c402-465b-b3d7-ea630f9e4436",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 555298
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 24.8372,
+                "2022-05-07": 1,
+                "2022-05-08": 0,
+                "2022-05-05": 27.418555555555553,
+                "2022-05-06": 13.066749999999999,
+                "2022-05-10": 18.47555,
+                "2022-05-11": 21.4374
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-05": 63.655,
+                    "2022-05-09": 60.867,
+                    "2022-05-10": 29.656,
+                    "2022-05-11": 55.956
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-05": 20,
+                    "2022-05-06": 21,
+                    "2022-05-09": 25,
+                    "2022-05-10": 25,
+                    "2022-05-07": 1,
+                    "2022-05-11": 17
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-05": 63.655,
+                    "2022-05-09": 60.867,
+                    "2022-05-10": 59.312,
+                    "2022-05-11": 55.956
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-05": 63.655,
+                    "2022-05-09": 60.867,
+                    "2022-05-10": 29.656,
+                    "2022-05-11": 55.956
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-09": 2,
+                    "2022-05-10": 3,
+                    "2022-05-07": 1,
+                    "2022-05-11": 2
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-05": 1,
+                    "2022-05-09": 1,
+                    "2022-05-10": 2,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-05": 0,
+                    "2022-05-06": 0,
+                    "2022-05-09": 0,
+                    "2022-05-10": 0,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-05": 20,
+                    "2022-05-06": 21,
+                    "2022-05-09": 25,
+                    "2022-05-10": 25,
+                    "2022-05-07": 1,
+                    "2022-05-11": 17
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-05": 13.802,
+                    "2022-05-06": 10.267,
+                    "2022-05-09": 11.771,
+                    "2022-05-10": 9.131499999999999,
+                    "2022-05-11": 8.506
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-05": 1,
+                    "2022-05-09": 1,
+                    "2022-05-10": 2,
+                    "2022-05-11": 1
+                }
+            }
+        }
+    },
+    {
+        "departmentId": "heyday-group-group1_group5",
+        "created_at": "2022-02-04T16:46:22.910Z",
+        "groupId": "heydaytest-group-group1_group5",
+        "entityId": "heydaytest-user-27",
+        "groupIds": [
+            "heydaytest-group-group1",
+            "heydaytest-group-group5",
+            "heydaytest-group-group1_group5"
+        ],
+        "attributes": {
+            "avatar": "https://heydaytest.com/avatar/user/agxzfnViZXItdm9pY2VyGAsSC1VzZXJQcm9maWxlGICAqOLTopIIDA.png?version=110d8dcd05aec0b6689df665da92a8ce",
+            "clientId": "heydaytest-client",
+            "departmentId": "heydaytest-group-group1_group5",
+            "enabled": 1,
+            "firstName": "First Name 27",
+            "groupId": "heydaytest-group-group1_group5",
+            "lastName": "First Name 27",
+            "pointsBalance": 0,
+            "pointsCumulative": 1133,
+            "roleId": "heydaytest-role-agent",
+            "rootGroupId": "heydaytest-group-default",
+            "temporary": "I am not for long here",
+            "timezone": "US/Pacific",
+            "username": "First_Name_27_First_Name_27@heydaytest.com"
+        },
+        "clientId": "heydaytest-client",
+        "roleId": "heydaytest-role-agent",
+        "updated_at": "2022-04-29T10:03:00.126Z",
+        "isActive": false,
+        "cognitoIdentityId": "fc32bab5-38f4-44e2-9276-039a476adc23",
+        "hdn_data": {
+            "enrolledChallengesCount": 0,
+            "points": 20807
+        },
+        "type": "user",
+        "performance": {
+            "kpiAverages": {
+                "2022-05-09": 17.5799,
+                "2022-05-07": 6.666666666666666,
+                "2022-05-08": 1,
+                "2022-05-05": 45.823533333333344,
+                "2022-05-06": 9,
+                "2022-05-10": 9.666666666666668,
+                "2022-05-11": 114.98866666666667
+            },
+            "kpisState": {
+                "heydaytest-kpi-13ae2e7c-fed4-466d-b443-b31af88139b5": {
+                    "2022-05-09": 35.396,
+                    "2022-05-05": 135.003,
+                    "2022-05-11": 339.369
+                },
+                "heydaytest-kpi-db31af43-18a0-4ea8-9074-211ee0e8437c": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 9,
+                    "2022-05-08": 1,
+                    "2022-05-05": 15,
+                    "2022-05-06": 12,
+                    "2022-05-10": 14,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0": {
+                    "2022-05-09": 35.396,
+                    "2022-05-05": 135.003,
+                    "2022-05-11": 339.369
+                },
+                "heydaytest-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7": {
+                    "2022-05-09": 35.396,
+                    "2022-05-05": 135.003,
+                    "2022-05-11": 339.369
+                },
+                "heydaytest-kpi-79365135-7a79-4acf-8db3-7cff0c64180b": {
+                    "2022-05-05": 1,
+                    "2022-05-06": 3,
+                    "2022-05-09": 3,
+                    "2022-05-10": 1,
+                    "2022-05-07": 2
+                },
+                "heydaytest-kpi-3db274c0-9354-4119-8313-1f3dff50866b": {
+                    "2022-05-09": 1,
+                    "2022-05-05": 1,
+                    "2022-05-11": 1
+                },
+                "heydaytest-kpi-1b50fe21-8b46-4e2d-832a-432b7402fbf0": {
+                    "2022-05-09": 0,
+                    "2022-05-05": 12.188333333333333,
+                    "2022-05-11": 0
+                },
+                "heydaytest-kpi-34d3718a-67e6-4c4e-a090-6215996ca956": {
+                    "2022-05-09": 22,
+                    "2022-05-07": 9,
+                    "2022-05-08": 1,
+                    "2022-05-05": 15,
+                    "2022-05-06": 12,
+                    "2022-05-10": 14,
+                    "2022-05-11": 3
+                },
+                "heydaytest-kpi-4894e09e-a0e4-4414-bdd5-4b1b5f0822ef": {
+                    "2022-05-09": 20.611,
+                    "2022-05-05": 8.038,
+                    "2022-05-11": 8.791
+                },
+                "heydaytest-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881": {
+                    "2022-05-09": 1,
+                    "2022-05-05": 1,
+                    "2022-05-11": 1
+                }
+            }
+        }
+    }
+]

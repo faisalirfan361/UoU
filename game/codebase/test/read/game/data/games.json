@@ -1,0 +1,1485 @@
+[
+    {
+       "isDeclined": false,
+       "end_date": "2022-06-07T05:17:21.416Z",
+       "createdAt": 1654573643613,
+       "isDuel": true,
+       "winnerPoints": "44",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-5588325661081600",
+       "start_date": "2022-06-07T04:17:21.416Z",
+       "isAccepted": true,
+       "description": "TestDuel",
+       "gameId": "test-0be9-4b08-b390-010a9675d366",
+       "title": "D2E. June2nd"
+    },
+    {
+       "isDeclined": false,
+       "end_date": "2022-06-03T17:50:37.000Z",
+       "createdAt": 1654273239895,
+       "isDuel": true,
+       "winnerPoints": "50",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-5588325661081600",
+       "start_date": "2022-06-03T16:50:37.000Z",
+       "isAccepted": true,
+       "description": "Duel-D2E.April3rd.1",
+       "gameId": "test-e637-467f-a1a0-bfe539f186da",
+       "title": "D2E.April3rd.1"
+    },
+    {
+       "kpi": {
+          "metricCodes": [
+             "time_on_call"
+          ],
+          "clientId": "test-client",
+          "departmentId": "test-group-default",
+          "groupId": "test-group-default",
+          "created_at": "2022-05-02T10:10:28.905Z",
+          "entityId": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+          "attributes": {
+             "clientId": "test-client",
+             "expression": {
+                "avg": "time_on_call"
+             },
+             "departmentId": "test-group-default",
+             "groupId": "test-group-default",
+             "name": "TimeonCall",
+             "expressionString": " { Avg(time_on_call) }  ",
+             "type": "kpi"
+          },
+          "isActive": true,
+          "type": "kpi"
+       },
+       "isDeclined": false,
+       "end_date": "2022-06-02T21:48:07.304Z",
+       "createdAt": 1654201090356,
+       "isDuel": true,
+       "winnerPoints": "222",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 76.31206666666665,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 57.98156521739131,
+             "entityId": "test-user-5588325661081600"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-5588325661081600",
+       "start_date": "2022-06-02T20:48:07.304Z",
+       "isAccepted": true,
+       "metrics": [
+          {
+             "client": "test",
+             "code": "time_on_call",
+             "source": "dialpad",
+             "value": 175.048,
+             "userId": "test-user-4646576760619008",
+             "timestamp": "2022-06-02T21:38:21.640Z"
+          }
+       ],
+       "description": "Duel-D2E-June2nd.1",
+       "gameId": "test-ac71-4a9c-8b67-a047f4dca4b0",
+       "title": "D2E-June2nd.1"
+    },
+    {
+       "isDeclined": false,
+       "end_date": "2022-06-02T00:22:06.342Z",
+       "createdAt": 1654116729991,
+       "isDuel": true,
+       "winnerPoints": "10",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5671750268682240_5672962061008896_6178435352559616_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-c57391d6-cfcc-4d0f-9919-03371813d7cd",
+       "kpi_name": "Calls transffered",
+       "user_id": "test-user-5588325661081600",
+       "start_date": "2022-06-01T21:22:06.342Z",
+       "isAccepted": false,
+       "description": "message",
+       "gameId": "test-aa06-446c-a815-a996db9d96f5",
+       "title": "CT 2 Jun"
+    },
+    {
+       "isDeclined": false,
+       "end_date": "2022-05-24T16:35:18.321Z",
+       "createdAt": 1653365117293,
+       "isDuel": true,
+       "winnerPoints": "456",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Alex",
+             "lastName": "Kjar",
+             "score": 0,
+             "entityId": "test-user-4527532599279616",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-4527532599279616",
+       "start_date": "2022-05-24T04:35:18.321Z",
+       "isAccepted": true,
+       "description": "Alex2Emily",
+       "gameId": "test-3c2b-4583-b0a8-aa95505c2e3e",
+       "title": "TOC-May23rd"
+    },
+    {
+       "isDeclined": false,
+       "end_date": "2022-05-24T11:56:38.567Z",
+       "createdAt": 1653348396697,
+       "isDuel": true,
+       "winnerPoints": "345",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5671750268682240_5672962061008896_6178435352559616_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-5588325661081600",
+       "start_date": "2022-05-23T23:56:38.567Z",
+       "isAccepted": true,
+       "description": "Go fo! ",
+       "gameId": "test-5839-46cc-84ab-2a4609ac2eb9",
+       "title": "D2E. May23rd. 3"
+    },
+    {
+       "kpi": {
+          "metricCodes": [
+             "time_on_call"
+          ],
+          "clientId": "test-client",
+          "departmentId": "test-group-default",
+          "groupId": "test-group-default",
+          "created_at": "2022-02-05T08:09:54.887Z",
+          "entityId": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+          "attributes": {
+             "clientId": "test-client",
+             "expression": {
+                "avg": "time_on_call"
+             },
+             "departmentId": "test-group-default",
+             "groupId": "test-group-default",
+             "name": "TimeonCall",
+             "expressionString": " { Avg(time_on_call) }  ",
+             "type": "kpi"
+          },
+          "isActive": true,
+          "type": "kpi"
+       },
+       "isDeclined": false,
+       "end_date": "2022-05-23T19:26:25.706Z",
+       "createdAt": 1653317783757,
+       "isDuel": true,
+       "winnerPoints": "234",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 176.754875,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 61.124500000000005,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5671750268682240_5672962061008896_6178435352559616_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-5588325661081600",
+       "start_date": "2022-05-23T15:26:25.706Z",
+       "isAccepted": true,
+       "metrics": [
+          {
+             "client": "test",
+             "code": "time_on_call",
+             "source": "dialpad",
+             "value": 40.361,
+             "userId": "test-user-5588325661081600",
+             "timestamp": "2022-05-23T16:28:20.626Z"
+          }
+       ],
+       "description": "Let's do it",
+       "gameId": "test-1cf1-4eae-a186-a2a5b0e4efb2",
+       "title": "D2E.May23rd1"
+    },
+    {
+       "isDeclined": false,
+       "end_date": "2022-05-23T13:29:36.859Z",
+       "createdAt": 1653267575297,
+       "isDuel": true,
+       "winnerPoints": "234",
+       "profiles": [
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Yessenia",
+             "lastName": "Palomar",
+             "score": 0,
+             "entityId": "test-user-6700741935955968",
+             "departmentId": "test-group-4880108125552640_4886326762143744_5390385797726208_6615731558547456_6652785230413824_6682732982239232"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-6700741935955968",
+       "start_date": "2022-05-23T01:29:36.859Z",
+       "isAccepted": true,
+       "description": "Yessenia to Dawnalee",
+       "gameId": "test-6da6-4207-8a1d-81cbee7774c6",
+       "title": "Y2D-May22nd.2"
+    },
+    {
+       "isDeclined": false,
+       "end_date": "2022-05-23T13:22:42.833Z",
+       "createdAt": 1653267161846,
+       "isDuel": true,
+       "winnerPoints": "222",
+       "profiles": [
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "user_id": "test-user-4646576760619008",
+       "start_date": "2022-05-23T01:22:42.833Z",
+       "isAccepted": true,
+       "description": "Emily to Dawnalee",
+       "gameId": "test-498b-4782-8f8d-bdd1d0655dca",
+       "title": "E2D-May22nd.1"
+    },
+    {
+       "isDeclined": false,
+       "end_date": "2022-05-22T16:16:10.790Z",
+       "createdAt": 1653263954671,
+       "isDuel": true,
+       "winnerPoints": "555",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5671750268682240_5672962061008896_6178435352559616_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0",
+       "kpi_name": "H-TOC",
+       "user_id": "test-user-5588325661081600",
+       "start_date": "2022-05-22T10:16:10.790Z",
+       "isAccepted": false,
+       "description": "SunDayTOC",
+       "gameId": "test-e7ac-45af-bf8e-9bfc51746919",
+       "title": "May22nd. 1"
+    }
+ ,
+    {
+       "cstatus": true,
+       "end_date": "2022-06-16T20:42:16.854Z",
+       "createdAt": 1655378088176,
+       "winnerPoints": "100",
+       "profiles": [
+          {
+             "firstName": "Kurt",
+             "lastName": "Mathewson",
+             "score": 0,
+             "entityId": "test-user-4784059572617216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Mary",
+             "lastName": "Partridge",
+             "score": 0,
+             "entityId": "test-user-4529730132180992",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "teams": null,
+       "schedule": "ONCE",
+       "start_date": "2022-06-15T23:42:16.854Z",
+       "description": "des",
+       "gameId": "test-01e0-492a-aabe-21e4e11d5517",
+       "title": "Challenge Time on Call"
+    },
+    {
+       "isArchived": false,
+       "cstatus": true,
+       "end_date": "2022-05-22T17:31:46.634Z",
+       "isComplete": false,
+       "clone": true,
+       "createdAt": 1655237389754,
+       "winnerPoints": "33",
+       "profiles": [
+          {
+             "firstName": "Kurt",
+             "lastName": "Mathewson",
+             "score": 0,
+             "entityId": "test-user-4784059572617216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Mary",
+             "lastName": "Partridge",
+             "score": 0,
+             "entityId": "test-user-4529730132180992",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-2561b94b-b272-4c6a-ba58-23e4cf75b881",
+       "kpi_name": "CallAnswered",
+       "teams": null,
+       "schedule": "ONCE",
+       "start_date": "2022-05-21T17:20:46.634Z",
+       "description": "test",
+       "gameId": "test-932b-46fe-a88e-b7c07e79fe22",
+       "title": "new Edited"
+    },
+    {
+       "isArchived": true,
+       "cstatus": true,
+       "end_date": "2022-06-07T05:00:00.000Z",
+       "isComplete": true,
+       "createdAt": 1654573172010,
+       "winnerPoints": "333",
+       "profiles": [
+          {
+             "firstName": "Kurt",
+             "lastName": "Mathewson",
+             "score": 0,
+             "entityId": "test-user-4784059572617216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Mary",
+             "lastName": "Partridge",
+             "score": 0,
+             "entityId": "test-user-4529730132180992",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 0,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "James",
+             "lastName": "Lutz",
+             "score": 0,
+             "entityId": "test-user-5968718998863872",
+             "departmentId": "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Austin",
+             "lastName": "Gren",
+             "score": 0,
+             "entityId": "test-user-6259056214409216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "JT",
+             "lastName": "Young",
+             "score": 0,
+             "entityId": "test-user-4771759515172864",
+             "departmentId": "test-group-5125230001324032_6297958345015296_6434499589898240"
+          },
+          {
+             "firstName": "James",
+             "lastName": "Kantorowicz",
+             "score": 0,
+             "entityId": "test-user-4913329556094976",
+             "departmentId": "test-group-5114371631677440_5912607783321600_6434499589898240"
+          },
+          {
+             "firstName": "Al",
+             "lastName": "Acosta",
+             "score": 0,
+             "entityId": "test-user-6191341284950016",
+             "departmentId": "test-group-4847699342524416_5487839740100608_5539457216217088_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Jason",
+             "lastName": "Christensen",
+             "score": 0,
+             "entityId": "test-user-5861834452762624",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5125230001324032_5487839740100608_5539457216217088_6010835071860736_6297958345015296_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Miriam",
+             "lastName": "Arcila",
+             "score": 0,
+             "entityId": "test-user-5988745721741312",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Joan",
+             "lastName": "Robinson",
+             "score": 0,
+             "entityId": "test-user-6478519668899840",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Michael",
+             "lastName": "Linton",
+             "score": 0,
+             "entityId": "test-user-6341362683150336",
+             "departmentId": "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Michael",
+             "lastName": "Hondel",
+             "score": 0,
+             "entityId": "test-user-6269849232343040",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240"
+          },
+          {
+             "firstName": "Q",
+             "lastName": "Scott",
+             "score": 0,
+             "entityId": "test-user-6451525359828992",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Eddie",
+             "lastName": "Overy",
+             "score": 0,
+             "entityId": "test-user-4827175133315072",
+             "departmentId": "test-group-4613865994125312_4839081584918528_4847699342524416_5070939732082688_5114371631677440_5125230001324032_5129692879814656_5140652285788160_5487839740100608_5539457216217088_5683567407955968_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240_6536430610841600"
+          },
+          {
+             "firstName": "Jacob",
+             "lastName": "Sawyer",
+             "score": 0,
+             "entityId": "test-user-5853726336286720",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5114371631677440_5125230001324032_5129692879814656_5487839740100608_5539457216217088_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Tylar",
+             "lastName": "Mollenhauer",
+             "score": 0,
+             "entityId": "test-user-5795745551941632",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Alex",
+             "lastName": "Kjar",
+             "score": 0,
+             "entityId": "test-user-4527532599279616",
+             "departmentId": "test-group-4847699342524416_5125230001324032_5539457216217088_6297958345015296_6434499589898240"
+          },
+          {
+             "firstName": "Carli",
+             "lastName": "McCarroll",
+             "score": 0,
+             "entityId": "test-user-4724393682599936",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Wendy",
+             "lastName": "hicks",
+             "score": 0,
+             "entityId": "test-user-6131658122723328",
+             "departmentId": "test-group-4613865994125312_4839081584918528_5070939732082688_5125230001324032_5129692879814656_5140652285788160_5539457216217088_5683567407955968_5709645427441664_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Erik",
+             "lastName": "Ostebo",
+             "score": 0,
+             "entityId": "test-user-6644193510883328",
+             "departmentId": "test-group-5885206229286912"
+          },
+          {
+             "firstName": "Matthew",
+             "lastName": "Hansen",
+             "score": 0,
+             "entityId": "test-user-6215694954463232",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Jessica",
+             "lastName": "Bartz",
+             "score": 0,
+             "entityId": "test-user-4584832142475264",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240"
+          },
+          {
+             "firstName": "Viviana",
+             "lastName": "Briones",
+             "score": 0,
+             "entityId": "test-user-5282634395222016",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Mallory",
+             "lastName": "Dougherty",
+             "score": 0,
+             "entityId": "test-user-4583955181993984",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5125230001324032_6010835071860736_6297958345015296_6434499589898240"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "teams": [
+          "test-group-4847699342524416",
+          "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240",
+          "test-group-5683567407955968",
+          "test-group-5070939732082688",
+          "test-group-5672962061008896",
+          "test-group-6350063475949568",
+          "test-group-5114371631677440_5912607783321600_6434499589898240",
+          "test-group-6536430610841600",
+          "test-group-6297958345015296",
+          "test-group-5140652285788160",
+          "test-group-4613865994125312",
+          "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272",
+          "test-group-4613865994125312_4847699342524416_5114371631677440_5125230001324032_5129692879814656_5487839740100608_5539457216217088_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240",
+          "test-group-4516047591342080_6563930897416192",
+          "test-group-4613180883009536",
+          "test-group-4847699342524416_5539457216217088_6434499589898240",
+          "test-group-6563930897416192",
+          "test-group-4839081584918528",
+          "test-group-5663372405669888",
+          "test-group-6434499589898240",
+          "test-group-5125230001324032",
+          "test-group-4613865994125312_4839081584918528_4847699342524416_5070939732082688_5114371631677440_5125230001324032_5129692879814656_5140652285788160_5487839740100608_5539457216217088_5683567407955968_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240_6536430610841600",
+          "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240",
+          "test-group-4516047591342080_4613180883009536_4770163727040512_5663372405669888_5672962061008896_6350063475949568_6563930897416192_6712155587510272",
+          "test-group-4847699342524416_5125230001324032_5539457216217088_6297958345015296_6434499589898240",
+          "test-group-5912607783321600",
+          "test-group-6010835071860736",
+          "test-group-5885206229286912",
+          "test-group-4847699342524416_5539457216217088_6010835071860736_6434499589898240",
+          "test-group-5663372405669888_6712155587510272",
+          "test-group-4613865994125312_4839081584918528_5070939732082688_5125230001324032_5129692879814656_5140652285788160_5539457216217088_5683567407955968_5709645427441664_5912607783321600_6371022712274944_6434499589898240",
+          "test-group-5709645427441664",
+          "test-group-5539457216217088",
+          "test-group-5125230001324032_6297958345015296_6434499589898240",
+          "test-group-default",
+          "test-group-6371022712274944",
+          "test-group-6712155587510272",
+          "test-group-5114371631677440",
+          "test-group-5487839740100608",
+          "test-group-4613865994125312_4847699342524416_5125230001324032_5487839740100608_5539457216217088_6010835071860736_6297958345015296_6371022712274944_6434499589898240",
+          "test-group-5129692879814656",
+          "test-group-4516047591342080",
+          "test-group-4770163727040512",
+          "test-group-4847699342524416_5487839740100608_5539457216217088_6371022712274944_6434499589898240",
+          "test-group-4613865994125312_4847699342524416_5125230001324032_6010835071860736_6297958345015296_6434499589898240"
+       ],
+       "schedule": "ONCE",
+       "start_date": "2022-06-07T04:00:50.811Z",
+       "description": "Testtest",
+       "gameId": "test-9766-4db9-85a0-93faa367bbcf",
+       "title": "Jun6thTest"
+    },
+    {
+       "isArchived": true,
+       "cstatus": true,
+       "end_date": "2022-06-02T21:55:00.000Z",
+       "isComplete": true,
+       "createdAt": 1654196973910,
+       "winnerPoints": "102",
+       "profiles": [
+          {
+             "firstName": "Mary",
+             "lastName": "Partridge",
+             "score": 0,
+             "entityId": "test-user-4529730132180992",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Seth",
+             "lastName": "Christensen",
+             "score": 0,
+             "entityId": "test-user-6352157884940288",
+             "departmentId": "test-group-4847699342524416_5125230001324032_5539457216217088_6010835071860736_6297958345015296_6434499589898240"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-c57391d6-cfcc-4d0f-9919-03371813d7cd",
+       "kpi_name": "Calls transffered",
+       "teams": null,
+       "schedule": "ONCE",
+       "start_date": "2022-06-02T20:00:27.819Z",
+       "description": "this is test",
+       "gameId": "test-d381-4602-a5c8-48ecd176de9e",
+       "title": "testtestgamegame"
+    },
+    {
+       "isArchived": true,
+       "cstatus": true,
+       "end_date": "2022-06-17T21:15:00.000Z",
+       "isComplete": true,
+       "createdAt": 1654118627777,
+       "winnerPoints": "111",
+       "profiles": [
+          {
+             "firstName": "Mary",
+             "lastName": "Partridge",
+             "score": 0,
+             "entityId": "test-user-4529730132180992",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Seth",
+             "lastName": "Christensen",
+             "score": 0,
+             "entityId": "test-user-6352157884940288",
+             "departmentId": "test-group-4847699342524416_5125230001324032_5539457216217088_6010835071860736_6297958345015296_6434499589898240"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-c57391d6-cfcc-4d0f-9919-03371813d7cd",
+       "kpi_name": "Calls transffered",
+       "teams": null,
+       "schedule": "ONCE",
+       "start_date": "2022-06-02T21:15:00.000Z",
+       "description": "trtr",
+       "gameId": "test-66d8-4d44-baed-eaac38bf99af",
+       "title": "test"
+    },
+    {
+       "kpi": {
+          "metricCodes": [
+             "time_on_call"
+          ],
+          "clientId": "test-client",
+          "departmentId": "test-group-default",
+          "groupId": "test-group-default",
+          "created_at": "2022-02-05T08:09:54.887Z",
+          "entityId": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+          "attributes": {
+             "clientId": "test-client",
+             "expression": {
+                "avg": "time_on_call"
+             },
+             "departmentId": "test-group-default",
+             "groupId": "test-group-default",
+             "name": "TimeonCall",
+             "expressionString": " { Avg(time_on_call) }  ",
+             "type": "kpi"
+          },
+          "isActive": true,
+          "type": "kpi"
+       },
+       "cstatus": true,
+       "end_date": "2022-08-01T01:01:00.000Z",
+       "createdAt": 1653270802338,
+       "winnerPoints": "456",
+       "profiles": [
+          {
+             "firstName": "Kurt",
+             "lastName": "Mathewson",
+             "entityId": "test-user-4784059572617216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Mary",
+             "lastName": "Partridge",
+             "score": 0,
+             "entityId": "test-user-4529730132180992",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 158.35272727272726,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 60.931799999999996,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "James",
+             "lastName": "Lutz",
+             "score": 138.9755,
+             "entityId": "test-user-5968718998863872",
+             "departmentId": "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Austin",
+             "lastName": "Gren",
+             "entityId": "test-user-6259056214409216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "JT",
+             "lastName": "Young",
+             "score": 0,
+             "entityId": "test-user-4771759515172864",
+             "departmentId": "test-group-5125230001324032_6297958345015296_6434499589898240"
+          },
+          {
+             "firstName": "James",
+             "lastName": "Kantorowicz",
+             "score": 0,
+             "entityId": "test-user-4913329556094976",
+             "departmentId": "test-group-5114371631677440_5912607783321600_6434499589898240"
+          },
+          {
+             "firstName": "Al",
+             "lastName": "Acosta",
+             "score": 0,
+             "entityId": "test-user-6191341284950016",
+             "departmentId": "test-group-4847699342524416_5487839740100608_5539457216217088_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Jason",
+             "lastName": "Christensen",
+             "score": 0,
+             "entityId": "test-user-5861834452762624",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5125230001324032_5487839740100608_5539457216217088_6010835071860736_6297958345015296_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Miriam",
+             "lastName": "Arcila",
+             "score": 0,
+             "entityId": "test-user-5988745721741312",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Joan",
+             "lastName": "Robinson",
+             "score": 40.41346153846154,
+             "entityId": "test-user-6478519668899840",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Michael",
+             "lastName": "Linton",
+             "score": 0,
+             "entityId": "test-user-6341362683150336",
+             "departmentId": "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Michael",
+             "lastName": "Hondel",
+             "entityId": "test-user-6269849232343040",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240"
+          },
+          {
+             "firstName": "Q",
+             "lastName": "Scott",
+             "score": 30.381,
+             "entityId": "test-user-6451525359828992",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Eddie",
+             "lastName": "Overy",
+             "score": 0,
+             "entityId": "test-user-4827175133315072",
+             "departmentId": "test-group-4613865994125312_4839081584918528_4847699342524416_5070939732082688_5114371631677440_5125230001324032_5129692879814656_5140652285788160_5487839740100608_5539457216217088_5683567407955968_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240_6536430610841600"
+          },
+          {
+             "firstName": "Jacob",
+             "lastName": "Sawyer",
+             "score": 0,
+             "entityId": "test-user-5853726336286720",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5114371631677440_5125230001324032_5129692879814656_5487839740100608_5539457216217088_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Tylar",
+             "lastName": "Mollenhauer",
+             "score": 91.09286666666667,
+             "entityId": "test-user-5795745551941632",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Alex",
+             "lastName": "Kjar",
+             "score": 631.047,
+             "entityId": "test-user-4527532599279616",
+             "departmentId": "test-group-4847699342524416_5125230001324032_5539457216217088_6297958345015296_6434499589898240"
+          },
+          {
+             "firstName": "Carli",
+             "lastName": "McCarroll",
+             "score": 0,
+             "entityId": "test-user-4724393682599936",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Wendy",
+             "lastName": "hicks",
+             "score": 0,
+             "entityId": "test-user-6131658122723328",
+             "departmentId": "test-group-4613865994125312_4839081584918528_5070939732082688_5125230001324032_5129692879814656_5140652285788160_5539457216217088_5683567407955968_5709645427441664_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Erik",
+             "lastName": "Ostebo",
+             "score": 0,
+             "entityId": "test-user-6644193510883328",
+             "departmentId": "test-group-5885206229286912"
+          },
+          {
+             "firstName": "Matthew",
+             "lastName": "Hansen",
+             "score": 69.669,
+             "entityId": "test-user-6215694954463232",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Jessica",
+             "lastName": "Bartz",
+             "score": 0,
+             "entityId": "test-user-4584832142475264",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240"
+          },
+          {
+             "firstName": "Viviana",
+             "lastName": "Briones",
+             "score": 58.054500000000004,
+             "entityId": "test-user-5282634395222016",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Mallory",
+             "lastName": "Dougherty",
+             "score": 0,
+             "entityId": "test-user-4583955181993984",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5125230001324032_6010835071860736_6297958345015296_6434499589898240"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "teams": [
+          "test-group-4847699342524416",
+          "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240",
+          "test-group-5683567407955968",
+          "test-group-5070939732082688",
+          "test-group-5672962061008896",
+          "test-group-6350063475949568",
+          "test-group-5114371631677440_5912607783321600_6434499589898240",
+          "test-group-6536430610841600",
+          "test-group-6297958345015296",
+          "test-group-5140652285788160",
+          "test-group-4613865994125312",
+          "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272",
+          "test-group-4613865994125312_4847699342524416_5114371631677440_5125230001324032_5129692879814656_5487839740100608_5539457216217088_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240",
+          "test-group-4516047591342080_6563930897416192",
+          "test-group-4613180883009536",
+          "test-group-4847699342524416_5539457216217088_6434499589898240",
+          "test-group-6563930897416192",
+          "test-group-4839081584918528",
+          "test-group-5663372405669888",
+          "test-group-6434499589898240",
+          "test-group-5125230001324032",
+          "test-group-4613865994125312_4839081584918528_4847699342524416_5070939732082688_5114371631677440_5125230001324032_5129692879814656_5140652285788160_5487839740100608_5539457216217088_5683567407955968_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240_6536430610841600",
+          "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240",
+          "test-group-4516047591342080_4613180883009536_4770163727040512_5663372405669888_5672962061008896_6350063475949568_6563930897416192_6712155587510272",
+          "test-group-4847699342524416_5125230001324032_5539457216217088_6297958345015296_6434499589898240",
+          "test-group-5912607783321600",
+          "test-group-6010835071860736",
+          "test-group-5885206229286912",
+          "test-group-4847699342524416_5539457216217088_6010835071860736_6434499589898240",
+          "test-group-5663372405669888_6712155587510272",
+          "test-group-4613865994125312_4839081584918528_5070939732082688_5125230001324032_5129692879814656_5140652285788160_5539457216217088_5683567407955968_5709645427441664_5912607783321600_6371022712274944_6434499589898240",
+          "test-group-5709645427441664",
+          "test-group-5539457216217088",
+          "test-group-5125230001324032_6297958345015296_6434499589898240",
+          "test-group-default",
+          "test-group-6371022712274944",
+          "test-group-6712155587510272",
+          "test-group-5114371631677440",
+          "test-group-5487839740100608",
+          "test-group-4613865994125312_4847699342524416_5125230001324032_5487839740100608_5539457216217088_6010835071860736_6297958345015296_6371022712274944_6434499589898240",
+          "test-group-5129692879814656",
+          "test-group-4516047591342080",
+          "test-group-4770163727040512",
+          "test-group-4847699342524416_5487839740100608_5539457216217088_6371022712274944_6434499589898240",
+          "test-group-4613865994125312_4847699342524416_5125230001324032_6010835071860736_6297958345015296_6434499589898240"
+       ],
+       "schedule": "DAILY",
+       "start_date": "2022-05-23T04:01:29.798Z",
+       "metrics": [
+          {
+             "client": "test",
+             "code": "time_on_call",
+             "source": "dialpad",
+             "value": 38.397,
+             "userId": "test-user-4646576760619008",
+             "timestamp": "2022-06-01T22:38:47.599Z"
+          }
+       ],
+       "description": "Sun-May22nd-all-test teams",
+       "gameId": "test-c7f7-4ff8-bae7-d882eba2da9f",
+       "title": "Sun-May22nd-all-test-teams"
+    },
+    {
+       "kpi": {
+          "metricCodes": [
+             "time_on_call"
+          ],
+          "clientId": "test-client",
+          "departmentId": "test-group-default",
+          "groupId": "test-group-default",
+          "created_at": "2022-02-05T08:09:54.887Z",
+          "entityId": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+          "attributes": {
+             "clientId": "test-client",
+             "expression": {
+                "avg": "time_on_call"
+             },
+             "departmentId": "test-group-default",
+             "groupId": "test-group-default",
+             "name": "TimeonCall",
+             "expressionString": " { Avg(time_on_call) }  ",
+             "type": "kpi"
+          },
+          "isActive": true,
+          "type": "kpi"
+       },
+       "cstatus": true,
+       "end_date": "2022-05-24T01:01:29.798Z",
+       "createdAt": 1653270592790,
+       "winnerPoints": "333",
+       "profiles": [
+          {
+             "firstName": "Kurt",
+             "lastName": "Mathewson",
+             "score": 0,
+             "entityId": "test-user-4784059572617216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Mary",
+             "lastName": "Partridge",
+             "score": 0,
+             "entityId": "test-user-4529730132180992",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Seth",
+             "lastName": "Christensen",
+             "score": 70.225,
+             "entityId": "test-user-6352157884940288",
+             "departmentId": "test-group-4847699342524416_5125230001324032_5539457216217088_6010835071860736_6297958345015296_6434499589898240"
+          },
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 158.35272727272726,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 60.931799999999996,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "James",
+             "lastName": "Lutz",
+             "score": 138.9755,
+             "entityId": "test-user-5968718998863872",
+             "departmentId": "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Austin",
+             "lastName": "Gren",
+             "score": 0,
+             "entityId": "test-user-6259056214409216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "JT",
+             "lastName": "Young",
+             "score": 0,
+             "entityId": "test-user-4771759515172864",
+             "departmentId": "test-group-5125230001324032_6297958345015296_6434499589898240"
+          },
+          {
+             "firstName": "James",
+             "lastName": "Kantorowicz",
+             "score": 0,
+             "entityId": "test-user-4913329556094976",
+             "departmentId": "test-group-5114371631677440_5912607783321600_6434499589898240"
+          },
+          {
+             "firstName": "Al",
+             "lastName": "Acosta",
+             "score": 0,
+             "entityId": "test-user-6191341284950016",
+             "departmentId": "test-group-4847699342524416_5487839740100608_5539457216217088_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Jason",
+             "lastName": "Christensen",
+             "score": 0,
+             "entityId": "test-user-5861834452762624",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5125230001324032_5487839740100608_5539457216217088_6010835071860736_6297958345015296_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Miriam",
+             "lastName": "Arcila",
+             "score": 0,
+             "entityId": "test-user-5988745721741312",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Joan",
+             "lastName": "Robinson",
+             "score": 41.02733333333334,
+             "entityId": "test-user-6478519668899840",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Michael",
+             "lastName": "Linton",
+             "score": 0,
+             "entityId": "test-user-6341362683150336",
+             "departmentId": "test-group-4847699342524416_5114371631677440_5487839740100608_5539457216217088_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Michael",
+             "lastName": "Hondel",
+             "score": 0,
+             "entityId": "test-user-6269849232343040",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240"
+          },
+          {
+             "firstName": "Q",
+             "lastName": "Scott",
+             "score": 30.381,
+             "entityId": "test-user-6451525359828992",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          },
+          {
+             "firstName": "Eddie",
+             "lastName": "Overy",
+             "score": 0,
+             "entityId": "test-user-4827175133315072",
+             "departmentId": "test-group-4613865994125312_4839081584918528_4847699342524416_5070939732082688_5114371631677440_5125230001324032_5129692879814656_5140652285788160_5487839740100608_5539457216217088_5683567407955968_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240_6536430610841600"
+          },
+          {
+             "firstName": "Jacob",
+             "lastName": "Sawyer",
+             "score": 0,
+             "entityId": "test-user-5853726336286720",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5114371631677440_5125230001324032_5129692879814656_5487839740100608_5539457216217088_5912607783321600_6010835071860736_6297958345015296_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Tylar",
+             "lastName": "Mollenhauer",
+             "score": 91.09286666666665,
+             "entityId": "test-user-5795745551941632",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Alex",
+             "lastName": "Kjar",
+             "score": 631.047,
+             "entityId": "test-user-4527532599279616",
+             "departmentId": "test-group-4847699342524416_5125230001324032_5539457216217088_6297958345015296_6434499589898240"
+          },
+          {
+             "firstName": "Courtney",
+             "lastName": "Hansen",
+             "score": 0,
+             "entityId": "test-user-4960562597920768",
+             "departmentId": "test-group-4516047591342080_4613180883009536_4770163727040512_5431246811594752_5663372405669888_5672962061008896_6350063475949568_6563930897416192_6684945592647680_6712155587510272"
+          },
+          {
+             "firstName": "Carli",
+             "lastName": "McCarroll",
+             "score": 0,
+             "entityId": "test-user-4724393682599936",
+             "departmentId": "test-group-4516047591342080_6563930897416192"
+          },
+          {
+             "firstName": "Wendy",
+             "lastName": "hicks",
+             "score": 0,
+             "entityId": "test-user-6131658122723328",
+             "departmentId": "test-group-4613865994125312_4839081584918528_5070939732082688_5125230001324032_5129692879814656_5140652285788160_5539457216217088_5683567407955968_5709645427441664_5912607783321600_6371022712274944_6434499589898240"
+          },
+          {
+             "firstName": "Erik",
+             "lastName": "Ostebo",
+             "score": 0,
+             "entityId": "test-user-6644193510883328",
+             "departmentId": "test-group-5885206229286912"
+          },
+          {
+             "firstName": "Matthew",
+             "lastName": "Hansen",
+             "score": 69.669,
+             "entityId": "test-user-6215694954463232",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Jessica",
+             "lastName": "Bartz",
+             "score": 0,
+             "entityId": "test-user-4584832142475264",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5539457216217088_6010835071860736_6434499589898240"
+          },
+          {
+             "firstName": "Viviana",
+             "lastName": "Briones",
+             "score": 58.054500000000004,
+             "entityId": "test-user-5282634395222016",
+             "departmentId": "test-group-5663372405669888_6712155587510272"
+          },
+          {
+             "firstName": "Mallory",
+             "lastName": "Dougherty",
+             "score": 0,
+             "entityId": "test-user-4583955181993984",
+             "departmentId": "test-group-4613865994125312_4847699342524416_5125230001324032_6010835071860736_6297958345015296_6434499589898240"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "teams": null,
+       "schedule": "DAILY",
+       "start_date": "2022-05-23T04:01:29.798Z",
+       "metrics": [
+          {
+             "client": "test",
+             "code": "time_on_call",
+             "source": "dialpad",
+             "value": 58.234,
+             "userId": "test-user-5588325661081600",
+             "timestamp": "2022-05-23T22:30:57.553Z"
+          }
+       ],
+       "description": "Sunday game 7:50pm",
+       "gameId": "test-f354-469f-b5b3-c717c36bb332",
+       "title": "Sun-May22nd"
+    },
+    {
+       "kpi": {
+          "metricCodes": [
+             "time_on_call"
+          ],
+          "clientId": "test-client",
+          "departmentId": "test-group-default",
+          "groupId": "test-group-default",
+          "created_at": "2022-04-18T22:25:15.771Z",
+          "entityId": "test-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0",
+          "attributes": {
+             "clientId": "test-client",
+             "expression": {
+                "sum": "time_on_call"
+             },
+             "departmentId": "test-group-default",
+             "groupId": "test-group-default",
+             "name": "H-TOC",
+             "expressionString": " { time_on_call } ",
+             "type": "kpi",
+             "flip": false
+          },
+          "isActive": true,
+          "type": "kpi"
+       },
+       "isArchived": true,
+       "cstatus": true,
+       "end_date": "2022-05-23T17:20:03.981Z",
+       "isComplete": true,
+       "createdAt": 1653238922673,
+       "winnerPoints": "12",
+       "profiles": [
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-35f907bb-7d8c-4a45-8cad-37164ade67d0",
+       "kpi_name": "H-TOC",
+       "teams": null,
+       "schedule": "ONCE",
+       "start_date": "2022-05-22T16:58:03.981Z",
+       "metrics": [
+          {
+             "client": "test",
+             "code": "time_on_call",
+             "source": "dialpad",
+             "value": 40.361,
+             "userId": "test-user-5588325661081600",
+             "timestamp": "2022-05-23T16:28:20.626Z"
+          }
+       ],
+       "description": "this is test",
+       "gameId": "test-eaf8-459d-9b99-b8b4b961d829",
+       "title": "New challenge"
+    },
+    {
+       "kpi": {
+          "metricCodes": [
+             "calls_transferred",
+             "call_answered"
+          ],
+          "clientId": "test-client",
+          "departmentId": "test-group-default",
+          "groupId": "test-group-default",
+          "created_at": "2022-03-01T06:03:33.551Z",
+          "entityId": "test-kpi-348a133a-c18e-4fd0-9236-551028c6cd31",
+          "attributes": {
+             "clientId": "test-client",
+             "expression": {
+                "multiply": [
+                   {
+                      "divide": [
+                         {
+                            "count": "calls_transferred"
+                         },
+                         {
+                            "count": "call_answered"
+                         }
+                      ]
+                   },
+                   {
+                      "constant": 100
+                   }
+                ]
+             },
+             "departmentId": "test-group-default",
+             "groupId": "test-group-default",
+             "name": "ca",
+             "expressionString": " { Count(calls_transferred) } / { Count(call_answered) } * 100",
+             "type": "kpi"
+          },
+          "isActive": true,
+          "type": "kpi"
+       },
+       "isArchived": true,
+       "cstatus": true,
+       "end_date": "2022-05-25T16:55:00.000Z",
+       "isComplete": true,
+       "createdAt": 1653152403721,
+       "winnerPoints": "122",
+       "profiles": [
+          {
+             "firstName": "Kurt",
+             "lastName": "Mathewson",
+             "entityId": "test-user-4784059572617216",
+             "departmentId": "test-group-4847699342524416_5539457216217088_6434499589898240"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-348a133a-c18e-4fd0-9236-551028c6cd31",
+       "kpi_name": "ca",
+       "teams": null,
+       "schedule": "ONCE",
+       "start_date": "2022-05-22T16:55:00.000Z",
+       "metrics": [
+          {
+             "client": "test",
+             "code": "call_answered",
+             "source": "dialpad",
+             "value": 1,
+             "userId": "test-user-4784059572617216",
+             "timestamp": "2022-05-24T15:26:29.955Z"
+          }
+       ],
+       "description": "test",
+       "gameId": "test-2211-4840-9294-a26bcec4a3f3",
+       "title": "test"
+    },
+    {
+       "kpi": {
+          "metricCodes": [
+             "time_on_call"
+          ],
+          "clientId": "test-client",
+          "departmentId": "test-group-default",
+          "groupId": "test-group-default",
+          "created_at": "2022-02-05T08:09:54.887Z",
+          "entityId": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+          "attributes": {
+             "expression": {
+                "avg": "time_on_call"
+             },
+             "clientId": "test-client",
+             "departmentId": "test-group-default",
+             "groupId": "test-group-default",
+             "name": "TimeonCall",
+             "expressionString": " { Avg(time_on_call) }  ",
+             "type": "kpi"
+          },
+          "isActive": false,
+          "type": "kpi"
+       },
+       "isArchived": true,
+       "cstatus": true,
+       "end_date": "2022-05-22T19:24:00.000Z",
+       "isComplete": true,
+       "createdAt": 1653075670362,
+       "winnerPoints": "20",
+       "profiles": [
+          {
+             "firstName": "Emily",
+             "lastName": "Gentry",
+             "score": 0,
+             "entityId": "test-user-4646576760619008",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          },
+          {
+             "firstName": "Dawnalee",
+             "lastName": "Jordan",
+             "score": 69.98440000000001,
+             "entityId": "test-user-5588325661081600",
+             "departmentId": "test-group-4770163727040512_5663372405669888_5672962061008896_6712155587510272"
+          }
+       ],
+       "clientId": "test-client",
+       "kpi_id": "test-kpi-63e00a89-ca27-41c9-a37e-5a6fe1e8aaf7",
+       "kpi_name": "TimeonCall",
+       "teams": null,
+       "schedule": "ONCE",
+       "start_date": "2022-05-20T23:24:44.657Z",
+       "metrics": [
+          {
+             "client": "test",
+             "code": "time_on_call",
+             "source": "nic",
+             "value": 351,
+             "userId": "test-user-5588325661081600",
+             "timestamp": "2022-05-21T11:17:15.000Z"
+          }
+       ],
+       "description": "Let's Go!",
+       "gameId": "test-f5aa-4f46-89fa-80496b8f7477",
+       "title": "TEST-MAY20th"
+    }
+ ]

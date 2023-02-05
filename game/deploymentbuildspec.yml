@@ -1,0 +1,47 @@
+version: 0.2
+
+env:
+  shell: bash
+  variables:
+    dev: 379516241584
+    prod: 817604536927
+    SHIFTLEFT_LANG_JS: true
+    SHIFTLEFT_WAIT: false # view shiftleft in web console, don't hang builds
+    SHIFTLEFT_DIAGNOSTIC: true
+    nodeversion: "v16.9.0" # latest
+    codeartifactdomain: 972576019456
+  secrets-manager:
+    SLUSER: "shiftleft-credentials-CICD:shiftleftuser"
+    SHIFTLEFT_ACCESS_TOKEN: "shiftleft-credentials-CICD:shiftlefttoken"
+
+phases:
+  pre_build:
+    commands:
+      - hostaccount=$(aws sts get-caller-identity)
+      - projectname=$(echo $CODEBUILD_SOURCE_REPO_URL | cut -d/ -f5- | cut -d'.' -f1)
+      - echo "Downloaded ShiftLeft..."
+      - curl https://cdn.shiftleft.io/download/sl > /usr/local/bin/sl && chmod a+rx /usr/local/bin/sl
+      - aws codeartifact login --tool npm --repository hdmi-npm --domain hdmi --domain-owner $codeartifactdomain
+  build:
+    commands:
+      - cd ./codebase
+      - npm install
+      - npm run test
+      - npm run build
+      - sl auth --token $SHIFTLEFT_ACCESS_TOKEN
+      - echo Starting code analysis with NG SAST...
+      - sl analyze --js --app $projectname
+      - echo "Ran NG SAST on your code"
+      - cd ../infrastructure
+      - npm install
+      - npm run test
+      - npm run cdk deploy
+  post_build:
+    commands:
+      - echo "Deploying with cdk"
+    finally:
+      - echo "arn and cf template in logs"
+artifacts:
+  files:
+    - "codebase/**/*" # globbing pattern for artifacts to be packaged
+    - "infrastructure/**/*"
